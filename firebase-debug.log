@@ -1,0 +1,41 @@
+[debug] [2018-03-21T10:16:15.924Z] ----------------------------------------------------------------------
+[debug] [2018-03-21T10:16:15.927Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\TomoITKMITL\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-03-21T10:16:15.927Z] CLI Version:   3.17.7
+[debug] [2018-03-21T10:16:15.927Z] Platform:      win32
+[debug] [2018-03-21T10:16:15.927Z] Node Version:  v8.1.2
+[debug] [2018-03-21T10:16:15.928Z] Time:          Wed Mar 21 2018 17:16:15 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-03-21T10:16:15.928Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-21T10:16:15.949Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-21T10:16:15.951Z] > authorizing via signed-in user
+[debug] [2018-03-21T10:16:15.953Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-21T10:16:15.954Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/TrHk1TSQGlpGGdXcuvRrRuN0Wtmy_mNqnGOQQgBnqj1rHmQ1S8ZCQYcsXW5EiuQe',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Mar 21 2018 17:16:15 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-03-21T10:16:16.318Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-21T10:16:16.377Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/math-web-kmitl  
+  
+ Wed Mar 21 2018 17:16:16 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-03-21T10:16:17.430Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-21T10:16:17.431Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/math-web-kmitl/tokens  
+  
+ Wed Mar 21 2018 17:16:17 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-03-21T10:16:18.427Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-21T10:16:18.429Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/math-web-kmitl  
+  
+ Wed Mar 21 2018 17:16:18 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-03-21T10:16:20.314Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\pato HTML5 blank images'...
+[info] 
+[debug] [2018-03-21T10:16:20.323Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/481311539108/clients/_:getWebAppConfig  
+  
+ Wed Mar 21 2018 17:16:20 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-03-21T10:16:21.274Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
