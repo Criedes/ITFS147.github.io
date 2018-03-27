@@ -1458,11 +1458,20 @@ body {padding-right: 0px !important;}
   }
 
   .price-item-mainmenu {
-    padding-top: 5px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center; 
   }
 
   .name-item-mainmenu {
     width: 100%;
+    font-size: 16px;
+    text-align: center; 
+  }
+  info-item-mainmenu{
+    width: 100%;
+    font-size: 14px;
+    text-align: center; 
   }
 }
 
@@ -1669,3 +1678,31 @@ body {padding-right: 0px !important;}
   z-index: 1250;
   
 }
+
+#slides {
+  height: calc(100% - 100px);
+  width: 100%;
+  }
+
+  .slide {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+  .slide0 {
+    position: relative;
+  }
+
+  .slide1 {
+    display: none;
+
+  }
+
+  .slide2 {
+    display: none;
+
+
+  }
