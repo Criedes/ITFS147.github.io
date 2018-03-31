@@ -8,7 +8,7 @@ var config = {
 };
 firebase.initializeApp(config);
 //prepare to get image from firebase storage
-var stRef = firebase.storage().ref();
+var stRef = firebase.firestore();
 //prepare to get teacher from firebase database
 var tdRef = firebase.database().ref('teacher');
 //load data once per refresh not realtime
