@@ -1,3 +1,4 @@
+//config to connect to firebase
 var config = {
   apiKey: "AIzaSyDHN6epAFTpGwywxeqKpc1vzNERGLYfguE",
   authDomain: "math-web-kmitl.firebaseapp.com",
@@ -30,13 +31,13 @@ tdRef.once('value', function (snapshot) {
 var ofRef = firebase.database().ref('officer');
 //load data once per refresh not realtime
 ofRef.once('value', function (snapshot) {
-  count = 0;
+  count = 24;
   //for in every child of data
   snapshot.forEach(function (childSnapshot) {
     count += 1;
     var key = childSnapshot.key;
     var childData = childSnapshot.val();
-    $('#officer-list').append(teacherCard(childData, pad(count)));
+    $('#officer-list').append(officerCard(childData, pad(count)));
     //     document.querySelector('#teacher-list')
     // .innerHTML += teacherCard(childData, count);
   });
@@ -86,7 +87,7 @@ function teacherModal(id) {
   });
   function createModal(teacher, count) {
     var html = '';
-    var fileName = 'user' + '1' + '.jpg';
+    var fileName = 'user' + count + '.jpg';
     var imagesRef = 'user_pic%2F' + fileName;
     var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media';
     html += '<div class="modal fade modal-teacher" id="modal-teacher'+count+'" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">';
@@ -124,19 +125,40 @@ function teacherModal(id) {
     html +=  ' - '+teacher.room;
     html += '</div></div></div ></div >';
     html += '<div class="row"><div class="col-md-12"><B>โฮมเพจ </B><div class="row"><div class="col-sm-8">';
-    html +=  ' - '+teacher.homepage;
+    if(teacher.homepage == '-'){
+      html +=  ' - ';
+    }
+    else{
+      html +=  ' - '+teacher.homepage;
+    }
     html += '</div></div></div ></div >';
     html += '<div class="row"><div class="col-md-12"><B>การศึกษา </B><div class="row"><div class="col-sm-12">';
-    html +=  ' - '+'Coming Soon';
+    var education = teacher.education;
+    for(i=0;i<education.length;i++){
+      if(education[i] != '-')
+        html += ' - '+education[i]+'<BR>';
+    }
     html += '</div></div></div ></div >';
     html += '<div class="row"><div class="col-md-12"><B>สาขาที่เชี่ยวชาญ/สนใจ </B><div class="row"><div class="col-sm-12">';
-    html +=  ' - '+'Coming Soon';
+    var specialized_interests = teacher.specialized_interests;
+    for(i=0;i<specialized_interests.length;i++){
+      if(specialized_interests[i] != '-')
+        html += ' - '+specialized_interests[i]+'<BR>';
+    }
     html += '</div></div></div ></div >';
     html += '<div class="row"><div class="col-md-12"><B>งานวิจัย/สิ่งตีพิมพ์ </B><div class="row"><div class="col-sm-12">';
-    html +=  ' - '+'Coming Soon';
+    var research = teacher.research;
+    for(i=0;i<research.length;i++){
+      if(research[i] != '-')
+        html += ' - '+research[i]+'<BR>';
+    }
     html += '</div></div></div ></div >';
     html += '<div class="row"><div class="col-md-12"><B>รายวิชาที่รับผิดชอบ </B><div class="row"><div class="col-sm-8">';
-    html +=  ' - '+'Coming Soon';
+    var responsible_course = teacher.responsible_course;
+    for(i=0;i<responsible_course.length;i++){
+      if(responsible_course[i] != '-')
+        html += ' - '+responsible_course[i]+'<BR>';
+    }
     html += '</div></div></div ></div >';
     html += '</div>';
     html += '<div class="modal-footer"><button type="button" class="btn btn-primary" data-dismiss="modal">ปิด</button></div>';
@@ -144,6 +166,38 @@ function teacherModal(id) {
     return html;
   }
 
+}
+
+//officer card 
+function officerCard(teacher, count) {
+  var html = '';
+  var fileName = 'user' + count + '.jpg';
+  var imagesRef = 'user_pic%2F' + fileName;
+  var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media';
+  // var urlIm  = stRef.child(imagesRef).getDownloadURL().then(function(url) {
+  //     console.log(url); }).catch(function(error){console.log("Fuck you"); });
+  html += '<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">';
+  html += '<div class="blo5 pos-relative p-t-60">';
+  html += '<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">';
+  html += '<img src="' + urlIm + '" alt="IGM-AVATAR">';
+  html += '<div class="overlay-item-gallery trans-0-4 flex-c-m">';
+  html += '<a class="btn-show-gallery flex-c-m fa fa-search" href="' + urlIm + '" data-lightbox="gallery">';
+  html += '</a>';
+  html += '</div>';
+  html += '</div>';
+  html += '</div>';
+  html += '<div class="text-blo5 size34 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">';
+  html += '<div class="txt34 dis-block p-b-6">' + teacher.name + ' ' + teacher.surname + '</div>';
+  html += '<p class="t-center">';
+  var tel = teacher.tel;
+  html += tel[0] + '<BR>';
+  var email = teacher.email;
+  html += email[0] + '<BR>';
+  html += teacher.room + '</p>';
+  html += '</div>';
+  html += '</div>';
+  html += '</div>';
+  return html;
 }
 
 //pad number one length with zero
