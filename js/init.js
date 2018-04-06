@@ -97,69 +97,77 @@ function teacherModal(id) {
     html += '<h5 class="modal-title" id="myLargeModalLabel">ข้อมูลบุคลากร</h5>';
     html += '</div>';
     html += '<div class="modal-body">';
-    html += '<div class="row">';
-    html += '<div class="col-md-12">';
-    html += '<B>ชื่อ-นามสกุล</B>';
-    html += '<div class="row">';
-    html += '<div class="col-md-4">';
-    html += '<img src="' + urlIm + '" id="img-person">';
-    html += '</div>';
-    html += ('<div class="col-sm-8">' + teacher.title + ' ' + teacher.name + ' ' + teacher.surname + '<BR>' + teacher.title_en + ' ' + teacher.name_en + ' ' + teacher.surname_en + '<BR>');
-    html += '</div>';
-    html += '</div>';
-    html += '</div>';
-    html += '</div>';
-    html += '<div class="row"><div class="col-md-12"><B>อีเมล์ </B><div class="row"><div class="col-sm-8">';
+    html += '<section class="dados">';
+    html += '<img src="'+urlIm+'" id="profile-img">';
+    html += '<section class="user-info">';
+    html += '<h3 id="username">ชื่อ-นามสกุล</h3>';
+    html += '<h1 class="title-name" id="title">' + teacher.title + '</h1>';
+    html += '<h1 class="title-name" id="firstname">' + teacher.name + '</h1>';
+    html += '<h1 class="title-name" id="lastname">' + teacher.surname + '</h1><BR>';
+    html += '<h1 class="title-name" id="title_en">' + teacher.title_en + '</h1>';
+    html += '<h1 class="title-name" id="firstname_en">' + teacher.name_en + '</h1>';
+    html += '<h1 class="title-name" id="lastname_en">' + teacher.surname_en + '</h1><BR>';
+    html += '</section>';
+    html += '<h3 id="bio-text">อีเมลล์</h3>';
+    html += '<section class="user-bio">';
     var email = teacher.email;
     for(i=0;i<email.length;i++){
       html += ' - '+email[i]+'<BR>';
     }
-    html += '</div></div></div></div>';
-    html += '<div class="row"><div class="col-md-12"><B>โทรศัพท์</B><div class="row"><div class="col-sm-8">';
+    html += '</section>';
+    html += '<h3>โทรศัพท์</h3>';
+    html += '<section class="user-bio">';
     var tel = teacher.tel;
     for(i=0;i<tel.length;i++){
       html += ' - '+tel[i]+'<BR>';
     }
-    html += '</div></div></div></div >';
-    html += '<div class="row"><div class="col-md-12"><B>ห้องพัก </B><div class="row"><div class="col-sm-8">';
+    html += '</section>';
+    html += '<h3>ห้องพัก</h3>';
+    html += '<section class="user-bio">';
     html +=  ' - '+teacher.room;
-    html += '</div></div></div ></div >';
-    html += '<div class="row"><div class="col-md-12"><B>โฮมเพจ </B><div class="row"><div class="col-sm-8">';
+    html += '</section>';
+    html += '<h3>โฮมเพจ</h3>';
+    html += '<section class="user-bio">';
     if(teacher.homepage == '-'){
       html +=  ' - ';
     }
     else{
       html +=  ' - '+teacher.homepage;
     }
-    html += '</div></div></div ></div >';
-    html += '<div class="row"><div class="col-md-12"><B>การศึกษา </B><div class="row"><div class="col-sm-12">';
+    html += '</section>';
+    html += '<h3>การศึกษา</h3>';
+    html += '<section class="user-bio">';
     var education = teacher.education;
     for(i=0;i<education.length;i++){
       if(education[i] != '-')
         html += ' - '+education[i]+'<BR>';
     }
-    html += '</div></div></div ></div >';
-    html += '<div class="row"><div class="col-md-12"><B>สาขาที่เชี่ยวชาญ/สนใจ </B><div class="row"><div class="col-sm-12">';
+    html += '</section>';
+    html += '<h3>สาขาที่เชี่ยวชาญ/สนใจ</h3>';
+    html += '<section class="user-bio">';
     var specialized_interests = teacher.specialized_interests;
     for(i=0;i<specialized_interests.length;i++){
       if(specialized_interests[i] != '-')
         html += ' - '+specialized_interests[i]+'<BR>';
     }
-    html += '</div></div></div ></div >';
-    html += '<div class="row"><div class="col-md-12"><B>งานวิจัย/สิ่งตีพิมพ์ </B><div class="row"><div class="col-sm-12">';
+    html += '</section>';
+    html += '<h3>งานวิจัย/สิ่งตีพิมพ์</h3>';
+    html += '<section class="user-bio">';
     var research = teacher.research;
     for(i=0;i<research.length;i++){
       if(research[i] != '-')
         html += ' - '+research[i]+'<BR>';
     }
-    html += '</div></div></div ></div >';
-    html += '<div class="row"><div class="col-md-12"><B>รายวิชาที่รับผิดชอบ </B><div class="row"><div class="col-sm-8">';
+    html += '</section>';
+    html += '<h3>รายวิชาที่รับผิดชอบ</h3>';
+    html += '<section class="user-bio">';
     var responsible_course = teacher.responsible_course;
     for(i=0;i<responsible_course.length;i++){
       if(responsible_course[i] != '-')
         html += ' - '+responsible_course[i]+'<BR>';
     }
-    html += '</div></div></div ></div >';
+    html += '</section>';
+    html += '</section>';
     html += '</div>';
     html += '<div class="modal-footer"><button type="button" class="btn btn-primary" data-dismiss="modal">ปิด</button></div>';
     html += '</div></div></div>';
