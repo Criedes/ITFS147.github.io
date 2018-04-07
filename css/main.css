@@ -681,6 +681,7 @@ input[type="date"] {
   height: 15px;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
+  display : none;
 }
 
 .header-fixed .btn-show-sidebar {
@@ -713,6 +714,9 @@ input[type="date"] {
 
   .wrap_header {
     height: 100px;
+  }
+  .btn-show-sidebar{
+    display: inline-block;
   }
 }
 
