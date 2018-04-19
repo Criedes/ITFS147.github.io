@@ -19,28 +19,16 @@ tdRef.once('value', function (snapshot) {
     count += 1;
     var key = childSnapshot.key;
     var childData = childSnapshot.val();
+    if(count<25)
     $('#teacher-list').append(teacherCard(childData, pad(count)));
+    else
+    $('#officer-list').append(officerCard(childData, pad(count)));
     //     document.querySelector('#teacher-list')
     // .innerHTML += teacherCard(childData, count);
   });
   //retreive data for president
   var president = snapshot.child('user01').val();
   $('#president').append(teacherCard(president, pad(1)));
-});
-
-var ofRef = firebase.database().ref('officer');
-//load data once per refresh not realtime
-ofRef.once('value', function (snapshot) {
-  count = 24;
-  //for in every child of data
-  snapshot.forEach(function (childSnapshot) {
-    count += 1;
-    var key = childSnapshot.key;
-    var childData = childSnapshot.val();
-    $('#officer-list').append(officerCard(childData, pad(count)));
-    //     document.querySelector('#teacher-list')
-    // .innerHTML += teacherCard(childData, count);
-  });
 });
 
 //teacher card 
