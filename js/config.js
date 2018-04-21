@@ -26,6 +26,7 @@ tdRef.once('value', function (snapshot) {
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
         if (childData.uid == localStorage.getItem('uid')) {
+            localStorage.setItem('id', pad(count));
             var fileName = 'user' + pad(count) + '.jpg';
             var imagesRef = 'user_pic%2F' + fileName;
             $('#avatar_p').attr('src', 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media')
@@ -69,7 +70,7 @@ tdRef.once('value', function (snapshot) {
                 $('#all-response').append(appendResponse(response_lst[i], i))
                 response_c = i;
             }
-
+            
         }
         //     document.querySelector('#teacher-list')
         // .innerHTML += teacherCard(childData, count);
@@ -121,12 +122,12 @@ function appendEmail(email, id) {
     html = "";
     if (id == 0) {
         html += '<div id="email0">'
-        html += '<input type="email" class="form-control border-input" placeholder="Email" value="' + email + '">'
+        html += '<input type="email" class="form-control border-input sub_em" placeholder="Email" value="' + email + '">'
         html += '</div>'
         return html
     } else {
         html += '<div id="email' + id + '">'
-        html += '<input type="email" class="form-control border-input" placeholder="Email" value="' + email + '">'
+        html += '<input type="email" class="form-control border-input sub_em" placeholder="Email" value="' + email + '">'
         html += '<a href="#" onclick="removeEmail(&quot;email' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
         return html
@@ -138,12 +139,12 @@ function appendPhone(phone, id) {
     html = "";
     if (id == 0) {
         html += '<div id="phone0">'
-        html += '<input type="text" class="form-control border-input" placeholder="Phone" value="' + phone + '">'
+        html += '<input type="text" class="form-control border-input sub_ph" placeholder="Phone" value="' + phone + '">'
         html += '</div>'
         return html
     } else {
         html += '<div id="phone' + id + '">'
-        html += '<input type="text" class="form-control border-input" placeholder="Phone" value="' + phone + '">'
+        html += '<input type="text" class="form-control border-input sub_ph" placeholder="Phone" value="' + phone + '">'
         html += '<a href="#" onclick="removePhone(&quot;phone' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
         return html
@@ -155,12 +156,12 @@ function appendEducation(education, id) {
     html = "";
     if (id == 0) {
         html += '<div id="education0">'
-        html += '<input type="text" class="form-control border-input" placeholder="Education" value="' + education + '">'
+        html += '<input type="text" class="form-control border-input sub_ed" placeholder="Education" value="' + education + '">'
         html += '</div>'
         return html
     } else {
         html += '<div id="education' + id + '">'
-        html += '<input type="text" class="form-control border-input" placeholder="Education" value="' + education + '">'
+        html += '<input type="text" class="form-control border-input sub_ed" placeholder="Education" value="' + education + '">'
         html += '<a href="#" onclick="removeEducation(&quot;education' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
         return html
@@ -172,12 +173,12 @@ function appendSpacial(spacial, id) {
     html = "";
     if (id == 0) {
         html += '<div id="spacial0">'
-        html += '<input type="text" class="form-control border-input" placeholder="Interest" value="' + spacial + '">'
+        html += '<input type="text" class="form-control border-input sub_sp" placeholder="Interest" value="' + spacial + '">'
         html += '</div>'
         return html
     } else {
         html += '<div id="spacial' + id + '">'
-        html += '<input type="text" class="form-control border-input" placeholder="Interest" value="' + spacial + '">'
+        html += '<input type="text" class="form-control border-input sub_sp" placeholder="Interest" value="' + spacial + '">'
         html += '<a href="#" onclick="removeSpacial(&quot;spacial' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
         return html
@@ -189,12 +190,12 @@ function appendResearch(research, id) {
     html = "";
     if (id == 0) {
         html += '<div id="research0">'
-        html += '<textarea rows="2" class="form-control border-input" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
+        html += '<textarea rows="2" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
         html += '</div>'
         return html
     } else {
         html += '<div id="research' + id + '">'
-        html += '<textarea rows="2" class="form-control border-input" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
+        html += '<textarea rows="2" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
         html += '<a href="#" onclick="removeResearch(&quot;research' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
         return html
@@ -206,12 +207,12 @@ function appendResponse(response, id) {
     html = "";
     if (id == 0) {
         html += '<div id="response0">'
-        html += '<input type="text" class="form-control border-input" placeholder="รายวิชาที่รับผิดชอบ" value="' + response + '">'
+        html += '<input type="text" class="form-control border-input sub_rp" placeholder="รายวิชาที่รับผิดชอบ" value="' + response + '">'
         html += '</div>'
         return html
     } else {
         html += '<div id="response' + id + '">'
-        html += '<input type="text" class="form-control border-input" placeholder="Interest" value="' + response + '">'
+        html += '<input type="text" class="form-control border-input sub_rp" placeholder="Interest" value="' + response + '">'
         html += '<a href="#" onclick="removeResponse(&quot;response' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
         return html
@@ -219,12 +220,11 @@ function appendResponse(response, id) {
 
 }
 
-
 function createEmail() {
     email_c += 1;
     html = "";
     html += '<div id="email' + email_c + '">'
-    html += '<input type="email" class="form-control border-input" placeholder="Email">'
+    html += '<input type="email" class="form-control border-input sub_em" placeholder="Email">'
     html += '<a href="#" onclick="removeEmail(&quot;email' + email_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
     $('#all-email').append(html);
@@ -234,7 +234,7 @@ function createPhone() {
     phone_c += 1;
     html = "";
     html += '<div id="phone' + phone_c + '">'
-    html += '<input type="text" class="form-control border-input" placeholder="Phone">'
+    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Phone">'
     html += '<a href="#" onclick="removePhone(&quot;phone' + phone_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
     $('#all-phone').append(html);
@@ -244,7 +244,7 @@ function createEducation() {
     education_c += 1;
     html = "";
     html += '<div id="education' + education_c + '">'
-    html += '<input type="text" class="form-control border-input" placeholder="Education">'
+    html += '<input type="text" class="form-control border-input sub_ed" placeholder="Education">'
     html += '<a href="#" onclick="removeEducation(&quot;education' + education_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
     $('#all-education').append(html);
@@ -254,7 +254,7 @@ function createSpacial() {
     spacial_c += 1;
     html = "";
     html += '<div id="spacial' + spacial_c + '">'
-    html += '<input type="text" class="form-control border-input" placeholder="Interest">'
+    html += '<input type="text" class="form-control border-input sub_sp" placeholder="Interest">'
     html += '<a href="#" onclick="removeSpacial(&quot;spacial' + spacial_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
     $('#all-spacial').append(html);
@@ -264,7 +264,7 @@ function createResearch() {
     research_c += 1;
     html = "";
     html += '<div id="spacial' + research_c + '">'
-    html += '<textarea rows="2" class="form-control border-input" placeholder="Here can be your description" value="Research"></textarea>'
+    html += '<textarea rows="2" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research"></textarea>'
     html += '<a href="#" onclick="removeResearch(&quot;research' + research_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
     $('#all-research').append(html);
@@ -274,7 +274,7 @@ function createResponse() {
     response_c += 1;
     html = "";
     html += '<div id="response' + response_c + '">'
-    html += '<input type="text" class="form-control border-input" placeholder="รายวิชาที่รับผิดชอบ">'
+    html += '<input type="text" class="form-control border-input sub_rp" placeholder="รายวิชาที่รับผิดชอบ">'
     html += '<a href="#" onclick="removeResponse(&quot;response' + response_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
     $('#all-response').append(html);
@@ -322,7 +322,61 @@ function removeResponse(elementId) {
     response_c -= 1;
 }
 
+function saveData(){
+    var teacher = tdRef.child('user'+localStorage.getItem('id'));
+    teacher.update(JSON.parse(createJSON())).then(function (resp){
+        alert('success');
+    }).catch(function (error){
+        alert('failed');
+        console.log(error);
+    });
+}
 
+function createJSON(){
+    var ed = new Array();
+    var em = new Array();
+    var ph = new Array();
+    var sp = new Array();
+    var rs = new Array();
+    var rp = new Array();
+    for(i=0;i<$('.sub_ed').length;i++){
+        ed.push('"'+$('.sub_ed')[i].value+'"');
+    }
+    for(i=0;i<$('.sub_em').length;i++){
+        em.push('"'+$('.sub_em')[i].value+'"');
+    }
+    for(i=0;i<$('.sub_ph').length;i++){
+        ph.push('"'+$('.sub_ph')[i].value+'"');
+    }
+    for(i=0;i<$('.sub_sp').length;i++){
+        sp.push('"'+$('.sub_sp')[i].value+'"');
+    }
+    for(i=0;i<$('.sub_rs').length;i++){
+        rs.push('"'+$('.sub_rs')[i].value+'"');
+    }
+    for(i=0;i<$('.sub_rp').length;i++){
+        rp.push('"'+$('.sub_rp')[i].value+'"');
+    }
+    var json_str = "";
+    json_str += '{';
+    json_str += '"education" : ['+ed.toString()+'],';
+    json_str += '"email" : ['+em.toString()+'],';
+    json_str += '"tel" : ['+ph.toString()+'],';
+    json_str += '"specialized_interests" : ['+sp.toString()+'],';
+    json_str += '"research " : ['+rs.toString()+'],';
+    json_str += '"responsible_course" : ['+rp.toString()+'],';
+    json_str += '"name" : "'+document.getElementById('th_fname').value+'",';
+    json_str += '"surname" : "'+document.getElementById('th_lname').value+'",';
+    json_str += '"name_en" : "'+document.getElementById('en_fname').value+'",';
+    json_str += '"surname_en" : "'+document.getElementById('en_lname').value+'",';
+    json_str += '"title" : "'+document.getElementById('th_title').value+'",';
+    json_str += '"title_en" : "'+document.getElementById('en_title').value+'",';
+    json_str += '"room" : "'+document.getElementById('rest_room').value+'",';
+    json_str += '"homepage" : "'+document.getElementById('homepage').value+'"';
+    json_str += '}';
+    console.log(json_str);
+    return json_str;
+}
 //pad number one length with zero
 function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
