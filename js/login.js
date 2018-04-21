@@ -13,6 +13,7 @@ function Login() {
     .then(function (resp) {
       localStorage.setItem("uid", resp.uid);
       localStorage.setItem("email", resp.email);
+      localStorage.setItem("pass", password);
       console.log(resp);
        window.location.href = 'user.html';
       alert('Logged in');

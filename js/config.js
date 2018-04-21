@@ -77,6 +77,24 @@ tdRef.once('value', function (snapshot) {
     //retreive data for president
 });
 
+function reAuthen(){
+    var email = localStorage.getItem('email');
+    var password = localStorage.getItem('pass');
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function (resp) {
+    })
+    .catch(function (error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Your password has change. Please Login again.');
+        window.location.href = 'login.html';
+      } else {
+        alert('errorMessage');
+      }
+    });
+}
+
 function signOut() {
     firebase.auth().signOut().then(function () {
         localStorage.clear();
