@@ -14,6 +14,12 @@
  
  */
 /*      light colors - used for select dropdown         */
+
+@font-face {
+  font-family: Kanit-Regular;
+  src: url('../fonts/montserrat/Kanit-Regular.ttf'); 
+}
+
 .ct-blue {
   stroke: #7A9E9F !important; }
 
@@ -761,6 +767,10 @@ hr {
 .btn-wd {
   min-width: 140px; }
 
+  .btn-add {
+    min-width: 50px; 
+  background-color: lemonchiffon;
+color:#9A9A9A;}
 .btn-group.select {
   width: 100%; }
 

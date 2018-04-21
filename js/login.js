@@ -10,6 +10,13 @@ function Login() {
   var email = document.getElementById('username').value;
   var password = document.getElementById('password').value;
   firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function (resp) {
+      localStorage.setItem("uid", resp.uid);
+      localStorage.setItem("email", resp.email);
+      console.log(resp);
+       window.location.href = 'user.html';
+      alert('Logged in');
+    })
     .catch(function (error) {
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -22,6 +29,5 @@ function Login() {
       console.log(error);
     });
 
-  alert('Login');
 }
 
