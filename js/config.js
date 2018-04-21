@@ -58,10 +58,16 @@ tdRef.once('value', function (snapshot) {
                 $('#all-spacial').append(appendSpacial(spacial_lst[i], i))
                 spacial_c = i;
             }
-            research_lst = childData.research_;
-            for (i = 0; i < research__lst.length; i++) {
-                $('#all-research_').append(appendResearch(research__lst[i], i))
-                spacial_c = i;
+            research_lst = childData.research;
+            for (i = 0; i < research_lst.length; i++) {
+                $('#all-research').append(appendResearch(research_lst[i], i))
+                research_c = i;
+            }
+
+            response_lst = childData.responsible_course;
+            for (i = 0; i < response_lst.length; i++) {
+                $('#all-response').append(appendResponse(response_lst[i], i))
+                response_c = i;
             }
 
         }
@@ -161,22 +167,40 @@ function appendSpacial(spacial, id) {
 
 }
 
-function appendResearh(spacial, id) {
+function appendResearch(research, id) {
     html = "";
     if (id == 0) {
-        html += '<div id="spacial0">'
-        html += '<input type="text" class="form-control border-input" placeholder="Interest" value="' + spacial + '">'
+        html += '<div id="research0">'
+        html += '<textarea rows="2" class="form-control border-input" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
         html += '</div>'
         return html
     } else {
-        html += '<div id="spacial' + id + '">'
-        html += '<input type="text" class="form-control border-input" placeholder="Interest" value="' + spacial + '">'
-        html += '<a href="#" onclick="removeSpacial(&quot;spacial' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
+        html += '<div id="research' + id + '">'
+        html += '<textarea rows="2" class="form-control border-input" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
+        html += '<a href="#" onclick="removeResearch(&quot;research' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
         return html
     }
 
 }
+
+function appendResponse(response, id) {
+    html = "";
+    if (id == 0) {
+        html += '<div id="response0">'
+        html += '<input type="text" class="form-control border-input" placeholder="รายวิชาที่รับผิดชอบ" value="' + response + '">'
+        html += '</div>'
+        return html
+    } else {
+        html += '<div id="response' + id + '">'
+        html += '<input type="text" class="form-control border-input" placeholder="Interest" value="' + response + '">'
+        html += '<a href="#" onclick="removeResponse(&quot;response' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
+        html += '</div>'
+        return html
+    }
+
+}
+
 
 function createEmail() {
     email_c += 1;
@@ -218,6 +242,25 @@ function createSpacial() {
     $('#all-spacial').append(html);
 }
 
+function createResearch() {
+    research_c += 1;
+    html = "";
+    html += '<div id="spacial' + research_c + '">'
+    html += '<textarea rows="2" class="form-control border-input" placeholder="Here can be your description" value="Research"></textarea>'
+    html += '<a href="#" onclick="removeResearch(&quot;research' + research_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
+    html += '</div>'
+    $('#all-research').append(html);
+}
+
+function createResponse() {
+    response_c += 1;
+    html = "";
+    html += '<div id="response' + response_c + '">'
+    html += '<input type="text" class="form-control border-input" placeholder="รายวิชาที่รับผิดชอบ">'
+    html += '<a href="#" onclick="removeResponse(&quot;response' + response_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
+    html += '</div>'
+    $('#all-response').append(html);
+}
 
 function removeEmail(elementId) {
     // Removes an element from the document
@@ -246,6 +289,21 @@ function removeSpacial(elementId) {
     element.parentNode.removeChild(element);
     spacial_c -= 1;
 }
+
+function removeResearch(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+    research_c -= 1;
+}
+
+function removeResponse(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+    response_c -= 1;
+}
+
 
 //pad number one length with zero
 function pad(d) {
