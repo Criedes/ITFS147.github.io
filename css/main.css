@@ -1645,7 +1645,7 @@ body {padding-right: 0px !important;}
   background-color: #f39c12;
 }
 
-.login-box{
+#login-box{
   display: inline-block;
   border: 2px solid;
   border-color: white;
@@ -1654,7 +1654,7 @@ body {padding-right: 0px !important;}
   padding: 2px;
 }
 
-.login-box:hover{
+#login-box:hover{
   color: white;
   background: rgba(243,156,18,0.8);
   border-color: white;
@@ -1797,7 +1797,6 @@ body {padding-right: 0px !important;}
   }
   
   #username {
-    font-family: Kanit;
     font-weight: 100;
   }
   

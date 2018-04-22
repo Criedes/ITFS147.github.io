@@ -100,7 +100,7 @@ function reAuthen(){
 function signOut() {
     firebase.auth().signOut().then(function () {
         localStorage.clear();
-        alert('Signed Out!! Complete');
+        alert('ออกจากระบบเสร็จสิ้น');
         window.location.href = 'index.html';
     }).catch(function (error) {
         console.log(error);
@@ -111,9 +111,10 @@ function resetPassword() {
     var email = localStorage.getItem('email');
     firebase.auth().sendPasswordResetEmail(email).then(
         function () {
-            alert('Password Reset Email Sent to your Inbox!');
+            alert('กรุณาตรวจสอบข้อความที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน');
         }).catch(
             function (error) {
+                alert('กรุณาตรวจสอบเครือข่ายอินเทอร์เน็ต');
                 console.log(error);
             }
         )
@@ -327,8 +328,10 @@ function saveData(){
     var teacher = tdRef.child('user'+localStorage.getItem('id'));
     teacher.update(JSON.parse(createJSON())).then(function (resp){
         // alert('success');
+        alert('อัพเดทข้อมูลเสร็จสิ้น');
+        window.location.href = 'user.html';
     }).catch(function (error){
-        // alert('failed');
+        alert('ข้อมูลผิดพลาดโปรดตรวจสอบ');
         // console.log(error);
     });
     var file = $('#profile_pic').get(0).files[0];
@@ -336,15 +339,14 @@ function saveData(){
     console.log(file_exten);
       if(file && file_exten == 'jpg') {
         var task = stRef.child('user'+localStorage.getItem('id')+'.'+file_exten).put(file);
-        task.then(function(snapshot){
-            alert('success');
-          })
+        task
           .catch(function(error){
-            alert('error');
+            alert('อัพโหลดรูปภาพขัดข้อง');
           });
         }else{
             alert('กรุณาอัพโหลดไฟล์นามสกุล .jpg');
         }
+        
     }
 
 function createJSON(){
@@ -396,3 +398,5 @@ function createJSON(){
 function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
   }
+
+  
