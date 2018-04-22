@@ -329,7 +329,6 @@ function saveData(){
     teacher.update(JSON.parse(createJSON())).then(function (resp){
         // alert('success');
         alert('อัพเดทข้อมูลเสร็จสิ้น');
-        window.location.href = 'user.html';
     }).catch(function (error){
         alert('ข้อมูลผิดพลาดโปรดตรวจสอบ');
         // console.log(error);
@@ -340,6 +339,9 @@ function saveData(){
       if(file && file_exten == 'jpg') {
         var task = stRef.child('user'+localStorage.getItem('id')+'.'+file_exten).put(file);
         task
+        .then(function (resp){
+            window.location.href = 'user.html';
+        })
           .catch(function(error){
             alert('อัพโหลดรูปภาพขัดข้อง');
           });
@@ -347,7 +349,7 @@ function saveData(){
             alert('กรุณาอัพโหลดไฟล์นามสกุล .jpg');
         }
         
-    }
+}
 
 function createJSON(){
     var ed = new Array();
