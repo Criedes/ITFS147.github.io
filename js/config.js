@@ -8,7 +8,7 @@ var config = {
 };
 firebase.initializeApp(config);
 //prepare to get image from firebase storage
-var stRef = firebase.firestore();
+var stRef = firebase.storage().ref().child('user_pic');
 //prepare to get teacher from firebase database
 var tdRef = firebase.database().ref('teacher');
 //load data once per refresh not realtime
@@ -27,6 +27,7 @@ tdRef.once('value', function (snapshot) {
         var childData = childSnapshot.val();
         if (childData.uid == localStorage.getItem('uid')) {
             localStorage.setItem('id', pad(count));
+            localStorage.setItem('pid', count);
             var fileName = 'user' + pad(count) + '.jpg';
             var imagesRef = 'user_pic%2F' + fileName;
             $('#avatar_p').attr('src', 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media')
@@ -325,12 +326,26 @@ function removeResponse(elementId) {
 function saveData(){
     var teacher = tdRef.child('user'+localStorage.getItem('id'));
     teacher.update(JSON.parse(createJSON())).then(function (resp){
-        alert('success');
+        // alert('success');
     }).catch(function (error){
-        alert('failed');
-        console.log(error);
+        // alert('failed');
+        // console.log(error);
     });
-}
+    var file = $('#profile_pic').get(0).files[0];
+    var file_exten = file.name.replace(/^.*\./, '');
+    console.log(file_exten);
+      if(file && file_exten == 'jpg') {
+        var task = stRef.child('user'+localStorage.getItem('id')+'.'+file_exten).put(file);
+        task.then(function(snapshot){
+            alert('success');
+          })
+          .catch(function(error){
+            alert('error');
+          });
+        }else{
+            alert('กรุณาอัพโหลดไฟล์นามสกุล .jpg');
+        }
+    }
 
 function createJSON(){
     var ed = new Array();

@@ -76,7 +76,7 @@ pd = {
             $off_canvas_sidebar.attr('data-active-color',sidebar_active_color);
 
             $off_canvas_sidebar.addClass('off-canvas-sidebar');
-
+            console.log($off_canvas_sidebar);
             //add the content from the regular header to the right menu
             $off_canvas_sidebar.children('ul').each(function(){
                 content_buff = $(this).html();
@@ -86,14 +86,15 @@ pd = {
             // add the content from the sidebar to the right menu
             content_buff = $sidebar.find('.nav').html();
             ul_content = ul_content + '<li class="divider"></li>'+ content_buff;
+            
 
             ul_content = '<ul class="nav navbar-nav">' + ul_content + '</ul>';
-
+            
             navbar_content = logo_content + ul_content;
             navbar_content = '<div class="sidebar-wrapper">' + navbar_content + '</div>';
 
             $off_canvas_sidebar.html(navbar_content);
-
+            
             $('body').append($off_canvas_sidebar);
 
              $toggle = $('.navbar-toggle');
@@ -101,7 +102,7 @@ pd = {
              $off_canvas_sidebar.find('a').removeClass('btn btn-round btn-default');
              $off_canvas_sidebar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
              $off_canvas_sidebar.find('button').addClass('btn-simple btn-block');
-
+             
              $toggle.click(function (){
                 if(pd.misc.navbar_menu_visible == 1) {
                     $('html').removeClass('nav-open');
