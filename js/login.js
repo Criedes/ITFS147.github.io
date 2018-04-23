@@ -15,8 +15,6 @@ function Login() {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function (resp) {
       sessionStorage.setItem("uid", resp.uid);
-      sessionStorage.setItem("email", resp.email);
-      sessionStorage.setItem("pass", password);
        window.location.href = 'user.html';
       alert('เข้าสู่ระบบแล้ว');
     })
