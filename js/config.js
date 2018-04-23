@@ -25,9 +25,9 @@ tdRef.once('value', function (snapshot) {
         count += 1;
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        if (childData.uid == localStorage.getItem('uid')) {
-            localStorage.setItem('id', pad(count));
-            localStorage.setItem('pid', count);
+        if (childData.uid == sessionStorage.getItem('uid')) {
+            sessionStorage.setItem('id', pad(count));
+            sessionStorage.setItem('pid', count);
             var fileName = 'user' + pad(count) + '.jpg';
             var imagesRef = 'user_pic%2F' + fileName;
             $('#avatar_p').attr('src', 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media')
@@ -80,8 +80,8 @@ tdRef.once('value', function (snapshot) {
 });
 
 function reAuthen(){
-    var email = localStorage.getItem('email');
-    var password = localStorage.getItem('pass');
+    var email = sessionStorage.getItem('email');
+    var password = sessionStorage.getItem('pass');
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function (resp) {
     })
@@ -99,7 +99,7 @@ function reAuthen(){
 
 function signOut() {
     firebase.auth().signOut().then(function () {
-        localStorage.clear();
+        sessionStorage.clear();
         alert('ออกจากระบบเสร็จสิ้น');
         window.location.href = 'index.html';
     }).catch(function (error) {
@@ -108,7 +108,7 @@ function signOut() {
 }
 
 function resetPassword() {
-    var email = localStorage.getItem('email');
+    var email = sessionStorage.getItem('email');
     firebase.auth().sendPasswordResetEmail(email).then(
         function () {
             alert('กรุณาตรวจสอบข้อความที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน');
@@ -325,7 +325,7 @@ function removeResponse(elementId) {
 }
 
 function saveData(){
-    var teacher = tdRef.child('user'+localStorage.getItem('id'));
+    var teacher = tdRef.child('user'+sessionStorage.getItem('id'));
     teacher.update(JSON.parse(createJSON())).then(function (resp){
         // alert('success');
         alert('อัพเดทข้อมูลเสร็จสิ้น');
@@ -337,7 +337,7 @@ function saveData(){
     var file_exten = file.name.replace(/^.*\./, '');
     console.log(file_exten);
       if(file && file_exten == 'jpg') {
-        var task = stRef.child('user'+localStorage.getItem('id')+'.'+file_exten).put(file);
+        var task = stRef.child('user'+sessionStorage.getItem('id')+'.'+file_exten).put(file);
         task
         .then(function (resp){
             window.location.href = 'user.html';

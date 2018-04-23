@@ -5,20 +5,18 @@ var config = {
   projectId: "math-web-kmitl",
   storageBucket: "math-web-kmitl.appspot.com",
 };
-if(localStorage.getItem('uid')){
+if(sessionStorage.getItem('uid')){
   window.location.href = 'user.html';
 }
 firebase.initializeApp(config);
 function Login() {
   var email = document.getElementById('username').value;
   var password = document.getElementById('password').value;
-  console.log(email, password);
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function (resp) {
-      localStorage.setItem("uid", resp.uid);
-      localStorage.setItem("email", resp.email);
-      localStorage.setItem("pass", password);
-      console.log(resp);
+      sessionStorage.setItem("uid", resp.uid);
+      sessionStorage.setItem("email", resp.email);
+      sessionStorage.setItem("pass", password);
        window.location.href = 'user.html';
       alert('เข้าสู่ระบบแล้ว');
     })
@@ -28,7 +26,7 @@ function Login() {
       if (errorCode === 'auth/wrong-password') {
         alert('รหัสผ่านไม่ถูกต้อง');
       } else {
-        alert(error);
+        alert('โปรดตรวจสอบการเชื่อมต่อ');
       }
 
       console.log(error);
