@@ -25,9 +25,9 @@ tdRef.once('value', function (snapshot) {
         count += 1;
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        if (childData.uid == sessionStorage.getItem('uid')) {
-            sessionStorage.setItem('id', pad(count));
-            sessionStorage.setItem('pid', count);
+        if (childData.uid == localStorage.getItem('uid')) {
+            localStorage.setItem('id', pad(count));
+            localStorage.setItem('pid', count);
             var fileName = 'user' + pad(count) + '.jpg';
             var imagesRef = 'user_pic%2F' + fileName;
             $('#avatar_p').attr('src', 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media')
@@ -71,7 +71,7 @@ tdRef.once('value', function (snapshot) {
                 $('#all-response').append(appendResponse(response_lst[i], i))
                 response_c = i;
             }
-            
+
         }
         //     document.querySelector('#teacher-list')
         // .innerHTML += teacherCard(childData, count);
@@ -79,27 +79,27 @@ tdRef.once('value', function (snapshot) {
     //retreive data for president
 });
 
-function reAuthen(){
-    var email = sessionStorage.getItem('email');
-    var password = sessionStorage.getItem('pass');
+function reAuthen() {
+    var email = localStorage.getItem('email');
+    var password = localStorage.getItem('pass');
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(function (resp) {
-    })
-    .catch(function (error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      if (errorCode === 'auth/wrong-password') {
-        alert('Your password has change. Please Login again.');
-        window.location.href = 'login.html';
-      } else {
-        alert('errorMessage');
-      }
-    });
+        .then(function (resp) {
+        })
+        .catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            if (errorCode === 'auth/wrong-password') {
+                alert('Your password has change. Please Login again.');
+                window.location.href = 'login.html';
+            } else {
+                alert('errorMessage');
+            }
+        });
 }
 
 function signOut() {
     firebase.auth().signOut().then(function () {
-        sessionStorage.clear();
+        localStorage.clear();
         alert('ออกจากระบบเสร็จสิ้น');
         window.location.href = 'index.html';
     }).catch(function (error) {
@@ -108,7 +108,7 @@ function signOut() {
 }
 
 function resetPassword() {
-    var email = sessionStorage.getItem('email');
+    var email = localStorage.getItem('email');
     firebase.auth().sendPasswordResetEmail(email).then(
         function () {
             alert('กรุณาตรวจสอบข้อความที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน');
@@ -324,74 +324,78 @@ function removeResponse(elementId) {
     response_c -= 1;
 }
 
-function saveData(){
-    var teacher = tdRef.child('user'+sessionStorage.getItem('id'));
-    teacher.update(JSON.parse(createJSON())).then(function (resp){
-        // alert('success');
-        alert('อัพเดทข้อมูลเสร็จสิ้น');
-    }).catch(function (error){
-        alert('ข้อมูลผิดพลาดโปรดตรวจสอบ');
-        // console.log(error);
-    });
-    var file = $('#profile_pic').get(0).files[0];
+function saveData() {
+    var file = $('#profile_pic').get(0).files[0]
     var file_exten = file.name.replace(/^.*\./, '');
+    var check_pic = 1;
     console.log(file_exten);
-      if(file && file_exten == 'jpg') {
-        var task = stRef.child('user'+sessionStorage.getItem('id')+'.'+file_exten).put(file);
-        task
-        .then(function (resp){
-            window.location.href = 'user.html';
-        })
-          .catch(function(error){
-            alert('อัพโหลดรูปภาพขัดข้อง');
-          });
-        }else{
-            alert('กรุณาอัพโหลดไฟล์นามสกุล .jpg');
-        }
+    if (file && file_exten == 'jpg') {
         
+            var task = stRef.child('user' + localStorage.getItem('id') + '.' + file_exten).put(file);
+            task
+                .then(function (resp) {
+                    window.location.href = 'user.html';
+                })
+                .catch(function (error) {
+                    alert('อัพโหลดรูปภาพขัดข้อง');
+                });
+    } else {
+        alert('กรุณาอัพโหลดไฟล์นามสกุล .jpg');
+        check_pic = 0;
+    }
+    if (check_pic == 1) {
+        var teacher = tdRef.child('user' + localStorage.getItem('id'));
+        teacher.update(JSON.parse(createJSON())).then(function (resp) {
+            // alert('success');
+            alert('อัพเดทข้อมูลเสร็จสิ้น');
+        }).catch(function (error) {
+            alert('ข้อมูลผิดพลาดโปรดตรวจสอบ');
+            // console.log(error);
+        });
+    }
 }
 
-function createJSON(){
+function createJSON() {
     var ed = new Array();
     var em = new Array();
     var ph = new Array();
     var sp = new Array();
     var rs = new Array();
     var rp = new Array();
-    for(i=0;i<$('.sub_ed').length;i++){
-        ed.push('"'+$('.sub_ed')[i].value+'"');
+    for (i = 0; i < $('.sub_ed').length; i++) {
+        ed.push('"' + $('.sub_ed')[i].value + '"');
     }
-    for(i=0;i<$('.sub_em').length;i++){
-        em.push('"'+$('.sub_em')[i].value+'"');
+    for (i = 0; i < $('.sub_em').length; i++) {
+        em.push('"' + $('.sub_em')[i].value + '"');
     }
-    for(i=0;i<$('.sub_ph').length;i++){
-        ph.push('"'+$('.sub_ph')[i].value+'"');
+    for (i = 0; i < $('.sub_ph').length; i++) {
+        ph.push('"' + $('.sub_ph')[i].value + '"');
     }
-    for(i=0;i<$('.sub_sp').length;i++){
-        sp.push('"'+$('.sub_sp')[i].value+'"');
+    for (i = 0; i < $('.sub_sp').length; i++) {
+        sp.push('"' + $('.sub_sp')[i].value + '"');
     }
-    for(i=0;i<$('.sub_rs').length;i++){
-        rs.push('"'+$('.sub_rs')[i].value+'"');
+    for (i = 0; i < $('.sub_rs').length; i++) {
+        rs.push('"' + $('.sub_rs')[i].value + '"');
     }
-    for(i=0;i<$('.sub_rp').length;i++){
-        rp.push('"'+$('.sub_rp')[i].value+'"');
+    for (i = 0; i < $('.sub_rp').length; i++) {
+        rp.push('"' + $('.sub_rp')[i].value + '"');
     }
     var json_str = "";
     json_str += '{';
-    json_str += '"education" : ['+ed.toString()+'],';
-    json_str += '"email" : ['+em.toString()+'],';
-    json_str += '"tel" : ['+ph.toString()+'],';
-    json_str += '"specialized_interests" : ['+sp.toString()+'],';
-    json_str += '"research " : ['+rs.toString()+'],';
-    json_str += '"responsible_course" : ['+rp.toString()+'],';
-    json_str += '"name" : "'+document.getElementById('th_fname').value+'",';
-    json_str += '"surname" : "'+document.getElementById('th_lname').value+'",';
-    json_str += '"name_en" : "'+document.getElementById('en_fname').value+'",';
-    json_str += '"surname_en" : "'+document.getElementById('en_lname').value+'",';
-    json_str += '"title" : "'+document.getElementById('th_title').value+'",';
-    json_str += '"title_en" : "'+document.getElementById('en_title').value+'",';
-    json_str += '"room" : "'+document.getElementById('rest_room').value+'",';
-    json_str += '"homepage" : "'+document.getElementById('homepage').value+'"';
+    json_str += '"education" : [' + ed.toString() + '],';
+    json_str += '"email" : [' + em.toString() + '],';
+    json_str += '"tel" : [' + ph.toString() + '],';
+    json_str += '"specialized_interests" : [' + sp.toString() + '],';
+    json_str += '"research " : [' + rs.toString() + '],';
+    json_str += '"responsible_course" : [' + rp.toString() + '],';
+    json_str += '"name" : "' + document.getElementById('th_fname').value + '",';
+    json_str += '"surname" : "' + document.getElementById('th_lname').value + '",';
+    json_str += '"name_en" : "' + document.getElementById('en_fname').value + '",';
+    json_str += '"surname_en" : "' + document.getElementById('en_lname').value + '",';
+    json_str += '"title" : "' + document.getElementById('th_title').value + '",';
+    json_str += '"title_en" : "' + document.getElementById('en_title').value + '",';
+    json_str += '"room" : "' + document.getElementById('rest_room').value + '",';
+    json_str += '"homepage" : "' + document.getElementById('homepage').value + '"';
     json_str += '}';
     console.log(json_str);
     return json_str;
@@ -399,6 +403,5 @@ function createJSON(){
 //pad number one length with zero
 function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
-  }
+}
 
-  

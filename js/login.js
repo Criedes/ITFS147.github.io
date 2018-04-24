@@ -5,7 +5,7 @@ var config = {
   projectId: "math-web-kmitl",
   storageBucket: "math-web-kmitl.appspot.com",
 };
-if(sessionStorage.getItem('uid')){
+if(localStorage.getItem('uid')){
   window.location.href = 'user.html';
 }
 firebase.initializeApp(config);
@@ -14,8 +14,8 @@ function Login() {
   var password = document.getElementById('password').value;
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function (resp) {
-      sessionStorage.setItem("uid", resp.uid);
-      sessionStorage.setItem("email", resp.email)
+      localStorage.setItem("uid", resp.uid);
+      localStorage.setItem("email", resp.email)
        window.location.href = 'user.html';
       alert('เข้าสู่ระบบแล้ว');
     })
