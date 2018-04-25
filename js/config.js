@@ -327,7 +327,10 @@ function removeResponse(elementId) {
 function saveData() {
     var teacher = tdRef.child('user' + localStorage.getItem('id'));
     var file = $('#profile_pic').get(0).files[0];
-    var file_exten = file.name.replace(/^.*\./, '');
+    var file_exten = '';
+    if(file){
+        file_exten = file.name.replace(/^.*\./, '');
+    }
     var check_pic = 1;
     console.log(file_exten);
     if (file && file_exten == 'jpg') {
@@ -340,8 +343,9 @@ function saveData() {
                 .catch(function (error) {
                     alert('อัพโหลดรูปภาพขัดข้อง');
                 });
-    } else {
+    } else if (file_exten!=''){
         alert('กรุณาอัพโหลดไฟล์นามสกุล .jpg');
+        console.log('che');
         check_pic = 0;
     }
     if (check_pic == 1) {
@@ -398,7 +402,6 @@ function createJSON() {
     json_str += '"room" : "' + document.getElementById('rest_room').value + '",';
     json_str += '"homepage" : "' + document.getElementById('homepage').value + '"';
     json_str += '}';
-    console.log(json_str);
     return json_str;
 }
 //pad number one length with zero
