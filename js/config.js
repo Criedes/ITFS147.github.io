@@ -128,7 +128,7 @@ function appendEmail(email, id) {
         html += '</div>'
         return html
     } else {
-        html += '<div id="email' + id + '">'
+        html += '<div style = "margin-top:5px;" id="email' + id + '">'
         html += '<input type="email" class="form-control border-input sub_em" placeholder="Email" value="' + email + '">'
         html += '<a href="#" onclick="removeEmail(&quot;email' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
@@ -145,7 +145,7 @@ function appendPhone(phone, id) {
         html += '</div>'
         return html
     } else {
-        html += '<div id="phone' + id + '">'
+        html += '<div style = "margin-top:5px;" id="phone' + id + '">'
         html += '<input type="text" class="form-control border-input sub_ph" placeholder="Phone" value="' + phone + '">'
         html += '<a href="#" onclick="removePhone(&quot;phone' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
@@ -162,7 +162,7 @@ function appendEducation(education, id) {
         html += '</div>'
         return html
     } else {
-        html += '<div id="education' + id + '">'
+        html += '<div style = "margin-top:5px;" id="education' + id + '">'
         html += '<input type="text" class="form-control border-input sub_ed" placeholder="Education" value="' + education + '">'
         html += '<a href="#" onclick="removeEducation(&quot;education' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
@@ -179,7 +179,7 @@ function appendSpacial(spacial, id) {
         html += '</div>'
         return html
     } else {
-        html += '<div id="spacial' + id + '">'
+        html += '<div style = "margin-top:5px;" id="spacial' + id + '">'
         html += '<input type="text" class="form-control border-input sub_sp" placeholder="Interest" value="' + spacial + '">'
         html += '<a href="#" onclick="removeSpacial(&quot;spacial' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
@@ -196,7 +196,7 @@ function appendResearch(research, id) {
         html += '</div>'
         return html
     } else {
-        html += '<div id="research' + id + '">'
+        html += '<div style = "margin-top:5px;" id="research' + id + '">'
         html += '<textarea rows="2" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
         html += '<a href="#" onclick="removeResearch(&quot;research' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
@@ -213,7 +213,7 @@ function appendResponse(response, id) {
         html += '</div>'
         return html
     } else {
-        html += '<div id="response' + id + '">'
+        html += '<div style = "margin-top:5px;" id="response' + id + '">'
         html += '<input type="text" class="form-control border-input sub_rp" placeholder="Interest" value="' + response + '">'
         html += '<a href="#" onclick="removeResponse(&quot;response' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
         html += '</div>'
@@ -225,7 +225,7 @@ function appendResponse(response, id) {
 function createEmail() {
     email_c += 1;
     html = "";
-    html += '<div id="email' + email_c + '">'
+    html += '<div style = "margin-top:5px;" id="email' + email_c + '">'
     html += '<input type="email" class="form-control border-input sub_em" placeholder="Email">'
     html += '<a href="#" onclick="removeEmail(&quot;email' + email_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
@@ -235,7 +235,7 @@ function createEmail() {
 function createPhone() {
     phone_c += 1;
     html = "";
-    html += '<div id="phone' + phone_c + '">'
+    html += '<div style = "margin-top:5px;" id="phone' + phone_c + '">'
     html += '<input type="text" class="form-control border-input sub_ph" placeholder="Phone">'
     html += '<a href="#" onclick="removePhone(&quot;phone' + phone_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
@@ -245,7 +245,7 @@ function createPhone() {
 function createEducation() {
     education_c += 1;
     html = "";
-    html += '<div id="education' + education_c + '">'
+    html += '<div style = "margin-top:5px;" id="education' + education_c + '">'
     html += '<input type="text" class="form-control border-input sub_ed" placeholder="Education">'
     html += '<a href="#" onclick="removeEducation(&quot;education' + education_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
@@ -255,7 +255,7 @@ function createEducation() {
 function createSpacial() {
     spacial_c += 1;
     html = "";
-    html += '<div id="spacial' + spacial_c + '">'
+    html += '<div style = "margin-top:5px;" id="spacial' + spacial_c + '">'
     html += '<input type="text" class="form-control border-input sub_sp" placeholder="Interest">'
     html += '<a href="#" onclick="removeSpacial(&quot;spacial' + spacial_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
@@ -265,7 +265,7 @@ function createSpacial() {
 function createResearch() {
     research_c += 1;
     html = "";
-    html += '<div id="spacial' + research_c + '">'
+    html += '<div style = "margin-top:5px;" id="spacial' + research_c + '">'
     html += '<textarea rows="2" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research"></textarea>'
     html += '<a href="#" onclick="removeResearch(&quot;research' + research_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
@@ -275,7 +275,7 @@ function createResearch() {
 function createResponse() {
     response_c += 1;
     html = "";
-    html += '<div id="response' + response_c + '">'
+    html += '<div style = "margin-top:5px;" id="response' + response_c + '">'
     html += '<input type="text" class="form-control border-input sub_rp" placeholder="รายวิชาที่รับผิดชอบ">'
     html += '<a href="#" onclick="removeResponse(&quot;response' + response_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
     html += '</div>'
