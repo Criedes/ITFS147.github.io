@@ -887,7 +887,16 @@ input[type="date"] {
   right: auto;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 748px) {
+  .item-slick1 {
+    height: 50vh;
+  }
+}
+@media (max-width: 576px) {  
+  @media (max-width: 576px) {
+    .item-slick1 {
+      height: 40vh;
+    }
   .next-slick1 {
     right: 15px;
   }
