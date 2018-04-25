@@ -5,12 +5,12 @@
 
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Kanit', sans-serif;
     background: #fafafa;
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Kanit', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -59,6 +59,7 @@ i, span {
 
 #sidebar {
     min-width: 250px;
+    max-width: 250px;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;

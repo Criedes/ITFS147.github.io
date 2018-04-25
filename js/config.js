@@ -18,7 +18,7 @@ var education_c = 0;
 var research_c = 0;
 var spacial_c = 0;
 var response_c = 0;
-tdRef.once('value', function (snapshot) {
+window.onload = tdRef.once('value', function (snapshot) {
     count = 0;
     //for in every child of data
     snapshot.forEach(function (childSnapshot) {
@@ -325,7 +325,8 @@ function removeResponse(elementId) {
 }
 
 function saveData() {
-    var file = $('#profile_pic').get(0).files[0]
+    var teacher = tdRef.child('user' + localStorage.getItem('id'));
+    var file = $('#profile_pic').get(0).files[0];
     var file_exten = file.name.replace(/^.*\./, '');
     var check_pic = 1;
     console.log(file_exten);
@@ -344,7 +345,7 @@ function saveData() {
         check_pic = 0;
     }
     if (check_pic == 1) {
-        var teacher = tdRef.child('user' + localStorage.getItem('id'));
+        
         teacher.update(JSON.parse(createJSON())).then(function (resp) {
             // alert('success');
             alert('อัพเดทข้อมูลเสร็จสิ้น');
