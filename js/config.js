@@ -18,14 +18,14 @@ var education_c = 0;
 var research_c = 0;
 var spacial_c = 0;
 var response_c = 0;
-window.onload = tdRef.once('value', function (snapshot) {
+tdRef.once('value', function (snapshot) {
     count = 0;
     //for in every child of data
     snapshot.forEach(function (childSnapshot) {
         count += 1;
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        if (childData.uid == localStorage.getItem('uid')) {
+        if (childData.uid == localStorage.getItem('uid') && childData.status == 'teacher') {
             localStorage.setItem('id', pad(count));
             localStorage.setItem('pid', count);
             var fileName = 'user' + pad(count) + '.jpg';
@@ -72,6 +72,8 @@ window.onload = tdRef.once('value', function (snapshot) {
                 response_c = i;
             }
 
+        }else if (childData.uid == localStorage.getItem('uid') && childData.status == 'staff'){
+            window.location.href = 'admin.html';
         }
         //     document.querySelector('#teacher-list')
         // .innerHTML += teacherCard(childData, count);
@@ -80,12 +82,11 @@ window.onload = tdRef.once('value', function (snapshot) {
 });
 
 function reAuthen() {
-    var email = localStorage.getItem('email');
-    var password = localStorage.getItem('pass');
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(function (resp) {
-        })
-        .catch(function (error) {
+    var user = firebase.auth().currentUser;
+    var credential;
+    user.reauthenticateWithCredential(credential).then(function() {
+            // User re-authenticated.
+          }).catch(function(error) {
             var errorCode = error.code;
             var errorMessage = error.message;
             if (errorCode === 'auth/wrong-password') {
@@ -94,7 +95,7 @@ function reAuthen() {
             } else {
                 alert('errorMessage');
             }
-        });
+          });
 }
 
 function signOut() {

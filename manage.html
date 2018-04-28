@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>ภาควิชาคณิตศาสตร์</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="images/icons/favicon.png" />
+
+    <!-- Bootstrap core CSS     -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/util.css" rel="stylesheet" />
+    <!-- Animation library for notifications   -->
+    <link href="css/animate.min.css" rel="stylesheet" />
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="css/paper-dashboard.css" rel="stylesheet" />
+    <link href="vendor/animsition/css/animsition.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="css/demo.css" rel="stylesheet" />
+    <link href="css/style4.css" rel="stylesheet" />
+    <!--  Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="css/themify-icons.css" rel="stylesheet">
+
+
+</head>
+
+<body class="animsition">
+
+    <div class="wrapper">
+
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>
+                    <a href="index.html">MATH KMITL</a>
+                </h3>
+                <strong>
+                    <a href="index.html">M</a>
+                </strong>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#">
+                        <i class="ti-user"></i>
+                        User Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="resetPassword()">
+                        <i class="ti-list" aria-hidden="true"></i>
+                        Staff Management
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="resetPassword()">
+                        <i class="ti-settings"></i>
+                        Reset Password
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="signOut()">
+                        <i class="ti-new-window"></i>
+                        Sign Out
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <div class="main-panel">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
+                            <i class="ti-align-left"></i>
+                            <span>Menu</span>
+                        </button>
+                        <a class="navbar-brand" href="#">Staff Management</a>
+                    </div>
+                </div>
+            </nav>
+
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    Control box
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-success">+ Add Staff</a>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card">
+                                <div class="card-header">
+                                    Staff List
+                                </div>
+                                <div class="card-body">
+                                    <div id="dataTableBuilder_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6">
+                                                <div class="dataTables_length" id="dataTableBuilder_length">
+                                                    <label>Show
+                                                        <select name="dataTableBuilder_length" aria-controls="dataTableBuilder"
+                                                            class="form-control form-control-sm">
+                                                            <option value="10">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select> entries</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <div id="dataTableBuilder_filter" class="dataTables_filter">
+                                                    <label>Search:
+                                                        <input type="search" class="form-control form-control-sm" placeholder=""
+                                                            aria-controls="dataTableBuilder">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table table-bordered table-hover dataTable no-footer" id="dataTableBuilder"
+                                                    role="grid" aria-describedby="dataTableBuilder_info" style="width: 887px;">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTableBuilder"
+                                                                rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending"
+                                                                style="width: 139px;">Username</th>
+                                                            <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                                aria-label="Camp" style="width: 99px;">Camp</th>
+                                                            <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                                aria-label="Role" style="width: 453px;">Role</th>
+                                                            <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                                aria-label="Action" style="width: 78px;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1">app_itcamp</td>
+                                                            <td>APP</td>
+                                                            <td>form_check,scoring</td>
+                                                            <td>
+                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae00bb719dd6400126f55d2/edit"
+                                                                    class="btn btn-success">
+                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr role="row" class="even">
+                                                            <td class="sorting_1">head_itcamp</td>
+                                                            <td>HEAD</td>
+                                                            <td>form_check,scoring,sorting,selectable,staff_mgnt</td>
+                                                            <td>
+                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae0027619dd64001650a062/edit"
+                                                                    class="btn btn-success">
+                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1">itcampadmin</td>
+                                                            <td>HEAD</td>
+                                                            <td>staff_mgnt</td>
+                                                            <td>
+                                                                <a href="https://itcamp.in.th/14-admin/staffs/5adf75c6f6f5606fc2a30332/edit"
+                                                                    class="btn btn-success">
+                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr role="row" class="even">
+                                                            <td class="sorting_1">pr_itcamp</td>
+                                                            <td>HELPER</td>
+                                                            <td>form_check</td>
+                                                            <td>
+                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae0031d19dd6400131a46e2/edit"
+                                                                    class="btn btn-success">
+                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr role="row" class="odd">
+                                                            <td class="sorting_1">senior_itcamp</td>
+                                                            <td>HELPER</td>
+                                                            <td>form_check</td>
+                                                            <td>
+                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae0842f19dd6400142f4ef2/edit"
+                                                                    class="btn btn-success">
+                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr role="row" class="even">
+                                                            <td class="sorting_1">subhead_itcamp</td>
+                                                            <td>SUBHEAD</td>
+                                                            <td>form_check,scoring,sorting,selectable</td>
+                                                            <td>
+                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae00afb19dd64001650a063/edit"
+                                                                    class="btn btn-success">
+                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div id="dataTableBuilder_processing" class="dataTables_processing card"
+                                                    style="display: none;">Processing...</div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-5">
+                                                <div class="dataTables_info" id="dataTableBuilder_info" role="status" aria-live="polite">Showing 1 to 6 of 6 entries</div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-7">
+                                                <div class="dataTables_paginate paging_simple_numbers" id="dataTableBuilder_paginate">
+                                                    <ul class="pagination">
+                                                        <li class="paginate_button page-item previous disabled" id="dataTableBuilder_previous">
+                                                            <a href="#" aria-controls="dataTableBuilder" data-dt-idx="0" tabindex="0"
+                                                                class="page-link">Previous</a>
+                                                        </li>
+                                                        <li class="paginate_button page-item active">
+                                                            <a href="#" aria-controls="dataTableBuilder" data-dt-idx="1" tabindex="0"
+                                                                class="page-link">1</a>
+                                                        </li>
+                                                        <li class="paginate_button page-item next disabled" id="dataTableBuilder_next">
+                                                            <a href="#" aria-controls="dataTableBuilder" data-dt-idx="2" tabindex="0"
+                                                                class="page-link">Next</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer style="margin-bottom: 2%; color: black;">
+                <div class="container-fluid">
+                    <div class="copyright pull-right">
+                        Copyright (C) 2018 ,
+                        <BR>King Mongkut's Institute of Technology Ladkrabang (KMITL)
+                        <BR>Contact Webmaster of Department of Mathematics
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="js/bootstrap-checkbox-radio.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+<script type="text/javascript" src="js/slick-custom.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/isotope/isotope.pkgd.min.js"></script>
+<script src="js/main.js"></script>
+<!--  Charts Plugin -->
+<script src="js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="js/bootstrap-notify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+        $(window).resize(function () {
+            if ($('body').width() >= 991) {
+                $('#sidebar').removeClass('active');
+            }
+        });
+        // is mobile device
+    });
+</script>
+<!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+<!-- <script src="js/paper-dashboard.js"></script> -->
+<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="js/demo.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
+<script src="js/admin.js"></script>
+
+
+</html>

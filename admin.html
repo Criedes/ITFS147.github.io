@@ -53,6 +53,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="manage.html">
+                            <i class="ti-list" aria-hidden="true"></i>
+                            Staff Management
+                        </a>
+                    </li>
+                <li>
                     <a href="#" onclick="resetPassword()">
                         <i class="ti-settings"></i>
                         Reset Password
@@ -64,6 +70,7 @@
                         Sign Out
                     </a>
                 </li>
+                
             </ul>
         </nav>
 
@@ -111,32 +118,11 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>คำนำหน้าชื่อ(อังกฤษ)</label>
-                                                    <input type="text" id="en_title" class="form-control border-input" placeholder="ex. Mrs, Dr.">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
                                                     <label>คำนำหน้าชื่อ</label>
                                                     <input type="text" id="th_title" class="form-control border-input" placeholder="นาย, ศ.">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>ชื่อจริง(อังกฤษ)</label>
-                                                    <input type="text" id="en_fname" class="form-control border-input" placeholder="First Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>นามสกุล(อังกฤษ)</label>
-                                                    <input type="text" id="en_lname" class="form-control border-input" placeholder="Last Name">
-                                                </div>
-                                            </div>
-                                        </div>
-
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -181,79 +167,15 @@
                                                     <input type="text" id="rest_room" class="form-control border-input" placeholder="ห้องพัก">
                                                 </div>
                                             </div>
-                                        </div>
-
+                                        </div>  
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">โฮมเพจ</label>
-                                                    <input type="text" id="homepage" class="form-control border-input" placeholder="โฮมเพจ">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">การศึกษา
-                                                        <a href="#" onclick="createEducation()">
-                                                            <img src="images/icons/plus.png" alt="">
-                                                        </a>
-                                                    </label>
-                                                    <div id="all-education">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">รูปภาพโปรไฟล์ (แนะนำให้รูปเป็นจัตุรัส)</label>
+                                                        <input type="file" id="profile_pic" class="form-control border-input" placeholder="รูปภาพ">
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">สาขาที่เชี่ยวชาญ/สนใจ
-                                                        <a href="#" onclick="createSpacial()">
-                                                            <img src="images/icons/plus.png" alt="">
-                                                        </a>
-                                                    </label>
-                                                    <div id="all-spacial">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>งานวิจัย/สิ่งตีพิมพ์
-                                                        <a href="#" onclick="createResearch()">
-                                                            <img src="images/icons/plus.png" alt="">
-                                                        </a>
-                                                    </label>
-                                                    <div id="all-research">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">รายวิชาที่รับผิดชอบ
-                                                        <a href="#" onclick="createResponse()">
-                                                            <img src="images/icons/plus.png" alt="">
-                                                        </a>
-                                                    </label>
-                                                    <div id="all-response">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">รูปภาพโปรไฟล์ (แนะนำให้รูปเป็นจัตุรัส)</label>
-                                                    <input type="file" id="profile_pic" class="form-control border-input" placeholder="รูปภาพ">
-                                                </div>
-                                            </div>
-                                        </div>
+                                            </div>                                   
                                         <div class="text-center">
                                             <a href="#" onclick="saveData()">
                                                 <div class="btn btn-info btn-fill btn-wd">Update Profile</div>
@@ -269,9 +191,6 @@
                     </div>
                 </div>
             </div>
-
-
-
             <footer style="margin-bottom: 2%; color: black;">
                 <div class="container-fluid">
                     <div class="copyright pull-right">
@@ -330,13 +249,13 @@
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
         });
-
         $(window).resize(function(){     
             if ($('body').width() >= 991 ){
                 $('#sidebar').removeClass('active');
             }
         });
-    });
+       // is mobile device
+});
 </script>
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <!-- <script src="js/paper-dashboard.js"></script> -->
@@ -349,7 +268,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
-<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
 
 
 </html>
