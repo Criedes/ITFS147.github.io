@@ -51,7 +51,7 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">
+                    <a href="admin.html">
                         <i class="ti-user"></i>
                         User Profile
                     </a>
@@ -98,151 +98,39 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    Control box
+                                    จัดการบัญชี
                                 </div>
                                 <div class="card-body">
-                                    <a href="#" class="btn btn-success">+ Add Staff</a>
+                                    <a href="#" class="btn btn-success">+ เพิ่มบัญชี</a>
+                                    <a href="#" class="btn btn-success">- ลบบัญชี</a>
+                                    <a href="#" class="btn btn-success">* เปลี่ยนแปลงสถานะบัญชี</a>
                                 </div>
                             </div>
-                            <br>
                             <div class="card">
                                 <div class="card-header">
-                                    Staff List
+                                   รายชื่อบุคลากร
                                 </div>
                                 <div class="card-body">
-                                    <div id="dataTableBuilder_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-6">
-                                                <div class="dataTables_length" id="dataTableBuilder_length">
-                                                    <label>Show
-                                                        <select name="dataTableBuilder_length" aria-controls="dataTableBuilder"
-                                                            class="form-control form-control-sm">
-                                                            <option value="10">10</option>
-                                                            <option value="25">25</option>
-                                                            <option value="50">50</option>
-                                                            <option value="100">100</option>
-                                                        </select> entries</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-6">
-                                                <div id="dataTableBuilder_filter" class="dataTables_filter">
-                                                    <label>Search:
-                                                        <input type="search" class="form-control form-control-sm" placeholder=""
-                                                            aria-controls="dataTableBuilder">
-                                                    </label>
-                                                </div>
-                                            </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table wow table-hover" id="teacher-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">ชื่อ</th>
+                                                        <th scope="col">นามสกุล</th>
+                                                        <th scope="col">อีเมล</th>
+                                                        <th scope="col">UID</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody  >
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <table class="table table-bordered table-hover dataTable no-footer" id="dataTableBuilder"
-                                                    role="grid" aria-describedby="dataTableBuilder_info" style="width: 887px;">
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th class="sorting_asc" tabindex="0" aria-controls="dataTableBuilder"
-                                                                rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending"
-                                                                style="width: 139px;">Username</th>
-                                                            <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                                aria-label="Camp" style="width: 99px;">Camp</th>
-                                                            <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                                aria-label="Role" style="width: 453px;">Role</th>
-                                                            <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                                aria-label="Action" style="width: 78px;">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1">app_itcamp</td>
-                                                            <td>APP</td>
-                                                            <td>form_check,scoring</td>
-                                                            <td>
-                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae00bb719dd6400126f55d2/edit"
-                                                                    class="btn btn-success">
-                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr role="row" class="even">
-                                                            <td class="sorting_1">head_itcamp</td>
-                                                            <td>HEAD</td>
-                                                            <td>form_check,scoring,sorting,selectable,staff_mgnt</td>
-                                                            <td>
-                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae0027619dd64001650a062/edit"
-                                                                    class="btn btn-success">
-                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1">itcampadmin</td>
-                                                            <td>HEAD</td>
-                                                            <td>staff_mgnt</td>
-                                                            <td>
-                                                                <a href="https://itcamp.in.th/14-admin/staffs/5adf75c6f6f5606fc2a30332/edit"
-                                                                    class="btn btn-success">
-                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr role="row" class="even">
-                                                            <td class="sorting_1">pr_itcamp</td>
-                                                            <td>HELPER</td>
-                                                            <td>form_check</td>
-                                                            <td>
-                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae0031d19dd6400131a46e2/edit"
-                                                                    class="btn btn-success">
-                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1">senior_itcamp</td>
-                                                            <td>HELPER</td>
-                                                            <td>form_check</td>
-                                                            <td>
-                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae0842f19dd6400142f4ef2/edit"
-                                                                    class="btn btn-success">
-                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr role="row" class="even">
-                                                            <td class="sorting_1">subhead_itcamp</td>
-                                                            <td>SUBHEAD</td>
-                                                            <td>form_check,scoring,sorting,selectable</td>
-                                                            <td>
-                                                                <a href="https://itcamp.in.th/14-admin/staffs/5ae00afb19dd64001650a063/edit"
-                                                                    class="btn btn-success">
-                                                                    <i class="fa fa-edit (alias)"></i> Edit</a>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div id="dataTableBuilder_processing" class="dataTables_processing card"
-                                                    style="display: none;">Processing...</div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-5">
-                                                <div class="dataTables_info" id="dataTableBuilder_info" role="status" aria-live="polite">Showing 1 to 6 of 6 entries</div>
-                                            </div>
-                                            <div class="col-sm-12 col-md-7">
-                                                <div class="dataTables_paginate paging_simple_numbers" id="dataTableBuilder_paginate">
-                                                    <ul class="pagination">
-                                                        <li class="paginate_button page-item previous disabled" id="dataTableBuilder_previous">
-                                                            <a href="#" aria-controls="dataTableBuilder" data-dt-idx="0" tabindex="0"
-                                                                class="page-link">Previous</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item active">
-                                                            <a href="#" aria-controls="dataTableBuilder" data-dt-idx="1" tabindex="0"
-                                                                class="page-link">1</a>
-                                                        </li>
-                                                        <li class="paginate_button page-item next disabled" id="dataTableBuilder_next">
-                                                            <a href="#" aria-controls="dataTableBuilder" data-dt-idx="2" tabindex="0"
-                                                                class="page-link">Next</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -324,7 +212,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
-<script src="js/admin.js"></script>
+<script src="js/manage.js"></script>
 
 
 </html>

@@ -256,3 +256,11 @@ a.article, a.article:hover {
         display: none;
     }
 }
+
+.card-header{
+    padding: 1%;
+}
+
+.card{
+    padding: 1%;
+}

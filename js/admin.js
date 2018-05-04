@@ -179,7 +179,7 @@ function saveData() {
             var task = stRef.child('user' + localStorage.getItem('id') + '.' + file_exten).put(file);
             task
                 .then(function (resp) {
-                    window.location.href = 'user.html';
+                    window.location.href = 'admin.html';
                 })
                 .catch(function (error) {
                     alert('อัพโหลดรูปภาพขัดข้อง');
