@@ -61,6 +61,7 @@ tdRef.once('value', function (snapshot) {
                 spacial_c = i;
             }
             research_lst = childData.research;
+            console.log(typeof(research_lst));
             for (i = 0; i < research_lst.length; i++) {
                 $('#all-research').append(appendResearch(research_lst[i], i))
                 research_c = i;
@@ -392,7 +393,7 @@ function createJSON() {
     json_str += '"email" : [' + em.toString() + '],';
     json_str += '"tel" : [' + ph.toString() + '],';
     json_str += '"specialized_interests" : [' + sp.toString() + '],';
-    json_str += '"research " : [' + rs.toString() + '],';
+    json_str += '"research" : [' + rs.toString() + '],';
     json_str += '"responsible_course" : [' + rp.toString() + '],';
     json_str += '"name" : "' + document.getElementById('th_fname').value + '",';
     json_str += '"surname" : "' + document.getElementById('th_lname').value + '",';

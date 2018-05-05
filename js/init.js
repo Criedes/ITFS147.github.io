@@ -18,9 +18,9 @@ tdRef.once('value', function (snapshot) {
     count += 1;
     var key = childSnapshot.key;
     var childData = childSnapshot.val();
-    if(count<25)
+    if(count<25 || count > 26)
     $('#teacher-list').append(teacherCard(childData, pad(count)));
-    else
+    else if(count == 25 || count == 26)
     $('#officer-list').append(officerCard(childData, pad(count)));
     //     document.querySelector('#teacher-list')
     // .innerHTML += teacherCard(childData, count);
