@@ -84,7 +84,6 @@ function createJSON(uid) {
     json_str += '"status":"teacher",';
     json_str += '"email_login":"'+email+'"';
     json_str += '}';
-    console.log(json_str);
     return json_str;
 }
 

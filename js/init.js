@@ -36,8 +36,6 @@ function teacherCard(teacher, count) {
   var fileName = 'user' + count + '.jpg';
   var imagesRef = 'user_pic%2F' + fileName;
   var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media';
-  // var urlIm  = stRef.child(imagesRef).getDownloadURL().then(function(url) {
-  //     console.log(url); }).catch(function(error){console.log("Fuck you"); });
   html += '<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">';
   html += '<div class="blo5 pos-relative p-t-60">';
   html += '<div class="pic-blo5 size14 bo4 wrap-cir-pic hov-img-zoom ab-c-t">';
