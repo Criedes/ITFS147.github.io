@@ -872,7 +872,7 @@ color:#9A9A9A;}
   .has-success .form-control:focus + .input-group-addon {
     color: #7AC29A; }
   .form-control:focus + .input-group-addon, .form-control:focus ~ .input-group-addon {
-    background-color: #FFFFFF; }
+}
 
 .border-input .input-group-addon {
   border: solid 1px #CCC5B9; }

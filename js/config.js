@@ -61,7 +61,7 @@ tdRef.once('value', function (snapshot) {
                 spacial_c = i;
             }
             research_lst = childData.research;
-            console.log(typeof(research_lst));
+            console.log(typeof (research_lst));
             for (i = 0; i < research_lst.length; i++) {
                 $('#all-research').append(appendResearch(research_lst[i], i))
                 research_c = i;
@@ -73,7 +73,7 @@ tdRef.once('value', function (snapshot) {
                 response_c = i;
             }
 
-        }else if (childData.uid == localStorage.getItem('uid') && childData.status == 'staff'){
+        } else if (childData.uid == localStorage.getItem('uid') && childData.status == 'staff') {
             window.location.href = 'admin.html';
         }
         //     document.querySelector('#teacher-list')
@@ -85,18 +85,18 @@ tdRef.once('value', function (snapshot) {
 function reAuthen() {
     var user = firebase.auth().currentUser;
     var credential;
-    user.reauthenticateWithCredential(credential).then(function() {
-            // User re-authenticated.
-          }).catch(function(error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            if (errorCode === 'auth/wrong-password') {
-                alert('Your password has change. Please Login again.');
-                window.location.href = 'login.html';
-            } else {
-                alert('errorMessage');
-            }
-          });
+    user.reauthenticateWithCredential(credential).then(function () {
+        // User re-authenticated.
+    }).catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+            alert('Your password has change. Please Login again.');
+            window.location.href = 'login.html';
+        } else {
+            alert('errorMessage');
+        }
+    });
 }
 
 function signOut() {
@@ -131,9 +131,11 @@ function appendEmail(email, id) {
         return html
     } else {
         html += '<div style = "margin-top:5px;" id="email' + id + '">'
+        html += '<div class="input-group">';
         html += '<input type="email" class="form-control border-input sub_em" placeholder="Email" value="' + email + '">'
-        html += '<a href="#" onclick="removeEmail(&quot;email' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-        html += '</div>'
+        html += '<span class="input-group-addon delete" href="#" onclick="removeEmail(&quot;email' + id + '&quot;)">' + 'X' + '</span>';
+        html += '</div>';
+        html += '</div>';
         return html
     }
 
@@ -148,9 +150,11 @@ function appendPhone(phone, id) {
         return html
     } else {
         html += '<div style = "margin-top:5px;" id="phone' + id + '">'
+        html += '<div class="input-group">';
         html += '<input type="text" class="form-control border-input sub_ph" placeholder="Phone" value="' + phone + '">'
-        html += '<a href="#" onclick="removePhone(&quot;phone' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-        html += '</div>'
+        html += '<span class="input-group-addon delete" href="#" onclick="removePhone(&quot;phone' + id + '&quot;)">' + 'X' + '</span>';
+        html += '</div>';
+        html += '</div>';
         return html
     }
 
@@ -165,8 +169,10 @@ function appendEducation(education, id) {
         return html
     } else {
         html += '<div style = "margin-top:5px;" id="education' + id + '">'
+        html += '<div class="input-group">';
         html += '<input type="text" class="form-control border-input sub_ed" placeholder="Education" value="' + education + '">'
-        html += '<a href="#" onclick="removeEducation(&quot;education' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
+        html += '<span class="input-group-addon delete" href="#" onclick="removeEducation(&quot;education' + id + '&quot;)">' + 'X' + '</span>';
+        html += '</div>'
         html += '</div>'
         return html
     }
@@ -182,8 +188,10 @@ function appendSpacial(spacial, id) {
         return html
     } else {
         html += '<div style = "margin-top:5px;" id="spacial' + id + '">'
+        html += '<div class="input-group">';
         html += '<input type="text" class="form-control border-input sub_sp" placeholder="Interest" value="' + spacial + '">'
-        html += '<a href="#" onclick="removeSpacial(&quot;spacial' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
+        html += '<span class="input-group-addon delete" href="#" onclick="removeSpacial(&quot;spacial' + id + '&quot;)">' + 'X' + '</span>';
+        html += '</div>'
         html += '</div>'
         return html
     }
@@ -199,9 +207,11 @@ function appendResearch(research, id) {
         return html
     } else {
         html += '<div style = "margin-top:5px;" id="research' + id + '">'
+        html += '<div class="input-group">';
         html += '<textarea rows="2" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
-        html += '<a href="#" onclick="removeResearch(&quot;research' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-        html += '</div>'
+        html += '<span class="input-group-addon delete" href="#" onclick="removeResearch(&quot;research' + id + '&quot;)">' + 'X' + '</span>';
+        html += '</div>';
+        html += '</div>';
         return html
     }
 
@@ -216,8 +226,10 @@ function appendResponse(response, id) {
         return html
     } else {
         html += '<div style = "margin-top:5px;" id="response' + id + '">'
+        html += '<div class="input-group">';
         html += '<input type="text" class="form-control border-input sub_rp" placeholder="Interest" value="' + response + '">'
-        html += '<a href="#" onclick="removeResponse(&quot;response' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
+        html += '<span class="input-group-addon delete" href="#" onclick="removeResponse(&quot;response' + id + '&quot;)">' + 'X' + '</span>';
+        html += '</div>'
         html += '</div>'
         return html
     }
@@ -228,9 +240,11 @@ function createEmail() {
     email_c += 1;
     html = "";
     html += '<div style = "margin-top:5px;" id="email' + email_c + '">'
-    html += '<input type="email" class="form-control border-input sub_em" placeholder="Email">'
-    html += '<a href="#" onclick="removeEmail(&quot;email' + email_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-    html += '</div>'
+    html += '<div class="input-group">';
+    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Email">'
+    html += '<span class="input-group-addon delete" href="#" onclick="removeEmail(&quot;email' + email_c + '&quot;)">' + 'X' + '</span>';
+    html += '</div>';
+    html += '</div>';
     $('#all-email').append(html);
 }
 
@@ -238,9 +252,12 @@ function createPhone() {
     phone_c += 1;
     html = "";
     html += '<div style = "margin-top:5px;" id="phone' + phone_c + '">'
+    html += '<div class="input-group">';
     html += '<input type="text" class="form-control border-input sub_ph" placeholder="Phone">'
-    html += '<a href="#" onclick="removePhone(&quot;phone' + phone_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-    html += '</div>'
+    html += '<span class="input-group-addon delete" href="#" onclick="removePhone(&quot;phone' + phone_c + '&quot;)">' + 'X' + '</span>';
+    html += '</div>';
+    html += '</div>';
+
     $('#all-phone').append(html);
 }
 
@@ -248,9 +265,11 @@ function createEducation() {
     education_c += 1;
     html = "";
     html += '<div style = "margin-top:5px;" id="education' + education_c + '">'
-    html += '<input type="text" class="form-control border-input sub_ed" placeholder="Education">'
-    html += '<a href="#" onclick="removeEducation(&quot;education' + education_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-    html += '</div>'
+    html += '<div class="input-group">';
+    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Education">'
+    html += '<span class="input-group-addon delete" href="#" onclick="removeEducation(&quot;education' + education_c + '&quot;)">' + 'X' + '</span>';
+    html += '</div>';
+    html += '</div>';
     $('#all-education').append(html);
 }
 
@@ -258,19 +277,23 @@ function createSpacial() {
     spacial_c += 1;
     html = "";
     html += '<div style = "margin-top:5px;" id="spacial' + spacial_c + '">'
-    html += '<input type="text" class="form-control border-input sub_sp" placeholder="Interest">'
-    html += '<a href="#" onclick="removeSpacial(&quot;spacial' + spacial_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-    html += '</div>'
+    html += '<div class="input-group">';
+    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Interest">'
+    html += '<span class="input-group-addon delete" href="#" onclick="removeSpacial(&quot;spacial' + spacial_c + '&quot;)">' + 'X' + '</span>';
+    html += '</div>';
+    html += '</div>';
     $('#all-spacial').append(html);
 }
 
 function createResearch() {
     research_c += 1;
     html = "";
-    html += '<div style = "margin-top:5px;" id="spacial' + research_c + '">'
+    html += '<div style = "margin-top:5px;" id="research' + research_c + '">'
+    html += '<div class="input-group">';
     html += '<textarea rows="2" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research"></textarea>'
-    html += '<a href="#" onclick="removeResearch(&quot;research' + research_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-    html += '</div>'
+    html += '<span class="input-group-addon delete" href="#" onclick="removeResponse(&quot;research' + research_c + '&quot;)">' + 'X' + '</span>';
+    html += '</div>';
+    html += '</div>';
     $('#all-research').append(html);
 }
 
@@ -278,9 +301,11 @@ function createResponse() {
     response_c += 1;
     html = "";
     html += '<div style = "margin-top:5px;" id="response' + response_c + '">'
-    html += '<input type="text" class="form-control border-input sub_rp" placeholder="รายวิชาที่รับผิดชอบ">'
-    html += '<a href="#" onclick="removeResponse(&quot;response' + response_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-    html += '</div>'
+    html += '<div class="input-group">';
+    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Response Subject">'
+    html += '<span class="input-group-addon delete" href="#" onclick="removeResponse(&quot;response' + response_c + '&quot;)">' + 'X' + '</span>';
+    html += '</div>';
+    html += '</div>';
     $('#all-response').append(html);
 }
 
@@ -330,28 +355,28 @@ function saveData() {
     var teacher = tdRef.child('user' + localStorage.getItem('id'));
     var file = $('#profile_pic').get(0).files[0];
     var file_exten = '';
-    if(file){
+    if (file) {
         file_exten = file.name.replace(/^.*\./, '');
     }
     var check_pic = 1;
     console.log(file_exten);
     if (file && file_exten == 'jpg') {
-        
-            var task = stRef.child('user' + localStorage.getItem('id') + '.' + file_exten).put(file);
-            task
-                .then(function (resp) {
-                    window.location.href = 'user.html';
-                })
-                .catch(function (error) {
-                    alert('อัพโหลดรูปภาพขัดข้อง');
-                });
-    } else if (file_exten!=''){
+
+        var task = stRef.child('user' + localStorage.getItem('id') + '.' + file_exten).put(file);
+        task
+            .then(function (resp) {
+                window.location.href = 'user.html';
+            })
+            .catch(function (error) {
+                alert('อัพโหลดรูปภาพขัดข้อง');
+            });
+    } else if (file_exten != '') {
         alert('กรุณาอัพโหลดไฟล์นามสกุล .jpg');
         console.log('che');
         check_pic = 0;
     }
     if (check_pic == 1) {
-        
+
         teacher.update(JSON.parse(createJSON())).then(function (resp) {
             // alert('success');
             alert('อัพเดทข้อมูลเสร็จสิ้น');

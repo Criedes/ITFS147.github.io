@@ -264,3 +264,8 @@ a.article, a.article:hover {
 .card{
     padding: 1%;
 }
+
+.delete {
+    color: white;
+    background-color: red;
+}
