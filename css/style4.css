@@ -268,4 +268,5 @@ a.article, a.article:hover {
 .delete {
     color: white;
     background-color: red;
+    cursor: pointer;
 }

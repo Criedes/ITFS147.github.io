@@ -91,3 +91,7 @@ function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
   }
   
+  window.alert = function () {
+    $("#myModal .modal-body").text(arguments[0]);
+    $("#myModal").modal('show');
+};

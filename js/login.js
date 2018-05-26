@@ -37,7 +37,7 @@ function Login() {
         });
         //retreive data for president
     });
-    alert('เข้าสู่ระบบแล้ว');
+    alert('เข้าสู่ระบบสำเร็จ');
     })
     .catch(function (error) {
       var errorCode = error.code;
@@ -54,3 +54,7 @@ function Login() {
 
 }
 
+window.alert = function() {
+  $("#myModal .modal-body").text(arguments[0]);
+  $("#myModal").modal('show');
+};

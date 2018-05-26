@@ -82,3 +82,8 @@ function studentCard(teacher, count, year) {
 function pad(d) {
     return (d < 10) ? '00' + d.toString() : (d < 100) ? '0' + d.toString() : d.toString();
 }
+
+window.alert = function () {
+    $("#myModal .modal-body").text(arguments[0]);
+    $("#myModal").modal('show');
+};

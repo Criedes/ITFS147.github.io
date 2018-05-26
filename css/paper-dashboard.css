@@ -871,14 +871,25 @@ color:#9A9A9A;}
     color: #EB5E28; }
   .has-success .form-control:focus + .input-group-addon {
     color: #7AC29A; }
-  .form-control:focus + .input-group-addon, .form-control:focus ~ .input-group-addon {
+  
 }
 
 .border-input .input-group-addon {
   border: solid 1px #CCC5B9; }
 
 .input-group {
-  margin-bottom: 15px; }
+  margin-bottom: 15px; 
+  
+}
+
+.input-group > span{
+  cursor: pointer;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;  
+  
+}
 
 .input-group[disabled] .input-group-addon {
   background-color: #E3E3E3; }

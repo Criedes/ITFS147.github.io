@@ -105,9 +105,13 @@ function appendEmail(email, id) {
         return html
     } else {
         html += '<div style = "margin-top:5px;" id="email' + id + '">'
+        html += '<div class="input-group">';
         html += '<input type="email" class="form-control border-input sub_em" placeholder="Email" value="' + email + '">'
-        html += '<a href="#" onclick="removeEmail(&quot;email' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-        html += '</div>'
+        html += '<div class="input-group-append">'
+        html += '<span class="input-group-text delete" href="#" onclick="removeEmail(&quot;email' + id + '&quot;)">' + 'X' + '</span>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
         return html
     }
 
@@ -122,9 +126,13 @@ function appendPhone(phone, id) {
         return html
     } else {
         html += '<div style = "margin-top:5px;" id="phone' + id + '">'
+        html += '<div class="input-group">';
         html += '<input type="text" class="form-control border-input sub_ph" placeholder="Phone" value="' + phone + '">'
-        html += '<a href="#" onclick="removePhone(&quot;phone' + id + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-        html += '</div>'
+        html += '<div class="input-group-append">'
+        html += '<span class="input-group-text delete" href="#" onclick="removePhone(&quot;phone' + id + '&quot;)">' + 'X' + '</span>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
         return html
     }
 
@@ -134,9 +142,13 @@ function createEmail() {
     email_c += 1;
     html = "";
     html += '<div style = "margin-top:5px;" id="email' + email_c + '">'
-    html += '<input type="email" class="form-control border-input sub_em" placeholder="Email">'
-    html += '<a href="#" onclick="removeEmail(&quot;email' + email_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-    html += '</div>'
+    html += '<div class="input-group">';
+    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Email">'
+    html += '<div class="input-group-append">'
+    html += '<span class="input-group-text delete" href="#" onclick="removeEmail(&quot;email' + email_c + '&quot;)">' + 'X' + '</span>';
+    html += '</div>';
+    html += '</div>';
+    html += '</div>';
     $('#all-email').append(html);
 }
 
@@ -144,9 +156,13 @@ function createPhone() {
     phone_c += 1;
     html = "";
     html += '<div style = "margin-top:5px;" id="phone' + phone_c + '">'
+    html += '<div class="input-group">';
     html += '<input type="text" class="form-control border-input sub_ph" placeholder="Phone">'
-    html += '<a href="#" onclick="removePhone(&quot;phone' + phone_c + '&quot;)"><img src="images/icons/delete.png">ลบข้อมูล</a>'
-    html += '</div>'
+    html += '<div class="input-group-append">'
+    html += '<span class="input-group-text delete" href="#" onclick="removePhone(&quot;phone' + phone_c + '&quot;)">' + 'X' + '</span>';
+    html += '</div>';
+    html += '</div>';
+    html += '</div>';
     $('#all-phone').append(html);
 }
 
@@ -226,3 +242,7 @@ function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
 }
 
+window.alert = function () {
+    $("#myModal .modal-body").text(arguments[0]);
+    $("#myModal").modal('show');
+};
