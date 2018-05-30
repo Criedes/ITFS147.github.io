@@ -85,33 +85,33 @@ function teacherModal(id) {
     html += '<section class="dados">';
     html += '<img src="'+urlIm+'" id="profile-img">';
     html += '<section class="user-info">';
-    html += '<h3 id="username">ชื่อ-นามสกุล</h3>';
-    html += '<h1 class="title-name" id="title">' + teacher.title + '</h1>';
-    html += '<h1 class="title-name" id="firstname">' + teacher.name + '</h1>';
-    html += '<h1 class="title-name" id="lastname">' + teacher.surname + '</h1><BR>';
-    html += '<h1 class="title-name" id="title_en">' + teacher.title_en + '</h1>';
-    html += '<h1 class="title-name" id="firstname_en">' + teacher.name_en + '</h1>';
-    html += '<h1 class="title-name" id="lastname_en">' + teacher.surname_en + '</h1><BR>';
+    html += '<h3 id="username" style="color:black;">ชื่อ-นามสกุล</h3>';
+    html += '<h1 class="title-name" id="title" style="color: #212529;">' + teacher.title + '</h1>';
+    html += '<h1 class="title-name" id="firstname" style="color: #212529;">' + teacher.name + '</h1>';
+    html += '<h1 class="title-name" id="lastname" style="color: #212529;">' + teacher.surname + '</h1><BR>';
+    html += '<h1 class="title-name" id="title_en" style="color: #212529;">' + teacher.title_en + '</h1>';
+    html += '<h1 class="title-name" id="firstname_en" style="color: #212529;">' + teacher.name_en + '</h1>';
+    html += '<h1 class="title-name" id="lastname_en" style="color: #212529;">' + teacher.surname_en + '</h1><BR>';
     html += '</section>';
-    html += '<h3 id="bio-text">อีเมลล์</h3>';
+    html += '<h3 id="bio-text" style="color:black;">อีเมลล์</h3>';
     html += '<section class="user-bio">';
     var email = teacher.email;
     for(i=0;i<email.length;i++){
       html += ' - '+email[i]+'<BR>';
     }
     html += '</section>';
-    html += '<h3>โทรศัพท์</h3>';
+    html += '<h3 style="color:black;">โทรศัพท์</h3>';
     html += '<section class="user-bio">';
     var tel = teacher.tel;
     for(i=0;i<tel.length;i++){
       html += ' - '+tel[i]+'<BR>';
     }
     html += '</section>';
-    html += '<h3>ห้องพัก</h3>';
+    html += '<h3 style="color:black;">ห้องพัก</h3>';
     html += '<section class="user-bio">';
     html +=  ' - '+teacher.room;
     html += '</section>';
-    html += '<h3>โฮมเพจ</h3>';
+    html += '<h3 style="color:black;">โฮมเพจ</h3>';
     html += '<section class="user-bio">';
     if(teacher.homepage == '-'){
       html +=  ' - ';
@@ -120,7 +120,7 @@ function teacherModal(id) {
       html +=  ' - '+teacher.homepage;
     }
     html += '</section>';
-    html += '<h3>การศึกษา</h3>';
+    html += '<h3 style="color:black;">การศึกษา</h3>';
     html += '<section class="user-bio">';
     var education = teacher.education;
     for(i=0;i<education.length;i++){
@@ -128,7 +128,7 @@ function teacherModal(id) {
         html += ' - '+education[i]+'<BR>';
     }
     html += '</section>';
-    html += '<h3>สาขาที่เชี่ยวชาญ/สนใจ</h3>';
+    html += '<h3 style="color:black;">สาขาที่เชี่ยวชาญ/สนใจ</h3>';
     html += '<section class="user-bio">';
     var specialized_interests = teacher.specialized_interests;
     for(i=0;i<specialized_interests.length;i++){
@@ -136,7 +136,7 @@ function teacherModal(id) {
         html += ' - '+specialized_interests[i]+'<BR>';
     }
     html += '</section>';
-    html += '<h3>งานวิจัย/สิ่งตีพิมพ์</h3>';
+    html += '<h3 style="color:black;">งานวิจัย/สิ่งตีพิมพ์</h3>';
     html += '<section class="user-bio">';
     var research = teacher.research;
     for(i=0;i<research.length;i++){
@@ -144,7 +144,7 @@ function teacherModal(id) {
         html += ' - '+research[i]+'<BR>';
     }
     html += '</section>';
-    html += '<h3>รายวิชาที่รับผิดชอบ</h3>';
+    html += '<h3 style="color:black;">รายวิชาที่รับผิดชอบ</h3>';
     html += '<section class="user-bio">';
     var responsible_course = teacher.responsible_course;
     for(i=0;i<responsible_course.length;i++){

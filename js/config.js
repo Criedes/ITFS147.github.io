@@ -253,7 +253,7 @@ function createEmail() {
     html = "";
     html += '<div style = "margin-top:5px;" id="email' + email_c + '">'
     html += '<div class="input-group">';
-    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Email">'
+    html += '<input type="text" class="form-control border-input sub_em" placeholder="Email">'
     html += '<div class="input-group-append">'
     html += '<span class="input-group-text delete" href="#" onclick="removeEmail(&quot;email' + email_c + '&quot;)">' + 'X' + '</span>';
     html += '</div>';
@@ -281,7 +281,7 @@ function createEducation() {
     html = "";
     html += '<div style = "margin-top:5px;" id="education' + education_c + '">'
     html += '<div class="input-group">';
-    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Education">'
+    html += '<input type="text" class="form-control border-input sub_ed" placeholder="Education">'
     html += '<div class="input-group-append">'
     html += '<span class="input-group-text delete" href="#" onclick="removeEducation(&quot;education' + education_c + '&quot;)">' + 'X' + '</span>';
     html += '</div>';
@@ -295,7 +295,7 @@ function createSpacial() {
     html = "";
     html += '<div style = "margin-top:5px;" id="spacial' + spacial_c + '">'
     html += '<div class="input-group">';
-    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Interest">'
+    html += '<input type="text" class="form-control border-input sub_sp" placeholder="Interest">'
     html += '<div class="input-group-append">'
     html += '<span class="input-group-text delete" href="#" onclick="removeSpacial(&quot;spacial' + spacial_c + '&quot;)">' + 'X' + '</span>';
     html += '</div>';
@@ -323,7 +323,7 @@ function createResponse() {
     html = "";
     html += '<div style = "margin-top:5px;" id="response' + response_c + '">'
     html += '<div class="input-group">';
-    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Response Subject">'
+    html += '<input type="text" class="form-control border-input sub_rp" placeholder="Response Subject">'
     html += '<div class="input-group-append">'
     html += '<span class="input-group-text delete" href="#" onclick="removeResponse(&quot;response' + response_c + '&quot;)">' + 'X' + '</span>';
     html += '</div>';
