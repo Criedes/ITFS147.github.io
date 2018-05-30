@@ -143,7 +143,7 @@ function createEmail() {
     html = "";
     html += '<div style = "margin-top:5px;" id="email' + email_c + '">'
     html += '<div class="input-group">';
-    html += '<input type="text" class="form-control border-input sub_ph" placeholder="Email">'
+    html += '<input type="text" class="form-control border-input sub_em" placeholder="Email">'
     html += '<div class="input-group-append">'
     html += '<span class="input-group-text delete" href="#" onclick="removeEmail(&quot;email' + email_c + '&quot;)">' + 'X' + '</span>';
     html += '</div>';

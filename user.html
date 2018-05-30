@@ -41,8 +41,12 @@
 
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><a href="index.html">MATH KMITL</a></h3>
-                <strong><a href="index.html">M</a></strong>
+                <h3>
+                    <a href="index.html">MATH KMITL<img src="images/icons/favicon.png"></a>
+                </h3>
+                <strong>
+                    <a href="index.html"><img src="images/icons/favicon.png"></a>
+                </strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -70,13 +74,13 @@
         <div class="main-panel">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
+                    <div class="navbar-header ">
+                        <a class="navbar-brand" href="#">User Profile</a>
+                    </div>
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
                             <i class="ti-align-left"></i>
                             <span>Menu</span>
                         </button>
-                        <a class="navbar-brand" href="#">User Profile</a>
-                    </div>
                 </div>
             </nav>
 
@@ -87,7 +91,7 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="card card-user">
                                 <div class="image">
-                                    <img src="images/cover-01.JPG" alt="..." />
+                                    <img src="images/2.JPG" alt="..." />
                                 </div>
                                 <div class="content">
                                     <div class="author">
@@ -285,22 +289,22 @@
         </div>
     </div>
     <div class="modal fade modal-teacher" id="myModal" tabindex="-1" role="dialog" aria-labelledby="headModal" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-			  <div class="modal-content">
-				<div class="modal-header">
-				  <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
-				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				  </button>
-				</div>
-				<div class="modal-body">
-				</div>
-				<div class="modal-footer">
-				  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
-				</div>
-			  </div>
-			</div>
-		  </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </body>
@@ -313,29 +317,29 @@
 <script src="js/bootstrap-checkbox-radio.js"></script>
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
-	<script type="text/javascript" src="js/slick-custom.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-	<!--===============================================================================================-->
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/isotope/isotope.pkgd.min.js"></script>
-	<script src="js/main.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+<script type="text/javascript" src="js/slick-custom.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/isotope/isotope.pkgd.min.js"></script>
+<script src="js/main.js"></script>
 <!--  Charts Plugin -->
 <script src="js/chartist.min.js"></script>
 
@@ -347,8 +351,8 @@
             $('#sidebar').toggleClass('active');
         });
 
-        $(window).resize(function(){     
-            if ($('body').width() >= 991 ){
+        $(window).resize(function () {
+            if ($('body').width() >= 991) {
                 $('#sidebar').removeClass('active');
             }
         });

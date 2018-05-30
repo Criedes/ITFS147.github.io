@@ -41,8 +41,16 @@
 
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><a href="index.html">MATH KMITL</a></h3>
-                <strong><a href="index.html">M</a></strong>
+                <h3>
+                    <a href="index.html">MATH KMITL
+                        <img src="images/icons/favicon.png">
+                    </a>
+                </h3>
+                <strong>
+                    <a href="index.html">
+                        <img src="images/icons/favicon.png">
+                    </a>
+                </strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -54,10 +62,10 @@
                 </li>
                 <li>
                     <a href="manage.html">
-                            <i class="ti-list" aria-hidden="true"></i>
-                            Staff Management
-                        </a>
-                    </li>
+                        <i class="ti-list" aria-hidden="true"></i>
+                        Staff Management
+                    </a>
+                </li>
                 <li>
                     <a href="#" onclick="resetPassword()">
                         <i class="ti-settings"></i>
@@ -70,7 +78,7 @@
                         Sign Out
                     </a>
                 </li>
-                
+
             </ul>
         </nav>
 
@@ -78,12 +86,13 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
-                            <i class="ti-align-left"></i>
-                            <span>Menu</span>
-                        </button>
+
                         <a class="navbar-brand" href="#">User Profile</a>
                     </div>
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
+                        <i class="ti-align-left"></i>
+                        <span>Menu</span>
+                    </button>
                 </div>
             </nav>
 
@@ -94,7 +103,7 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="card card-user">
                                 <div class="image">
-                                    <img src="images/cover-01.JPG" alt="..." />
+                                    <img src="images/2.JPG" alt="..." />
                                 </div>
                                 <div class="content">
                                     <div class="author">
@@ -167,15 +176,15 @@
                                                     <input type="text" id="rest_room" class="form-control border-input" placeholder="ห้องพัก">
                                                 </div>
                                             </div>
-                                        </div>  
+                                        </div>
                                         <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">รูปภาพโปรไฟล์ (แนะนำให้รูปเป็นจัตุรัส)</label>
-                                                        <input type="file" id="profile_pic" class="form-control border-input" placeholder="รูปภาพ">
-                                                    </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">รูปภาพโปรไฟล์ (แนะนำให้รูปเป็นจัตุรัส)</label>
+                                                    <input type="file" id="profile_pic" class="form-control border-input" placeholder="รูปภาพ">
                                                 </div>
-                                            </div>                                   
+                                            </div>
+                                        </div>
                                         <div class="text-center">
                                             <a href="#" onclick="saveData()">
                                                 <div class="btn btn-info btn-fill btn-wd">Update Profile</div>
@@ -204,40 +213,40 @@
         </div>
     </div>
     <div class="modal fade modal-teacher" id="myModal" tabindex="-1" role="dialog" aria-labelledby="headModal" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-			  <div class="modal-content">
-				<div class="modal-header">
-				  <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
-				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				  </button>
-				</div>
-				<div class="modal-body">
-				</div>
-				<div class="modal-footer">
-				  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
-				</div>
-			  </div>
-			</div>
-		  </div>
-          <div class="modal fade modal-teacher" id="myModal" tabindex="-1" role="dialog" aria-labelledby="headModal" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
-                    </div>
-                  </div>
+                    </button>
                 </div>
-              </div>
-    
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-teacher" id="myModal" tabindex="-1" role="dialog" aria-labelledby="headModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 
@@ -249,29 +258,29 @@
 <script src="js/bootstrap-checkbox-radio.js"></script>
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
-	<script type="text/javascript" src="js/slick-custom.js"></script>
-	<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-	<!--===============================================================================================-->
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
-	<!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/isotope/isotope.pkgd.min.js"></script>
-	<script src="js/main.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+<script type="text/javascript" src="js/slick-custom.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="vendor/isotope/isotope.pkgd.min.js"></script>
+<script src="js/main.js"></script>
 <!--  Charts Plugin -->
 <script src="js/chartist.min.js"></script>
 
@@ -282,13 +291,13 @@
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
         });
-        $(window).resize(function(){     
-            if ($('body').width() >= 991 ){
+        $(window).resize(function () {
+            if ($('body').width() >= 991) {
                 $('#sidebar').removeClass('active');
             }
         });
-       // is mobile device
-});
+        // is mobile device
+    });
 </script>
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <!-- <script src="js/paper-dashboard.js"></script> -->
