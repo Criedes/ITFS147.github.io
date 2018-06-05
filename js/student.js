@@ -21,12 +21,10 @@ tdRef.once('value', function (snapshot) {
         year -= 1;
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        console.log(childData);
         if (key != 'grade5') {
             for (i in childData) {
                 count_s += 1;
                 $('#student-' + pad(count)).append(studentCard(childData[i], pad(count_s), year));
-                console.log(i);
             }
         }
         //     document.querySelector('#teacher-list')
