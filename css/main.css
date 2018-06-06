@@ -1747,6 +1747,28 @@ body {padding-right: 0px !important;}
     display: none;
   }
 
+  .slide9 {
+    display: none;
+  }
+  
+  .slide10 {
+    display: none;
+
+
+  }
+  .slide11 {
+    display: none;
+
+  }
+
+  .slide12 {
+    display: none;
+  }
+
+  .slide13 {
+    display: none;
+  }
+
   .centered {
     min-height: 100%;
     display: flex;
