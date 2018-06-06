@@ -193,6 +193,21 @@
 			<button class="label-gallery txt26 trans-0-4 menu8" data-filter=".slide8">
 				2550
 			</button>
+			<button class="label-gallery txt26 trans-0-4 menu9" data-filter=".slide9">
+				2549
+			</button>
+			<button class="label-gallery txt26 trans-0-4 menu10" data-filter=".slide10">
+				2548
+			</button>
+			<button class="label-gallery txt26 trans-0-4 menu11" data-filter=".slide11">
+				2547
+			</button>
+			<button class="label-gallery txt26 trans-0-4 menu12" data-filter=".slide12">
+				2546
+			</button>
+			<button class="label-gallery txt26 trans-0-4 menu13" data-filter=".slide13">
+				2545
+			</button>
 		</div>
 		<div class="container">
 			<div class="row slide slide0">
@@ -1265,10 +1280,177 @@
 				</table>
 			</div>
 		</div>
-	</div>
-
-
-
+		<div class="container">
+			<div class="row slide slide9">
+				<table class="table wow table-hover">
+					<thead>
+						<tr>
+							<th scope="col">รหัส</th>
+							<th scope="col">ชื่อเรื่องปัญหาพิเศษ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>49M_1</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>49M_2</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>49M_3</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>49M_4</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>49M_5</td>
+							<td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row slide slide10">
+				<table class="table wow table-hover">
+					<thead>
+						<tr>
+							<th scope="col">รหัส</th>
+							<th scope="col">ชื่อเรื่องปัญหาพิเศษ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>48M_1</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>48M_2</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>48M_3</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>48M_4</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>48M_5</td>
+							<td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row slide slide11">
+				<table class="table wow table-hover">
+					<thead>
+						<tr>
+							<th scope="col">รหัส</th>
+							<th scope="col">ชื่อเรื่องปัญหาพิเศษ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>47M_1</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>47M_2</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>47M_3</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>47M_4</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>47M_5</td>
+							<td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row slide slide12">
+				<table class="table wow table-hover">
+					<thead>
+						<tr>
+							<th scope="col">รหัส</th>
+							<th scope="col">ชื่อเรื่องปัญหาพิเศษ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>46M_1</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>46M_2</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>46M_3</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>46M_4</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>46M_5</td>
+							<td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row slide slide13">
+				<table class="table wow table-hover">
+					<thead>
+						<tr>
+							<th scope="col">รหัส</th>
+							<th scope="col">ชื่อเรื่องปัญหาพิเศษ</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>45M_1</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>45M_2</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>45M_3</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>45M_4</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>45M_5</td>
+							<td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	
 	<!-- Footer -->
 	<footer class="bg1">
 		<div class="end-footer bg2">
@@ -1427,6 +1609,58 @@
 
 				$("#next").css('transform', 'rotate(0deg)');
 			});
+
+			$(".menu9").click(function () {
+				$(".slide" + number).slideUp();
+				$(".menu" + number).removeClass('current');
+				$(".menu9").addClass('current');
+				$(".slide9").slideDown();
+				
+				number = 9;
+
+				$("#next").css('transform', 'rotate(0deg)');
+			});
+			$(".menu10").click(function () {
+				$(".slide" + number).slideUp();
+				$(".menu" + number).removeClass('current');
+				$(".menu10").addClass('current');
+				$(".slide10").slideDown();
+				
+				number = 10;
+
+				$("#next").css('transform', 'rotate(0deg)');
+			});
+			$(".menu11").click(function () {
+				$(".slide" + number).slideUp();
+				$(".menu" + number).removeClass('current');
+				$(".menu11").addClass('current');
+				$(".slide11").slideDown();
+				
+				number = 11;
+
+				$("#next").css('transform', 'rotate(0deg)');
+			});
+			$(".menu12").click(function () {
+				$(".slide" + number).slideUp();
+				$(".menu" + number).removeClass('current');
+				$(".menu12").addClass('current');
+				$(".slide12").slideDown();
+				
+				number = 12;
+
+				$("#next").css('transform', 'rotate(0deg)');
+			});
+			$(".menu13").click(function () {
+				$(".slide" + number).slideUp();
+				$(".menu" + number).removeClass('current');
+				$(".menu13").addClass('current');
+				$(".slide13").slideDown();
+				
+				number = 13;
+
+				$("#next").css('transform', 'rotate(0deg)');
+			});
+
 
 
 		});
