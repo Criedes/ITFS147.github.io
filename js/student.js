@@ -24,7 +24,7 @@ tdRef.once('value', function (snapshot) {
         if (key != 'grade5') {
             for (i in childData) {
                 count_s += 1;
-                $('#student-' + pad(count)).append(studentCard(childData[i], pad(count_s), year));
+                $('#student-' + pad(count)).append(studentCard(childData[i], pad(count_s), key));
             }
         }
         //     document.querySelector('#teacher-list')
@@ -35,7 +35,7 @@ tdRef.once('value', function (snapshot) {
 function studentCard(teacher, count, year) {
     var html = '';
     var fileName = 'user' + count + '.jpg';
-    var imagesRef = 'student_pic%2F' + year.toString() + '%2F' + fileName;
+    var imagesRef = 'student_pic%2F' + year + '%2F' + fileName;
     var urlIm = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media';
     html += '<div class="col-md-8 col-lg-4 m-l-r-auto p-b-30">';
     html += '<div class="blo5 pos-relative p-t-60">';
