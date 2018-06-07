@@ -1035,7 +1035,14 @@ input[type="date"] {
   background-size: cover;
 }
 
-
+@media (max-width: 1024px) {
+  .header-intro {
+    background-attachment: scroll;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
 
 /*[ Slide2 ]
 ///////////////////////////////////////////////////////////
@@ -1448,6 +1455,16 @@ body {padding-right: 0px !important;}
 
 @media (max-width: 576px) {
   .bg-title-page .tit6 {font-size: 30px;}
+  .bg-title-page {
+    width: 100%;
+    min-height: 312px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+  }
+  
 }
 
 
