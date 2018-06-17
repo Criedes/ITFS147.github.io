@@ -42,10 +42,14 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>
-                    <a href="index.html">MATH KMITL<img src="images/icons/favicon.png"></a>
+                    <a href="index.html">MATH KMITL
+                        <img src="images/icons/favicon.png">
+                    </a>
                 </h3>
                 <strong>
-                    <a href="index.html"><img src="images/icons/favicon.png"></a>
+                    <a href="index.html">
+                        <img src="images/icons/favicon.png">
+                    </a>
                 </strong>
             </div>
 
@@ -78,9 +82,9 @@
                         <a class="navbar-brand" href="#">User Profile</a>
                     </div>
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
-                            <i class="ti-align-left"></i>
-                            <span>Menu</span>
-                        </button>
+                        <i class="ti-align-left"></i>
+                        <span>Menu</span>
+                    </button>
                 </div>
             </nav>
 
@@ -113,16 +117,34 @@
                                     <form>
 
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>คำนำหน้าชื่อ(อังกฤษ)</label>
-                                                    <input type="text" id="en_title" class="form-control border-input" placeholder="ex. Mrs, Dr.">
+                                                    <select class="form-control border-input" id="input-en-title" class="form-control">
+                                                        <option selected>กรุณาเลือกคำนำหน้า</option>
+                                                        <option>-</option>
+                                                        <option>Assoc.Prof.</option>
+                                                        <option>Prof.</option>
+                                                        <option>Dr.</option>
+                                                        <option>Asst.Prof.Dr.</option>
+                                                        <option>Assoc.Prof.Dr.</option>
+                                                        <option>Prof.Dr.</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>คำนำหน้าชื่อ</label>
-                                                    <input type="text" id="th_title" class="form-control border-input" placeholder="นาย, ศ.">
+                                                    <select class="form-control border-input" id="input-th-title" class="form-control">
+                                                        <option selected>กรุณาเลือกคำนำหน้า</option>
+                                                        <option>อ.</option>
+                                                        <option>รศ.</option>
+                                                        <option>ศ.</option>
+                                                        <option>ดร.</option>
+                                                        <option>ผศ.ดร.</option>
+                                                        <option>รศ.ดร.</option>
+                                                        <option>ศ.ดร.</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>

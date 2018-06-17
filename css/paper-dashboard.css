@@ -601,9 +601,9 @@ hr {
 
 .navbar .navbar-nav > li > a.btn-info, .btn-info {
   border-color: #68B3C8;
-  color: #68B3C8; }
+  color: #f39c12; }
   .navbar .navbar-nav > li > a.btn-info:hover, .navbar .navbar-nav > li > a.btn-info:focus, .navbar .navbar-nav > li > a.btn-info:active, .navbar .navbar-nav > li > a.btn-info.active, .open > .navbar .navbar-nav > li > a.btn-info.dropdown-toggle, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {
-    background-color: #68B3C8;
+    background-color: #f39c12;
     color: rgba(255, 255, 255, 0.7);
     border-color: #68B3C8; }
     .navbar .navbar-nav > li > a.btn-info:hover .caret, .navbar .navbar-nav > li > a.btn-info:focus .caret, .navbar .navbar-nav > li > a.btn-info:active .caret, .navbar .navbar-nav > li > a.btn-info.active .caret, .open > .navbar .navbar-nav > li > a.btn-info.dropdown-toggle .caret, .btn-info:hover .caret, .btn-info:focus .caret, .btn-info:active .caret, .btn-info.active .caret, .open > .btn-info.dropdown-toggle .caret {
@@ -613,11 +613,11 @@ hr {
     border-color: #68B3C8; }
   .navbar .navbar-nav > li > a.btn-info.btn-fill, .btn-info.btn-fill {
     color: #FFFFFF;
-    background-color: #68B3C8;
+    background-color: #f39c12;
     opacity: 1;
     filter: alpha(opacity=100); }
     .navbar .navbar-nav > li > a.btn-info.btn-fill:hover, .navbar .navbar-nav > li > a.btn-info.btn-fill:focus, .navbar .navbar-nav > li > a.btn-info.btn-fill:active, .navbar .navbar-nav > li > a.btn-info.btn-fill.active, .open > .navbar .navbar-nav > li > a.btn-info.btn-fill.dropdown-toggle, .btn-info.btn-fill:hover, .btn-info.btn-fill:focus, .btn-info.btn-fill:active, .btn-info.btn-fill.active, .open > .btn-info.btn-fill.dropdown-toggle {
-      background-color: #3091B2;
+      background-color: #f1ad40;
       color: #FFFFFF;
       border-color: #3091B2; }
     .navbar .navbar-nav > li > a.btn-info.btn-fill .caret, .btn-info.btn-fill .caret {
