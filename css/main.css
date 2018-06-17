@@ -515,7 +515,7 @@ input[type="date"] {
 .header-fixed .wrap-menu-header {
   position: fixed;
   height: 100px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(243, 156, 18, 0.9);
   box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -588,11 +588,11 @@ input[type="date"] {
 }
 
 .header-fixed .main_menu > li > a {
-  color: #222222;
+  color: #fff;
 }
 
 .main_menu > li:hover > a {
-  color: #f39c12;
+  color: #222222;
   text-decoration: none;
 }
 
@@ -669,11 +669,11 @@ input[type="date"] {
 }
 
 .header-fixed .social a {
-  color: #222222;
+  color: #fff;
 }
 
 .social a:hover {
-  color: #f39c12;
+  color: #222222;
 }
 
 .btn-show-sidebar {
@@ -1680,7 +1680,7 @@ body {padding-right: 0px !important;}
 }
 
 #login-box:hover{
-  color: white;
+  color: #222222;
   background: rgba(243,156,18,0.8);
   border-color: white;
   transition: .5s ease;
@@ -1707,6 +1707,13 @@ body {padding-right: 0px !important;}
   z-index: 1250;
   
 }
+
+.btn-all{
+  color: #fff;
+  background-color: #f5ab35;
+  border-color: #f5ab35;
+}
+
 
 #slides {
   height: calc(100% - 100px);
