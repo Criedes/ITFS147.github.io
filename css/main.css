@@ -130,7 +130,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-	color: #f39c12;
+	color: #f15c22;
 }
 
 /* ------------------------------------ */
@@ -165,11 +165,11 @@ textarea {
 
 textarea:focus, input:focus {
   border-color: transparent !important;
-  box-shadow: 0 0 0px 2px #f39c12;
-  -moz-box-shadow: 0 0 0px 2px #f39c12;
-  -webkit-box-shadow: 0 0 0px 2px #f39c12;
-  -o-box-shadow: 0 0 0px 2px #f39c12;
-  -ms-box-shadow: 0 0 0px 2px #f39c12;
+  box-shadow: 0 0 0px 2px #f15c22;
+  -moz-box-shadow: 0 0 0px 2px #f15c22;
+  -webkit-box-shadow: 0 0 0px 2px #f15c22;
+  -o-box-shadow: 0 0 0px 2px #f15c22;
+  -ms-box-shadow: 0 0 0px 2px #f15c22;
 }
 
 input:focus::-webkit-input-placeholder { color:transparent; }
@@ -242,10 +242,10 @@ iframe {
 
 .cp-meter {
     border-radius: 50%;
-    border-top: solid 6px #f39c12;
-    border-right: solid 6px #f39c12;
-    border-bottom: solid 6px #f39c12;
-    border-left: solid 6px #f39c12;
+    border-top: solid 6px #f15c22;
+    border-right: solid 6px #f15c22;
+    border-bottom: solid 6px #f15c22;
+    border-left: solid 6px #f15c22;
     width: 48px;
     height: 48px;
     display: inline-block;
@@ -259,7 +259,7 @@ iframe {
     height: 12px;
     display: inline-block;
     box-sizing: border-box;
-    background-color: #f39c12;
+    background-color: #f15c22;
     position: absolute;
     top: 5px;
     left: 16px;
@@ -322,7 +322,7 @@ iframe {
 ///////////////////////////////////////////////////////////
 */
 td.active {
-  background-color: #f39c12 !important;
+  background-color: #f15c22 !important;
 }
 
 input[type="date"] {
@@ -384,11 +384,11 @@ input[type="date"] {
 
 .select2-container--focus {
   border-radius: 10px;
-  box-shadow: 0 0 0px 2px #f39c12;
-  -moz-box-shadow: 0 0 0px 2px #f39c12;
-  -webkit-box-shadow: 0 0 0px 2px #f39c12;
-  -o-box-shadow: 0 0 0px 2px #f39c12;
-  -ms-box-shadow: 0 0 0px 2px #f39c12;
+  box-shadow: 0 0 0px 2px #f15c22;
+  -moz-box-shadow: 0 0 0px 2px #f15c22;
+  -webkit-box-shadow: 0 0 0px 2px #f15c22;
+  -o-box-shadow: 0 0 0px 2px #f15c22;
+  -ms-box-shadow: 0 0 0px 2px #f15c22;
 }
 
 .select2-container--focus .select2-selection--single {
@@ -397,11 +397,11 @@ input[type="date"] {
 
 .select2-container--below.select2-container--open {
   border-radius: 10px;
-  box-shadow: 0 0 0px 2px #f39c12;
-  -moz-box-shadow: 0 0 0px 2px #f39c12;
-  -webkit-box-shadow: 0 0 0px 2px #f39c12;
-  -o-box-shadow: 0 0 0px 2px #f39c12;
-  -ms-box-shadow: 0 0 0px 2px #f39c12;
+  box-shadow: 0 0 0px 2px #f15c22;
+  -moz-box-shadow: 0 0 0px 2px #f15c22;
+  -webkit-box-shadow: 0 0 0px 2px #f15c22;
+  -o-box-shadow: 0 0 0px 2px #f15c22;
+  -ms-box-shadow: 0 0 0px 2px #f15c22;
 }
 
 .select2-container--below.select2-container--open .select2-selection--single {
@@ -410,11 +410,11 @@ input[type="date"] {
 
 .select2-container--above.select2-container--open {
   border-radius: 10px;
-  box-shadow: 0 0 0px 2px #f39c12;
-  -moz-box-shadow: 0 0 0px 2px #f39c12;
-  -webkit-box-shadow: 0 0 0px 2px #f39c12;
-  -o-box-shadow: 0 0 0px 2px #f39c12;
-  -ms-box-shadow: 0 0 0px 2px #f39c12;
+  box-shadow: 0 0 0px 2px #f15c22;
+  -moz-box-shadow: 0 0 0px 2px #f15c22;
+  -webkit-box-shadow: 0 0 0px 2px #f15c22;
+  -o-box-shadow: 0 0 0px 2px #f15c22;
+  -ms-box-shadow: 0 0 0px 2px #f15c22;
 }
 
 .select2-container--above.select2-container--open .select2-selection--single {
@@ -453,7 +453,7 @@ input[type="date"] {
 
 .select2-container--default .select2-results__option[aria-selected=true],
 .select2-container .select2-results__option--highlighted[aria-selected] {
-  background-color: #f39c12;
+  background-color: #f15c22;
   color: #fff;
 }
 
@@ -495,7 +495,7 @@ input[type="date"] {
   top: 0;
   left: 0;
   z-index: 100;
-  border-top: 5px solid #f39c12;
+  border-top: 5px solid #f15c22;
 }
 
 .wrap_header {
@@ -515,7 +515,7 @@ input[type="date"] {
 .header-fixed .wrap-menu-header {
   position: fixed;
   height: 100px;
-  background: rgba(243, 156, 18, 0.9);
+  background: rgb(241, 92, 34, 0.8);
   box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -690,8 +690,8 @@ input[type="date"] {
 }
 
 .btn-show-sidebar:hover {
-  border-top: 2px solid #f39c12;
-  border-bottom: 2px solid #f39c12;
+  border-top: 2px solid #f15c22;
+  border-bottom: 2px solid #f15c22;
 }
 
 @media (max-width: 1200px) {
@@ -870,7 +870,7 @@ input[type="date"] {
 .arrow-slick1:hover,
 .arrow-slick2:hover,
 .arrow-slick3:hover {
-  background-color: #f39c12;
+  background-color: #f15c22;
 }
 
 .next-slick1,
@@ -949,12 +949,12 @@ input[type="date"] {
 
 .slick1-dots li button:hover {
     border: 3px solid white;
-    background-color: #f39c12;
+    background-color: #f15c22;
 }
 
 .slick1-dots li.slick-active button {
     border: 3px solid white;
-    background-color: #f39c12;
+    background-color: #f15c22;
 } 
 
 /*[ Caption ]
@@ -990,7 +990,7 @@ input[type="date"] {
 }
 
 .btn1:hover {
-  background-color: #f39c12;
+  background-color: #f15c22;
   color: white;
 }
 
@@ -1003,7 +1003,7 @@ input[type="date"] {
 }
 
 .btn3:hover {
-  background-color: #f39c12;
+  background-color: #f15c22;
   color: white;
 }
 
@@ -1018,7 +1018,7 @@ input[type="date"] {
 }
 
 .btn2:hover {
-  background-color: #f39c12;
+  background-color: #f15c22;
   color: white;
 }
 
@@ -1109,13 +1109,13 @@ input[type="date"] {
 
 
 .slick2-dots li button:hover {
-  border: 1px solid #f39c12;
-  background-color: #f39c12;
+  border: 1px solid #f15c22;
+  background-color: #f15c22;
 }
 
 .slick2-dots li.slick-active button {
-  border: 1px solid #f39c12;
-  background-color: #f39c12;
+  border: 1px solid #f15c22;
+  background-color: #f15c22;
 } 
 
 
@@ -1183,13 +1183,13 @@ input[type="date"] {
 
 
 .slick3-dots li button:hover {
-  border: 1px solid #f39c12;
-  background-color: #f39c12;
+  border: 1px solid #f15c22;
+  background-color: #f15c22;
 }
 
 .slick3-dots li.slick-active button {
-  border: 1px solid #f39c12;
-  background-color: #f39c12;
+  border: 1px solid #f15c22;
+  background-color: #f15c22;
 } 
 
 
@@ -1647,7 +1647,7 @@ body {padding-right: 0px !important;}
 }
 
 .btn-search-sidebar2:hover {
-  color: #f39c12;
+  color: #f15c22;
 }
 
 .input-search-sidebar2 {
@@ -1667,7 +1667,7 @@ body {padding-right: 0px !important;}
   top: 20px;
   left: 20px;
   border-radius: 10px;
-  background-color: #f39c12;
+  background-color: #f15c22;
 }
 
 #login-box{

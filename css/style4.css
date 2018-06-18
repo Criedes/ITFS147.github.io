@@ -60,7 +60,7 @@ i, span {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #f39c12;
+    background: #f15c22;
     color: #fff;
     transition: all 0.3s;
 }
@@ -111,7 +111,7 @@ i, span {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #f39c12;
+    background: #f15c22;
 }
 
 #sidebar .sidebar-header strong {
@@ -129,7 +129,7 @@ i, span {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #f39c12;
+    color: #f15c22;
     background: #fff;
 }
 #sidebar ul li a i {
