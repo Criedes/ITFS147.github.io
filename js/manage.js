@@ -43,3 +43,26 @@ function pad(d) {
     $("#myModal .modal-body").text(arguments[0]);
     $("#myModal").modal('show');
 };
+
+function signOut() {
+  firebase.auth().signOut().then(function () {
+      localStorage.clear();
+      alert('ออกจากระบบเสร็จสิ้น');
+      window.location.href = 'index.html';
+  }).catch(function (error) {
+      console.log(error);
+  });
+}
+
+function resetPassword() {
+  var email = localStorage.getItem('email');
+  firebase.auth().sendPasswordResetEmail(email).then(
+      function () {
+          alert('กรุณาตรวจสอบข้อความที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน');
+      }).catch(
+          function (error) {
+              alert('กรุณาตรวจสอบเครือข่ายอินเทอร์เน็ต');
+              console.log(error);
+          }
+      )
+}

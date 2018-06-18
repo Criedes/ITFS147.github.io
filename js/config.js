@@ -33,7 +33,8 @@ tdRef.once('value', function (snapshot) {
             $('#avatar_p').attr('src', 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/' + imagesRef + '?alt=media')
             $('#name-show').append(childData.name_en + ' ' + childData.surname_en + '<BR>' + childData.name + ' ' + childData.surname);
             document.getElementById('input-en-title').value = childData.title_en;
-            document.getElementById('input-th-title').value = childData.title;
+            document.getElementById('input-th-title').selectedIndex = document.getElementById('input-en-title').selectedIndex;
+            document.getElementById('input-en-title').selectedIndex = document.getElementById('input-th-title').selectedIndex;
             document.getElementById('en_fname').value = childData.name_en;
             document.getElementById('en_lname').value = childData.surname_en;
             document.getElementById('th_fname').value = childData.name;

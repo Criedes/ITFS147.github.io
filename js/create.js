@@ -16,7 +16,7 @@ tdRef.once('value', function (snapshot) {
     count += 1;
     var key = childSnapshot.key;
     var childData = childSnapshot.val();
-    localStorage.setItem('id', pad(count+1))
+    sessionStorage.setItem('id', pad(count+1))
   });
 });
 
@@ -24,7 +24,7 @@ function signOut() {
     firebase.auth().signOut().then(function () {
         localStorage.clear();
         alert('ออกจากระบบเสร็จสิ้น');
-        window.location.href = 'index.html';
+        window.location = 'index.html';
     }).catch(function (error) {
         console.log(error);
     });
@@ -47,7 +47,7 @@ function createAccount(){
     var email = document.getElementById('email_login').value;
     var password = document.getElementById('pass').value;
     var ver_password = document.getElementById('ver_pass').value;
-    var teacher = tdRef.child('user' + localStorage.getItem('id'));
+    var teacher = tdRef.child('user' + sessionStorage.getItem('id'));
     if(password.lenght < 8){
         alert('พาสเวิร์ดต้องมีความยาว 8 ตัวอักษรขึ้นไป');
     }else if(password == ver_password){
@@ -55,10 +55,12 @@ function createAccount(){
             teacher.set(JSON.parse(createJSON(resp.uid))).then(function (resp2) {
                 // alert('success');
                 alert('อัพเดทข้อมูลเสร็จสิ้น');
+                window.location.href = 'manage.html';
             }).catch(function (error) {
                 alert('ข้อมูลผิดพลาดโปรดตรวจสอบ');
                 // console.log(error);
             });
+            
         }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;

@@ -120,7 +120,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>คำนำหน้าชื่อ(อังกฤษ)</label>
-                                                    <select class="form-control border-input" id="input-en-title" class="form-control">
+                                                    <select class="form-control border-input" id="input-en-title" class="form-control" onclick="SelectENTitle(this.value)">
                                                         <option selected>กรุณาเลือกคำนำหน้า</option>
                                                         <option>-</option>
                                                         <option>Assoc.Prof.</option>
@@ -135,7 +135,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>คำนำหน้าชื่อ</label>
-                                                    <select class="form-control border-input" id="input-th-title" class="form-control">
+                                                    <select class="form-control border-input" id="input-th-title" class="form-control" onclick="SelectTHTitle(this.value)">
                                                         <option selected>กรุณาเลือกคำนำหน้า</option>
                                                         <option>อ.</option>
                                                         <option>รศ.</option>
@@ -364,6 +364,30 @@
 <script src="js/main.js"></script>
 <!--  Charts Plugin -->
 <script src="js/chartist.min.js"></script>
+<script>
+    function SelectTHTitle(name) {
+        var listboxEmails = document.getElementById('input-th-title');
+        var listboxEmailsEN = document.getElementById('input-en-title');
+        for (var i = 0; i < listboxEmails.length; i++) {
+            listboxname = listboxEmails[i].innerHTML
+            if (listboxname == name) {
+                listboxEmailsEN.selectedIndex = i;
+                break;
+            }
+        }//end for 
+    }//end
+    function SelectENTitle(name) {
+        var listboxEmails = document.getElementById('input-en-title');
+        var listboxEmailsEN = document.getElementById('input-th-title');
+        for (var i = 0; i < listboxEmails.length; i++) {
+            listboxname = listboxEmails[i].innerHTML
+            if (listboxname == name) {
+                listboxEmailsEN.selectedIndex = i;
+                break;
+            }
+        }//end for 
+    }//end
+</script>
 
 <!--  Notifications Plugin    -->
 <script src="js/bootstrap-notify.js"></script>
