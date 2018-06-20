@@ -90,11 +90,9 @@ function createModal(teacher, count) {
   html += '<img src="' + urlIm + '" id="profile-img">';
   html += '<section class="user-info">';
   html += '<h3 id="username" style="color:black;">ชื่อ-นามสกุล</h3>';
-  html += '<h1 class="title-name" id="title" style="color: #212529;">' + teacher.title + '</h1>';
-  html += '<h1 class="title-name" id="firstname" style="color: #212529;">' + teacher.name + '</h1>';
+  html += '<h1 class="title-name" id="firstname" style="color: #212529;">'+ teacher.title + teacher.name + '</h1>';
   html += '<h1 class="title-name" id="lastname" style="color: #212529;">' + teacher.surname + '</h1><BR>';
-  html += '<h1 class="title-name" id="title_en" style="color: #212529;">' + teacher.title_en + '</h1>';
-  html += '<h1 class="title-name" id="firstname_en" style="color: #212529;">' + teacher.name_en + '</h1>';
+  html += '<h1 class="title-name" id="firstname_en" style="color: #212529;">' + teacher.title_en + teacher.name_en + '</h1>';
   html += '<h1 class="title-name" id="lastname_en" style="color: #212529;">' + teacher.surname_en + '</h1><BR>';
   html += '</section>';
   html += '<h3 id="bio-text" style="color:black;">อีเมลล์</h3>';
