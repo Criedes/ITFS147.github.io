@@ -12,16 +12,16 @@ firebase.initializeApp(config);
 var tdRef = firebase.database().ref('student');
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
-    count = 0;
+    count = 5;
     year = 61;
     //for in every child of data
     snapshot.forEach(function (childSnapshot) {
-        count += 1;
+        count -= 1;
         count_s = 0;
         year -= 1;
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        if (key != 'grade5') {
+        if (key != 'year61') {
             for (i in childData) {
                 count_s += 1;
                 $('#student-' + pad(count)).append(studentCard(childData[i], pad(count_s), key));
