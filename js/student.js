@@ -48,7 +48,7 @@ function studentCard(teacher, count, year) {
     html += '</div>';
     html += '</div>';
     html += '<div class="text-blo5 size35 t-center bo-rad-10 bo7 p-t-90 p-l-35 p-r-35 p-b-30">';
-    html += '<div class="txt34 dis-block p-b-6">' + teacher.title + ' ' + teacher.name + ' ' + teacher.surname + '</div>';
+    html += '<div class="txt34 dis-block p-b-6">' + teacher.title + '' + teacher.name + ' ' + teacher.surname + '</div>';
     html += '<p class="t-center">';
     html += 'รหัสนักศึกษา : ' + teacher.user_id + '</p>';
     html += '</div>';
