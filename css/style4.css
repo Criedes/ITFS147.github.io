@@ -137,8 +137,8 @@ i, span {
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: #f15c22;
+    background: #fff;
 }
 
 

@@ -35,7 +35,6 @@
 
 </head>
 
-<body>
 
 
     <div class="wrapper">
@@ -61,13 +60,13 @@
                         User Profile
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="manage.html">
                         <i class="ti-list" aria-hidden="true"></i>
                         Staff Management
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="std-manage.html">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                         Student Management
@@ -93,7 +92,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" style="font-size: 16px" href="#">Staff Management</a>
+                        <a class="navbar-brand" style="font-size: 14px;" href="#">Student Management</a>
                     </div>
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
                         <i class="ti-align-left"></i>
@@ -107,43 +106,36 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-
+                            <div class="card">
+                                <div class="header" style="margin-bottom: 1%">
+                                    <h4 class="title">จัดการบัญชี</h4>
+                                </div>
+                                <div class="card-body">
+                                    <a href="create.html" class="btn btn-success">+ เพิ่มบัญชี</a>
+                                </div>
+                            </div>
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">เพิ่มบัญชี</h4>
+                                    <h4 class="title">รายชื่อบุคลากร</h4>
                                 </div>
-                                <div class="content">
-                                    <form>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table class="table wow table-hover" id="teacher-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">ชื่อ</th>
+                                                        <th scope="col">นามสกุล</th>
+                                                        <th scope="col">อีเมล</th>
+                                                        <th scope="col">UID</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody  >
+                                                </tbody>
+                                            </table>
+                                        </div>
 
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>อีเมลล์:</label>
-                                                    <input type="text" id="email_login" class="form-control border-input" placeholder="อีเมลล์">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>รหัสผ่าน</label>
-                                                    <input type="password" id="pass" class="form-control border-input" placeholder="รหัสผ่าน">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>ยืนยันรหัสผ่าน</label>
-                                                    <input type="password" id="ver_pass" class="form-control border-input" placeholder="ยืนยันรหัสผ่าน">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="#" onclick="createAccount()">
-                                                <div class="btn btn-info btn-fill btn-wd">Create Account</div>
-                                                <a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                             <br>
@@ -163,25 +155,26 @@
 
         </div>
     </div>
-
     <div class="modal fade modal-teacher" id="myModal" tabindex="-1" role="dialog" aria-labelledby="headModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+
+
 
 
 <!--   Core JS Files   -->
@@ -244,7 +237,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
-<script src="js/create.js"></script>
+<script src="js/manage.js"></script>
 
 
 </html>
