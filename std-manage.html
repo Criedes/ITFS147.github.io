@@ -31,147 +31,153 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="css/themify-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
 
 
 </head>
 
 
 
-    <div class="wrapper">
+<div class="wrapper">
 
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>
-                    <a href="index.html">MATH KMITL
-                        <img src="images/icons/favicon.png">
-                    </a>
-                </h3>
-                <strong>
-                    <a href="index.html">
-                        <img src="images/icons/favicon.png">
-                    </a>
-                </strong>
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>
+                <a href="index.html">MATH KMITL
+                    <img src="images/icons/favicon.png">
+                </a>
+            </h3>
+            <strong>
+                <a href="index.html">
+                    <img src="images/icons/favicon.png">
+                </a>
+            </strong>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a href="admin.html">
+                    <i class="ti-user"></i>
+                    User Profile
+                </a>
+            </li>
+            <li>
+                <a href="manage.html">
+                    <i class="ti-list" aria-hidden="true"></i>
+                    Staff Management
+                </a>
+            </li>
+            <li>
+                <a href="std-manage.html">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    Student Management
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="resetPassword()">
+                    <i class="ti-settings"></i>
+                    Reset Password
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="signOut()">
+                    <i class="ti-new-window"></i>
+                    Sign Out
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="font-size: 14px;" href="#">Student Management</a>
+                </div>
+                <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
+                    <i class="ti-align-left"></i>
+                    <span>Menu</span>
+                </button>
             </div>
-
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="admin.html">
-                        <i class="ti-user"></i>
-                        User Profile
-                    </a>
-                </li>
-                <li>
-                    <a href="manage.html">
-                        <i class="ti-list" aria-hidden="true"></i>
-                        Staff Management
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="std-manage.html">
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                        Student Management
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onclick="resetPassword()">
-                        <i class="ti-settings"></i>
-                        Reset Password
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onclick="signOut()">
-                        <i class="ti-new-window"></i>
-                        Sign Out
-                    </a>
-                </li>
-
-            </ul>
         </nav>
 
-        <div class="main-panel">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" style="font-size: 14px;" href="#">Student Management</a>
-                    </div>
-                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
-                        <i class="ti-align-left"></i>
-                        <span>Menu</span>
-                    </button>
-                </div>
-            </nav>
 
-
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row justify-content-center">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="header" style="margin-bottom: 1%">
-                                    <h4 class="title">จัดการบัญชี</h4>
-                                </div>
-                                <div class="card-body">
-                                    <a href="create.html" class="btn btn-success">+ เพิ่มบัญชี</a>
-                                </div>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header" style="margin-bottom: 1%">
+                                <h4 class="title">จัดการบัญชี</h4>
                             </div>
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">รายชื่อบุคลากร</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <table class="table wow table-hover" id="teacher-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">ชื่อ</th>
-                                                        <th scope="col">นามสกุล</th>
-                                                        <th scope="col">อีเมล</th>
-                                                        <th scope="col">UID</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody  >
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div>
+                            <div class="card-body">
+                                <a href="create.html" class="btn btn-success">+ เพิ่มบัญชี</a>
                             </div>
-                            <br>
                         </div>
+                        <div class="card card-tab">
+                            <div class="header">
+                                <h4 class="title">รายชื่อนักศึกษา</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-striped table-bordered" id="student-table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">รหัสนักศึกษา</th>
+                                                    <th scope="col">ชื่อ</th>
+                                                    <th scope="col">นามสกุล</th>
+                                                    <th scope="col">แก้ไข</th>
+                                                    <th scope="col">ลบ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                     </div>
                 </div>
             </div>
-            <footer style="margin-bottom: 2%; color: black;">
-                <div class="container-fluid">
-                    <div class="copyright pull-right">
-                        Copyright (C) 2018 ,
-                        <BR>King Mongkut's Institute of Technology Ladkrabang (KMITL)
-                        <BR>Contact Webmaster of Department of Mathematics
-                    </div>
+        </div>
+        <footer style="margin-bottom: 2%; color: black;">
+            <div class="container-fluid">
+                <div class="copyright pull-right">
+                    Copyright (C) 2018 ,
+                    <BR>King Mongkut's Institute of Technology Ladkrabang (KMITL)
+                    <BR>Contact Webmaster of Department of Mathematics
                 </div>
-            </footer>
+            </div>
+        </footer>
 
+    </div>
+</div>
+<div class="modal fade modal-teacher" id="myModal" tabindex="-1" role="dialog" aria-labelledby="headModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
+            </div>
         </div>
     </div>
-    <div class="modal fade modal-teacher" id="myModal" tabindex="-1" role="dialog" aria-labelledby="headModal" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-			  <div class="modal-content">
-				<div class="modal-header">
-				  <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
-				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				  </button>
-				</div>
-				<div class="modal-body">
-				</div>
-				<div class="modal-footer">
-				  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
-				</div>
-			  </div>
-			</div>
-		  </div>
+</div>
 
 
 
@@ -184,7 +190,6 @@
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="js/bootstrap-checkbox-radio.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 <script src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -237,7 +242,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
-<script src="js/manage.js"></script>
+<script src="js/std-manage.js"></script>
 
 
 </html>

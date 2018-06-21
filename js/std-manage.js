@@ -8,29 +8,39 @@ var config = {
 };
 firebase.initializeApp(config);
 
-//prepare to get teacher from firebase database
-var tdRef = firebase.database().ref('teacher');
+//prepare to get student from firebase database
+var tdRef = firebase.database().ref('student');
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
-  count = 0;
-  //for in every child of data
-  snapshot.forEach(function (childSnapshot) {
-    count += 1;
-    var key = childSnapshot.key;
-    var childData = childSnapshot.val();
-    var table = $('#teacher-table tbody');
-    table.append(teacherTab(childData, pad(count)));
-  });
-  page();
+    count = 5;
+    year = 61;
+    var table = $('#student-table tbody');
+    //for in every child of data
+    snapshot.forEach(function (childSnapshot) {
+        count -= 1;
+        count_s = 0;
+        year -= 1;
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+        if (key != 'year61') {
+            for (i in childData) {
+                count_s += 1;
+                table.append(studentTab(childData[i], pad(count)));
+            }
+        }
+        //     document.querySelector('#teacher-list')
+        // .innerHTML += teacherCard(childData, count);
+    });
+    page();
 });
-
-function teacherTab(teacher, id){
+function studentTab(student, id){
     var html = '';
     html += '<tr>';
-    html += '<td>'+teacher.name+'</td>';
-    html += '<td>'+teacher.surname+'</td>';
-    html += '<td>'+teacher.email_login+'</td>';
-    html += '<td>'+teacher.uid+'</td>';
+    html += '<td>'+student.user_id+'</td>';
+    html += '<td>'+student.name+'</td>';
+    html += '<td>'+student.surname+'</td>';
+    html += '<td>'+'Edit'+'</td>';
+    html += '<td>'+'Delete'+'</td>';
     html += '</tr>';
     return html;
 }
@@ -69,5 +79,5 @@ function resetPassword() {
 }
 
 function page() {
-    $('#teacher-table').DataTable();
+    $('#student-table').DataTable();
 }
