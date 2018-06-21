@@ -119,7 +119,7 @@ function createModal(teacher, count) {
     html += ' - ';
   }
   else {
-    html += ' - ' + teacher.homepage;
+    html += ' - ' + '<a href="'+teacher.homepage+'">'+teacher.homepage+'</a>';
   }
   html += '</section>';
   html += '<h3 style="color:black;">การศึกษา</h3>';
