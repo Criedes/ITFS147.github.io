@@ -264,6 +264,11 @@ a.article, a.article:hover {
     padding: 1%;
 }
 
+.card-tab{
+    padding: 1%;
+    overflow-x:scroll; 
+}
+
 .delete {
     color: white;
     background-color: red;
