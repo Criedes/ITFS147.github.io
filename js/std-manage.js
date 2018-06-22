@@ -40,7 +40,7 @@ function studentTab(student, id){
     html += '<td>'+student.name+'</td>';
     html += '<td>'+student.surname+'</td>';
     html += '<td>'+'Edit'+'</td>';
-    html += '<td>'+'Delete'+'</td>';
+    html += '<td id="'+student.user_id+'">'+'Delete'+'</td>';
     html += '</tr>';
     return html;
 }
