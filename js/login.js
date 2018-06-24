@@ -26,10 +26,11 @@ function Login() {
             var childData = childSnapshot.val();
             if (childData.uid == localStorage.getItem('uid')) {
                 if(childData.status == 'teacher'){
-                  window.location.href = 'user.html';
+                  swal("การเข้าสู่ระบบ!", "เสร็จสิ้น!", "success").then(function (test){window.location.href = 'user.html';});
+
                 }
                 else if(childData.status == 'staff'){
-                  window.location.href = 'admin.html';
+                  swal("การเข้าสู่ระบบ!", "เสร็จสิ้น!", "success").then(function (test){window.location.href = 'admin.html';})
                 }
             }
             //     document.querySelector('#teacher-list')
@@ -37,7 +38,6 @@ function Login() {
         });
         //retreive data for president
     });
-    alert('เข้าสู่ระบบสำเร็จ');
     })
     .catch(function (error) {
       var errorCode = error.code;

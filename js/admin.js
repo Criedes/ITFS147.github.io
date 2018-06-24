@@ -76,9 +76,9 @@ function reAuthen() {
 function signOut() {
     firebase.auth().signOut().then(function () {
         localStorage.clear();
-        alert('ออกจากระบบเสร็จสิ้น');
-        window.location.href = 'index.html';
+        swal('ออกจากระบบ', 'เสร็จสิ้น!',"success").then(function (value){window.location.href = 'index.html'});
     }).catch(function (error) {
+        swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
         console.log(error);
     });
 }
@@ -87,10 +87,10 @@ function resetPassword() {
     var email = localStorage.getItem('email');
     firebase.auth().sendPasswordResetEmail(email).then(
         function () {
-            alert('กรุณาตรวจสอบข้อความที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน');
+            swal('กรุณาตรวจสอบข้อความ', 'ที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน',"success");
         }).catch(
             function (error) {
-                alert('กรุณาตรวจสอบเครือข่ายอินเทอร์เน็ต');
+                swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
                 console.log(error);
             }
         )
@@ -195,13 +195,12 @@ function saveData() {
             var task = stRef.child('user' + localStorage.getItem('id') + '.' + file_exten).put(file);
             task
                 .then(function (resp) {
-                    window.location.href = 'admin.html';
                 })
                 .catch(function (error) {
-                    alert('อัพโหลดรูปภาพขัดข้อง');
+                    swal('ข้อมูลผิดพลาด','โปรดตรวจสอบ',"error");
                 });
     } else if (file_exten!=''){
-        alert('กรุณาอัพโหลดไฟล์นามสกุล .jpg');
+        swal('กรุณาอัพโหลด','ไฟล์นามสกุล .jpg',"warning");
         console.log('che');
         check_pic = 0;
     }
@@ -209,9 +208,9 @@ function saveData() {
         
         teacher.update(JSON.parse(createJSON())).then(function (resp) {
             // alert('success');
-            alert('อัพเดทข้อมูลเสร็จสิ้น');
+            swal('อัพเดทข้อมูล', 'เสร็จสิ้น!', "success").then(function (value){window.location.href = 'admin.html';});
         }).catch(function (error) {
-            alert('ข้อมูลผิดพลาดโปรดตรวจสอบ');
+            swal('ข้อมูลผิดพลาด','โปรดตรวจสอบ',"error");
             // console.log(error);
         });
     }

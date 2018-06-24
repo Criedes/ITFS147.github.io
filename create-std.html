@@ -61,13 +61,13 @@
                         User Profile
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="manage.html">
                         <i class="ti-list" aria-hidden="true"></i>
                         Staff Management
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="std-manage.html">
                         <i class="ti-id-badge" aria-hidden="true"></i>
                         Student Management
@@ -93,7 +93,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" style="font-size: 16px" href="#">Staff Management</a>
+                        <a class="navbar-brand" style="font-size: 16px" href="#">Student Management</a>
                     </div>
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
                         <i class="ti-align-left"></i>
@@ -110,7 +110,7 @@
 
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">เพิ่มบัญชี</h4>
+                                    <h4 class="title">เพิ่มนักศึกษา</h4>
                                 </div>
                                 <div class="content">
                                     <form>
@@ -118,28 +118,60 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>อีเมลล์:</label>
-                                                    <input type="text" id="email_login" class="form-control border-input" placeholder="อีเมลล์">
+                                                    <label>รหัสนักศึกษา</label>
+                                                    <input type="text" id="std_id" class="form-control border-input" placeholder="รหัสนักศึกษา">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>ชั้นปี</label>
+                                                    <select class="form-control border-input" id="std_year" class="form-control" onclick="SelectTHTitle(this.value)">
+                                                        <option selected>กรุณาเลือกชั้นปี</option>
+                                                        <option value="year60">ปี 1</option>
+                                                        <option value="year59">ปี 2</option>
+                                                        <option value="year58">ปี 3</option>
+                                                        <option value="year57">ปี 4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>คำนำหน้าชื่อ</label>
+                                                    <select class="form-control border-input" id="std_title" class="form-control" onclick="SelectTHTitle(this.value)">
+                                                            <option selected>กรุณาเลือกคำนำหน้า</option>
+                                                            <option>นางสาว</option>
+                                                            <option>นาย</option>
+                                                        </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>รหัสผ่าน</label>
-                                                    <input type="password" id="pass" class="form-control border-input" placeholder="รหัสผ่าน">
+                                                    <label>ชื่อ</label>
+                                                    <input type="text" id="std_name" class="form-control border-input" placeholder="ชื่อ">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>ยืนยันรหัสผ่าน</label>
-                                                    <input type="password" id="ver_pass" class="form-control border-input" placeholder="ยืนยันรหัสผ่าน">
+                                                    <label>นามสกุล</label>
+                                                    <input type="text" id="std_sur" class="form-control border-input" placeholder="นามสกุล">
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">รูปภาพโปรไฟล์ (แนะนำให้รูปเป็นจัตุรัส)</label>
+                                                        <input type="file" id="profile_pic" class="form-control border-input" placeholder="รูปภาพ">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <div class="text-center">
                                             <a href="#" onclick="createAccount()">
-                                                <div class="btn btn-info btn-fill btn-wd">Create Account</div>
+                                                <div class="btn btn-info btn-fill btn-wd">Add Student</div>
                                                 <a>
                                         </div>
                                         <div class="clearfix"></div>
@@ -244,7 +276,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
-<script src="js/create.js"></script>
+<script src="js/create-std.js"></script>
 
 
 </html>

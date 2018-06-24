@@ -33,14 +33,14 @@ tdRef.once('value', function (snapshot) {
     });
     page();
 });
-function studentTab(student, id){
+function studentTab(student, id) {
     var html = '';
     html += '<tr>';
-    html += '<td>'+student.user_id+'</td>';
-    html += '<td>'+student.name+'</td>';
-    html += '<td>'+student.surname+'</td>';
-    html += '<td>'+'Edit'+'</td>';
-    html += '<td id="'+student.user_id+'">'+'Delete'+'</td>';
+    html += '<td>' + student.user_id + '</td>';
+    html += '<td>' + student.name + '</td>';
+    html += '<td>' + student.surname + '</td>';
+    html += '<td>' + 'Edit' + '</td>';
+    html += '<td id="' + student.user_id + '">' + 'Delete' + '</td>';
     html += '</tr>';
     return html;
 }
@@ -48,34 +48,34 @@ function studentTab(student, id){
 //pad number one length with zero
 function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
-  }
-  
-  window.alert = function () {
+}
+
+window.alert = function () {
     $("#myModal .modal-body").text(arguments[0]);
     $("#myModal").modal('show');
 };
 
 function signOut() {
-  firebase.auth().signOut().then(function () {
-      localStorage.clear();
-      alert('ออกจากระบบเสร็จสิ้น');
-      window.location.href = 'index.html';
-  }).catch(function (error) {
-      console.log(error);
-  });
+    firebase.auth().signOut().then(function () {
+        localStorage.clear();
+        swal('ออกจากระบบ', 'เสร็จสิ้น!',"success").then(function (value){window.location.href = 'index.html'});
+    }).catch(function (error) {
+        swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
+        console.log(error);
+    });
 }
 
 function resetPassword() {
-  var email = localStorage.getItem('email');
-  firebase.auth().sendPasswordResetEmail(email).then(
-      function () {
-          alert('กรุณาตรวจสอบข้อความที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน');
-      }).catch(
-          function (error) {
-              alert('กรุณาตรวจสอบเครือข่ายอินเทอร์เน็ต');
-              console.log(error);
-          }
-      )
+    var email = localStorage.getItem('email');
+    firebase.auth().sendPasswordResetEmail(email).then(
+        function () {
+            swal('กรุณาตรวจสอบข้อความ', 'ที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน',"success");
+        }).catch(
+            function (error) {
+                swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
+                console.log(error);
+            }
+        )
 }
 
 function page() {
