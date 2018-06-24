@@ -25,7 +25,7 @@ tdRef.once('value', function (snapshot) {
         if (key != 'year61') {
             for (i in childData) {
                 count_s += 1;
-                table.append(studentTab(childData[i], pad(count)));
+                table.append(studentTab(childData[i], pad(count_s), key));
             }
         }
         //     document.querySelector('#teacher-list')
@@ -33,22 +33,23 @@ tdRef.once('value', function (snapshot) {
     });
     page();
 });
-function studentTab(student, id) {
+function studentTab(student, id, key) {
     var html = '';
     html += '<tr>';
     html += '<td>' + student.user_id + '</td>';
     html += '<td>' + student.name + '</td>';
     html += '<td>' + student.surname + '</td>';
     html += '<td>' + 'Edit' + '</td>';
-    html += '<td id="' + student.user_id + '">' + 'Delete' + '</td>';
+    html += '<td>' + '<a href="#" onclick = "deleteStd(this.id)" id="' + key + '-' + id + '">' + 'Delete' + '</a>' + '</td>';
     html += '</tr>';
     return html;
 }
 
 //pad number one length with zero
 function pad(d) {
-    return (d < 10) ? '0' + d.toString() : d.toString();
+    return (d < 10) ? '00' + d.toString() : (d < 100) ? '0' + d.toString() : d.toString();
 }
+
 
 window.alert = function () {
     $("#myModal .modal-body").text(arguments[0]);
@@ -58,7 +59,7 @@ window.alert = function () {
 function signOut() {
     firebase.auth().signOut().then(function () {
         localStorage.clear();
-        swal('ออกจากระบบ', 'เสร็จสิ้น!',"success").then(function (value){window.location.href = 'index.html'});
+        swal('ออกจากระบบ', 'เสร็จสิ้น!', "success").then(function (value) { window.location.href = 'index.html' });
     }).catch(function (error) {
         swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
         console.log(error);
@@ -69,7 +70,7 @@ function resetPassword() {
     var email = localStorage.getItem('email');
     firebase.auth().sendPasswordResetEmail(email).then(
         function () {
-            swal('กรุณาตรวจสอบข้อความ', 'ที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน',"success");
+            swal('กรุณาตรวจสอบข้อความ', 'ที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน', "success");
         }).catch(
             function (error) {
                 swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
@@ -80,4 +81,24 @@ function resetPassword() {
 
 function page() {
     $('#student-table').DataTable();
+}
+
+function deleteStd(id) {
+    year = id.split("-")[0];
+    std_id = id.split("-")[1];
+    swal({
+        title: "คำเตือน",
+        text: "ถ้าคุณลบแล้วจะไม่สามารถกู้ข้อมูลกลับมาได้อีก",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                tdRef.child(year + '/user' + std_id).remove();
+                swal("ข้อมูลนักษาคนนี้ถูกลบไปแล้ว", {
+                    icon: "success",
+                }).then(function(value){window.location.href = 'std-manage.html' });
+            }
+        });
 }

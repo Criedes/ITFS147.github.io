@@ -89,22 +89,23 @@ function createAccount() {
             .then(function (resp) {
                 student.set(JSON.parse(createJSON())).then(function (resp) {
                     // alert('success');
-                    alert('อัพเดทข้อมูลเสร็จสิ้น');
+                    swal('อัพเดทข้อมูล','เสร็จสิ้น!','success').then(function (value){ window.location.href = 'std-manage.html';});
+                   
                 }).catch(function (error) {
-                    alert('ข้อมูลผิดพลาดโปรดตรวจสอบ');
+                    swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
                     // console.log(error);
                 });
-                window.location.href = 'std-manage.html';
+                
             })
             .catch(function (error) {
-                alert('อัพโหลดรูปภาพขัดข้อง');
+                swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
             });
     } else if (file_exten != '') {
-        alert('กรุณาอัพโหลดไฟล์นามสกุล .jpg');
+        swal('กรุณาอัพโหลด','ไฟล์นามสกุล .jpg',"warning");
         console.log('che');
         check_pic = 0;
     }else{
-        alert('กรุณาอัพโหลดรูปภาพ');
+        swal('กรุณาอัพโหลด', 'รูปภาพ', "warning");
         console.log('che');
         check_pic = 0;
     }
