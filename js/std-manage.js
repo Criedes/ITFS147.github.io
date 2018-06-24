@@ -39,8 +39,8 @@ function studentTab(student, id, key) {
     html += '<td>' + student.user_id + '</td>';
     html += '<td>' + student.name + '</td>';
     html += '<td>' + student.surname + '</td>';
-    html += '<td>' + 'Edit' + '</td>';
-    html += '<td>' + '<a href="#" onclick = "deleteStd(this.id)" id="' + key + '-' + id + '">' + 'Delete' + '</a>' + '</td>';
+    html += '<td>' + '<a href="std-edit.html" class="btn btn-all">'+'Edit'+'</a>'+ '</td>';
+    html += '<td>' + '<button class="btn btn-del" onclick = "deleteStd(this.id)" id="' + key + '-' + id + '">' + 'Delete' + '</button>' + '</td>';
     html += '</tr>';
     return html;
 }

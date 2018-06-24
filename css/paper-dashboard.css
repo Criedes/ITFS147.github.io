@@ -2794,3 +2794,14 @@ textarea.form-control {
         display: inline-block;
       }
     }
+
+    .btn-all{
+      color: #fff;
+      background-color: #f5ab35;
+      border-color: #f5ab35;
+    }
+    .btn-del{
+      color: #fff;
+      background-color: red;
+      border-color: red;
+    }
