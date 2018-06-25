@@ -47,8 +47,6 @@ function Login() {
       } else {
         alert('โปรดตรวจสอบการเชื่อมต่อ');
       }
-
-      console.log(error);
     });
     
 

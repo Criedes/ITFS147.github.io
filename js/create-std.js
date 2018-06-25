@@ -56,7 +56,7 @@ function signOut() {
         swal('ออกจากระบบ', 'เสร็จสิ้น!',"success").then(function (value){window.location.href = 'index.html'});
     }).catch(function (error) {
         swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
-        console.log(error);
+        //console.log(error);
     });
 }
 
@@ -68,7 +68,7 @@ function resetPassword() {
         }).catch(
             function (error) {
                 swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
-                console.log(error);
+                //console.log(error);
             }
         )
 }
@@ -81,7 +81,7 @@ function createAccount() {
     }
     var check_pic = 1;
     var student = tdRef.child(document.getElementById("std_year").value + '/' + 'user' + sessionStorage.getItem(document.getElementById("std_year").value));
-    console.log(file_exten);
+    //console.log(file_exten);
     if (file && file_exten == 'jpg') {
 
         var task = stRef.child(document.getElementById("std_year").value + '/' + 'user' + sessionStorage.getItem(document.getElementById("std_year").value)+ '.' + file_exten).put(file);
@@ -93,7 +93,7 @@ function createAccount() {
                    
                 }).catch(function (error) {
                     swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
-                    // console.log(error);
+                    // //console.log(error);
                 });
                 
             })
@@ -102,11 +102,11 @@ function createAccount() {
             });
     } else if (file_exten != '') {
         swal('กรุณาอัพโหลด','ไฟล์นามสกุล .jpg',"warning");
-        console.log('che');
+        //console.log('che');
         check_pic = 0;
     }else{
         swal('กรุณาอัพโหลด', 'รูปภาพ', "warning");
-        console.log('che');
+        //console.log('che');
         check_pic = 0;
     }
     

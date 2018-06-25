@@ -26,7 +26,7 @@ function signOut() {
         swal('ออกจากระบบ', 'เสร็จสิ้น!',"success").then(function (value){window.location.href = 'index.html'});
     }).catch(function (error) {
         swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
-        console.log(error);
+        //console.log(error);
     });
 }
 
@@ -38,7 +38,7 @@ function resetPassword() {
         }).catch(
             function (error) {
                 swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
-                console.log(error);
+                //console.log(error);
             }
         )
 }
@@ -58,7 +58,7 @@ function createAccount(){
                 window.location.href = 'manage.html';
             }).catch(function (error) {
                 alert('ข้อมูลผิดพลาดโปรดตรวจสอบ');
-                // console.log(error);
+                // //console.log(error);
             });
             
         }).catch(function(error) {

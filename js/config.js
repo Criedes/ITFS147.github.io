@@ -62,7 +62,7 @@ tdRef.once('value', function (snapshot) {
                 spacial_c = i;
             }
             research_lst = childData.research;
-            console.log(typeof (research_lst));
+            //console.log(typeof (research_lst));
             for (i = 0; i < research_lst.length; i++) {
                 $('#all-research').append(appendResearch(research_lst[i], i))
                 research_c = i;
@@ -106,7 +106,7 @@ function signOut() {
         swal('ออกจากระบบ', 'เสร็จสิ้น!',"success").then(function (value){window.location.href = 'index.html'});
     }).catch(function (error) {
         swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
-        console.log(error);
+        //console.log(error);
     });
 }
 
@@ -118,7 +118,7 @@ function resetPassword() {
         }).catch(
             function (error) {
                 swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
-                console.log(error);
+                //console.log(error);
             }
         )
 }
@@ -384,7 +384,7 @@ function saveData() {
         file_exten = file.name.replace(/^.*\./, '');
     }
     var check_pic = 1;
-    console.log(file_exten);
+    //console.log(file_exten);
     if (file && file_exten == 'jpg') {
 
         var task = stRef.child('user' + localStorage.getItem('id') + '.' + file_exten).put(file);
@@ -397,7 +397,7 @@ function saveData() {
             });
     } else if (file_exten != '') {
         swal('กรุณาอัพโหลด','ไฟล์นามสกุล .jpg',"warning");
-        console.log('che');
+        //console.log('che');
         check_pic = 0;
     }
     if (check_pic == 1) {
@@ -407,7 +407,7 @@ function saveData() {
             swal('อัพเดทข้อมูล', 'เสร็จสิ้น!', "success").then(function (value){window.location.href = 'user.html';});
         }).catch(function (error) {
             swal('ข้อมูลผิดพลาด','โปรดตรวจสอบ',"error");
-            // console.log(error);
+            // //console.log(error);
         });
     }
 }

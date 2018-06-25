@@ -51,7 +51,7 @@ function signOut() {
       alert('ออกจากระบบเสร็จสิ้น');
       window.location.href = 'index.html';
   }).catch(function (error) {
-      console.log(error);
+      //console.log(error);
   });
 }
 
@@ -63,7 +63,7 @@ function resetPassword() {
       }).catch(
           function (error) {
               alert('กรุณาตรวจสอบเครือข่ายอินเทอร์เน็ต');
-              console.log(error);
+              //console.log(error);
           }
       )
 }
