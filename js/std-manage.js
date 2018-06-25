@@ -39,7 +39,7 @@ function studentTab(student, id, key) {
     html += '<td>' + student.user_id + '</td>';
     html += '<td>' + student.name + '</td>';
     html += '<td>' + student.surname + '</td>';
-    html += '<td>' + '<a href="std-edit.html" class="btn btn-all">'+'Edit'+'</a>'+ '</td>';
+    html += '<td>' + '<button class="btn btn-all" onclick = "editStd(this.id)" id="' + key + '-' + id + '">'+'Edit'+'</button>'+ '</td>';
     html += '<td>' + '<button class="btn btn-del" onclick = "deleteStd(this.id)" id="' + key + '-' + id + '">' + 'Delete' + '</button>' + '</td>';
     html += '</tr>';
     return html;
@@ -101,4 +101,9 @@ function deleteStd(id) {
                 }).then(function(value){window.location.href = 'std-manage.html' });
             }
         });
+}
+
+function editStd(id){
+    sessionStorage.setItem('std_value', id.split("-"));
+    window.location.href = "std-edit.html";
 }

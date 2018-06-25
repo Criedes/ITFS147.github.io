@@ -117,27 +117,27 @@ function createJSON() {
     var json_str = "";
     json_str += '{';
     if (document.getElementById("std_name").value == "") {
-        alert("กรุณากรอกชื่อ");
+        swal("คำเตือน", "กรุณากรอกชื่อ", "warning");
         return;
     }
     else {
         json_str += '"name":"' + document.getElementById("std_name").value + '",';
     }
     if (document.getElementById("std_sur").value == "") {
-        alert("กรุณากรอกนามสกุล");
+        swal("คำเตือน", "กรุณากรอกนามสกุล", "warning");
         return;
     }
     else {
         json_str += '"surname" : "' + document.getElementById("std_sur").value + '",';
     }
     if (document.getElementById("std_sur").value == "กรุณาเลือกชั้นปี") {
-        alert("กรุณาเลือกชั้นปี");
+        swal("คำเตือน", "กรุณาเลือกชั้นปี", "warning");
         return;
     } else {
         json_str += '"title" : "' + document.getElementById("std_title").value + '",';
     }
     if (document.getElementById("std_sur").value == "กรุณาเลือกชั้นปี") {
-        alert("กรุณาเลือกคำนำหน้า");
+        swal("คำเตือน", "กรุณาเลือกคำนำหน้า", "warning");
         return;
     } else {
         json_str += '"user_id" :"' + document.getElementById("std_id").value + '"';
