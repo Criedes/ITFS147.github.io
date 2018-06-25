@@ -9,40 +9,44 @@ var config = {
 firebase.initializeApp(config);
 var stRef = firebase.storage().ref().child('student_pic');
 var tdRef = firebase.database().ref('student');
+var yRef = firebase.database().ref('max_year');
+yRef.once('value', function (snapshot) {
+    sessionStorage.setItem("max_year", snapshot.val())
+});
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
     count = 5;
-    year = 61;
+    var str_year = sessionStorage.getItem("max_year");
+    var year = parseInt(str_year);
     var table = $('#student-table tbody');
     //for in every child of data
     snapshot.forEach(function (childSnapshot) {
         count -= 1;
         count_s = 0;
-        year -= 1;
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        if (key == 'year60') {
+        if (key == 'year'+String(year)) {
             for (i in childData) {
                 count_s += 1;
-                sessionStorage.setItem('year60', pad(count_s + 1))
+                sessionStorage.setItem('year'+String(year), pad(count_s + 1))
             }
         }
-        if (key == 'year59') {
+        if (key == 'year'+String(year-1)) {
             for (i in childData) {
                 count_s += 1;
-                sessionStorage.setItem('year59', pad(count_s + 1))
+                sessionStorage.setItem('year'+String(year-1), pad(count_s + 1))
             }
         }
-        if (key == 'year58') {
+        if (key == 'year'+String(year-2)) {
             for (i in childData) {
                 count_s += 1;
-                sessionStorage.setItem('year58', pad(count_s + 1))
+                sessionStorage.setItem('year'+String(year-2), pad(count_s + 1))
             }
         }
-        if (key == 'year57') {
+        if (key == 'year'+String(year-3)) {
             for (i in childData) {
                 count_s += 1;
-                sessionStorage.setItem('year57', pad(count_s + 1))
+                sessionStorage.setItem('year'+String(year-3), pad(count_s + 1))
             }
         }
         //     document.querySelector('#teacher-list')

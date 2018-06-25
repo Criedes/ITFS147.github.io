@@ -10,23 +10,23 @@ firebase.initializeApp(config);
 
 //prepare to get student from firebase database
 var tdRef = firebase.database().ref('student');
+var yRef = firebase.database().ref('max_year');
+yRef.once('value', function (snapshot) {
+    sessionStorage.setItem("max_year", snapshot.val())
+});
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
     count = 5;
-    year = 61;
     var table = $('#student-table tbody');
     //for in every child of data
     snapshot.forEach(function (childSnapshot) {
         count -= 1;
         count_s = 0;
-        year -= 1;
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        if (key != 'year61') {
-            for (i in childData) {
-                count_s += 1;
-                table.append(studentTab(childData[i], pad(count_s), key));
-            }
+        for (i in childData) {
+            count_s += 1;
+            table.append(studentTab(childData[i], pad(count_s), key));
         }
         //     document.querySelector('#teacher-list')
         // .innerHTML += teacherCard(childData, count);
@@ -39,7 +39,7 @@ function studentTab(student, id, key) {
     html += '<td>' + student.user_id + '</td>';
     html += '<td>' + student.name + '</td>';
     html += '<td>' + student.surname + '</td>';
-    html += '<td>' + '<button class="btn btn-all" onclick = "editStd(this.id)" id="' + key + '-' + id + '">'+'Edit'+'</button>'+ '</td>';
+    html += '<td>' + '<button class="btn btn-all" onclick = "editStd(this.id)" id="' + key + '-' + id + '">' + 'Edit' + '</button>' + '</td>';
     html += '<td>' + '<button class="btn btn-del" onclick = "deleteStd(this.id)" id="' + key + '-' + id + '">' + 'Delete' + '</button>' + '</td>';
     html += '</tr>';
     return html;
@@ -98,12 +98,12 @@ function deleteStd(id) {
                 tdRef.child(year + '/user' + std_id).remove();
                 swal("ข้อมูลนักษาคนนี้ถูกลบไปแล้ว", {
                     icon: "success",
-                }).then(function(value){window.location.href = 'std-manage.html' });
+                }).then(function (value) { window.location.href = 'std-manage.html' });
             }
         });
 }
 
-function editStd(id){
+function editStd(id) {
     sessionStorage.setItem('std_value', id.split("-"));
     window.location.href = "std-edit.html";
 }
