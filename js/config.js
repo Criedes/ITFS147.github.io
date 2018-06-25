@@ -463,7 +463,13 @@ function createJSON() {
         swal('กรุณาเลือก','คำนำหน้า',"warning");
         return
     }
-    json_str += '"room" : "' + document.getElementById('rest_room').value + '",';
+    if (document.getElementById('rest_room').value != "กรุณาเลือกห้องพัก" || document.getElementById('rest_room').value == "") {
+        json_str += '"room" : "' + document.getElementById('rest_room').value + '",';
+    }
+    else {
+        swal('กรุณาเลือก','ห้องพัก',"warning");
+        return
+    }    
     json_str += '"homepage" : "' + document.getElementById('homepage').value + '"';
     json_str += '}';
     return json_str;
