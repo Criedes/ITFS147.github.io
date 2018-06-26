@@ -54,10 +54,9 @@ function createAccount(){
         firebase.auth().createUserWithEmailAndPassword(email, password).then(function(resp){
             teacher.set(JSON.parse(createJSON(resp.uid))).then(function (resp2) {
                 // alert('success');
-                alert('อัพเดทข้อมูลเสร็จสิ้น');
-                window.location.href = 'manage.html';
+                swal('อัพเดทข้อมูล','เสร็จสิ้น!','success').then(function (value){ window.location.href = 'std-manage.html';});
             }).catch(function (error) {
-                alert('ข้อมูลผิดพลาดโปรดตรวจสอบ');
+                swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
                 // //console.log(error);
             });
             

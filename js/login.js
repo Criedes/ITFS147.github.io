@@ -43,9 +43,9 @@ function Login() {
       var errorCode = error.code;
       var errorMessage = error.message;
       if (errorCode === 'auth/wrong-password') {
-        alert('รหัสผ่านไม่ถูกต้อง');
+        swal("คำเตือน", "รหัสผ่านไม่ถูกต้อง!", "error")
       } else {
-        alert('โปรดตรวจสอบการเชื่อมต่อ');
+        swal("คำเตือน", "โปรดตรวจสอบระบบอินเทอร์เน็ต", "error")
       }
     });
     
