@@ -220,6 +220,7 @@ function appendResearch(research, id) {
         html += '<div class="input-group">';
         html += '<textarea rows="3" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
         html += '<div class="input-group-append">'
+        html += '<span class="btn btn-primary btn-file upload">  Browse <input type="file"></span>'
         html += '<span class="input-group-text delete" href="#" onclick="removeResearch(&quot;research' + id + '&quot;)">' + 'X' + '</span>';
         html += '</div>';
         html += '</div>';
