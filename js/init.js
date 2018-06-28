@@ -10,6 +10,7 @@ firebase.initializeApp(config);
 //prepare to get image from firebase storage
 //prepare to get teacher from firebase database
 var tdRef = firebase.database().ref('teacher');
+var researchRef = firebase.storage().ref().child('research_file');
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
   count = 0;
