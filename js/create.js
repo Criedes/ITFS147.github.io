@@ -49,12 +49,12 @@ function createAccount(){
     var ver_password = document.getElementById('ver_pass').value;
     var teacher = tdRef.child('user' + sessionStorage.getItem('id'));
     if(password.lenght < 8){
-        alert('พาสเวิร์ดต้องมีความยาว 8 ตัวอักษรขึ้นไป');
+        swal('คำเตือน', 'พาสเวิร์ดควรมีมากกว่า 8 ตัว', "warning");
     }else if(password == ver_password){
         firebase.auth().createUserWithEmailAndPassword(email, password).then(function(resp){
             teacher.set(JSON.parse(createJSON(resp.uid))).then(function (resp2) {
                 // alert('success');
-                swal('อัพเดทข้อมูล','เสร็จสิ้น!','success').then(function (value){ window.location.href = 'std-manage.html';});
+                swal('อัพเดทข้อมูล','เสร็จสิ้น!','success').then(function (value){ window.location.href = 'manage.html';});
             }).catch(function (error) {
                 swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
                 // //console.log(error);
@@ -65,8 +65,10 @@ function createAccount(){
             var errorCode = error.code;
             var errorMessage = error.message;
             // ...
-            alert(errorMessage);
+            swal('คำเตือน', 'กรุณากรอกอีเมลล์ให้ถูกต้อง', "warning");
           });  
+    }else{
+        swal('คำเตือน', 'กรุณายืนยันพาสเวิร์ดให้ถูกต้อง', "warning");
     }
  
 }
