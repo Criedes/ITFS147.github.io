@@ -96,7 +96,7 @@ function deleteStd(id) {
         .then((willDelete) => {
             if (willDelete) {
                 tdRef.child(year + '/user' + std_id).remove();
-                swal("ข้อมูลนักษาคนนี้ถูกลบไปแล้ว", {
+                swal("ข้อมูลนักศึกษาคนนี้ถูกลบไปแล้ว", {
                     icon: "success",
                 }).then(function (value) { window.location.href = 'std-manage.html' });
             }
