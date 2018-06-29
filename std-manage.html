@@ -112,7 +112,12 @@
                             </div>
                             <div class="card-body">
                                 <a href="create-std.html" class="btn btn-success">+ เพิ่มนักศึกษา</a>
-                                <span class="btn btn-success btn-file ">+ Import File รายชื่อนักศึกษา <input type="file"></span>
+
+                                <span class="btn btn-success btn-file " >+ Import File รายชื่อนักศึกษา
+                                    <input type="file" id="data" accept=".xlsx,.xls" >
+                                </span>
+                                <span class="btn btn-success btn-file " id="import button" hidden onclick="importFile()" >ยืนยัน </span>
+
                             </div>
                         </div>
                         <div class="card card-tab">
@@ -238,6 +243,9 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
+<!-- Excell lib -->
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
 <script src="js/std-manage.js"></script>
 
 

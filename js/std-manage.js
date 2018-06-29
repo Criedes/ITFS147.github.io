@@ -107,3 +107,47 @@ function editStd(id) {
     sessionStorage.setItem('std_value', id.split("-"));
     window.location.href = "std-edit.html";
 }
+
+var file
+
+$("#data").on('change', function (e) {
+    file = e.target.files[0] 
+    document.getElementById('import button').hidden = false
+})
+
+//ฟังก์ชั่น import ไฟล์ excel
+function importFile() {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const dataTemp = e.target.result;
+        const workbook = XLSX.read(dataTemp, { type: 'binary' });
+        const data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], { header: 'A' });
+        // read 
+        let dataForFirebase = {}
+        data.forEach(row => { // ถ้าไม่มี รหัสนศ คำนำหน้าชื่อ ชื่อ นามสกุล หรือ รหัสนศ ไม่ครบ 8 ตำแหน่ง หรือมีอักษร จะไม่เพิ่ม นศ
+            if (row['B'] && row['C'] && row['D'] && row['E'] && row['A'].trim().length === 8 && !isNaN(parseInt(row['A'].trim(), 10))) {
+                const key = ['year', row['A'].substr(0, 2)].join('')  // เช็คว่าอยู่ ปีไหน (ซึ่งเช็คทุกคน)
+                dataForFirebase[key] = dataForFirebase[key] || {} // initial
+                dataForFirebase[key][row.E] = {
+                    name: row.C,
+                    surname: row.D,
+                    title: row.B,
+                    user_id: row.A
+                }
+            }
+        })
+        // upload 
+        Object.keys(dataForFirebase).forEach(key => { // set ตามรหัสนศ 2 ตัวแรก
+            tdRef.child(key).set(dataForFirebase[key])
+        })
+        const years = Object.keys(dataForFirebase).map(key => key.substr(4, 2)) // ชั้นปีที่ เพิ่งเพิ่มมา
+        yRef.once('value', snapshot => {
+            years.push(snapshot.val()) // เพิ่มชั้นปีที่มากที่สุด (max_year)
+            yRef.set(years.sort()[years.length - 1])
+        }).then(() => {
+            // refresh 
+            window.location.href = 'std-manage.html'
+        })
+    }
+    reader.readAsBinaryString(file);
+}
