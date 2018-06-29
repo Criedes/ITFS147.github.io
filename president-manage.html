@@ -31,14 +31,11 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="css/themify-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="js/sweatalert.min.js"></script>
 
 </head>
 
+<body>
 
 
     <div class="wrapper">
@@ -96,7 +93,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" style="font-size: 16px;" href="#">Staff Management</a>
+                        <a class="navbar-brand" style="font-size: 16px" href="#">Staff Management</a>
                     </div>
                     <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn is-active">
                         <i class="ti-align-left"></i>
@@ -110,39 +107,31 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center">
                         <div class="col-md-12">
-                            <div class="card">
-                                <div class="header" style="margin-bottom: 1%">
-                                    <h4 class="title">จัดการบัญชี</h4>
-                                </div>
-                                <div class="card-body">
-                                    <a href="create.html" class="btn btn-success">+ เพิ่มบัญชี</a>
-                                    <a href="president-manage.html" class="btn btn-success">
-                                            จัดการหัวหน้าภาค
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card card-tab">
-                                <div class="header">
-                                    <h4 class="title">รายชื่อบุคลากร</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <table class="table wow table-hover" id="teacher-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">ชื่อ</th>
-                                                        <th scope="col">นามสกุล</th>
-                                                        <th scope="col">อีเมล</th>
-                                                        <th scope="col">UID</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody  >
-                                                </tbody>
-                                            </table>
-                                        </div>
 
-                                    </div>
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">จัดการหัวหน้าภาค</h4>
+                                </div>
+                                <div class="content">
+                                    <form>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>รายชื่ออาจารย์:</label>
+                                                    <select class="form-control border-input" id="president_choose" class="form-control">
+                                                            <option selected>กรุณาเลือกอาจารย์</option>
+                                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="#" onclick="changePresident()">
+                                                <div class="btn btn-info btn-fill btn-wd">Save</div>
+                                                <a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
                             </div>
                             <br>
@@ -162,28 +151,25 @@
 
         </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
+
+    <div class="modal fade modal-teacher" id="myModal" tabindex="-1" role="dialog" aria-labelledby="headModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                    <h5 class="modal-title" id="headModal">แจ้งเตือนระบบ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                  ...
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-log">ตกลง</button>
                 </div>
-              </div>
             </div>
-          </div>
-
-
-
+        </div>
+    </div>
+</body>
 
 
 <!--   Core JS Files   -->
@@ -193,6 +179,7 @@
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="js/bootstrap-checkbox-radio.js"></script>
 <!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 <script src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -245,7 +232,7 @@
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-storage.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
-<script src="js/manage.js"></script>
+<script src="js/create.js"></script>
 
 
 </html>

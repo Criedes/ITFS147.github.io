@@ -8,6 +8,7 @@ var config = {
 };
 firebase.initializeApp(config);
 var tdRef = firebase.database().ref('teacher');
+var pd = firebase.database().ref('president');
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
   count = 0;
@@ -16,9 +17,16 @@ tdRef.once('value', function (snapshot) {
     count += 1;
     var key = childSnapshot.key;
     var childData = childSnapshot.val();
-    sessionStorage.setItem('id', pad(count+1))
+    $('#president_choose').append(createOption(childData.title, childData.name, childData.surname, key, pad(count)));
+    sessionStorage.setItem('id', pad(count+1));
   });
 });
+
+function createOption(title, name, surname, key, count){
+    html = '<option value="'+key+'-'+count+'">'+title+' '+name+' '+surname+'</option>';
+    return html
+}
+
 
 function signOut() {
     firebase.auth().signOut().then(function () {
@@ -43,33 +51,19 @@ function resetPassword() {
         )
 }
 
-function createAccount(){
-    var email = document.getElementById('email_login').value;
-    var password = document.getElementById('pass').value;
-    var ver_password = document.getElementById('ver_pass').value;
-    var teacher = tdRef.child('user' + sessionStorage.getItem('id'));
-    if(password.lenght < 8){
-        swal('คำเตือน', 'พาสเวิร์ดควรมีมากกว่า 8 ตัว', "warning");
-    }else if(password == ver_password){
-        firebase.auth().createUserWithEmailAndPassword(email, password).then(function(resp){
-            teacher.set(JSON.parse(createJSON(resp.uid))).then(function (resp2) {
+function changePresident(){
+    var president = document.getElementById('president_choose').value;
+    if(president == "กรุณาเลือกอาจารย์"){
+        swal('คำเตือน', 'กรุณาเลือกอาจารย์', "warning");
+    }else{
+            pd.set(president).then(function (resp2) {
                 // alert('success');
                 swal('อัพเดทข้อมูล','เสร็จสิ้น!','success').then(function (value){ window.location.href = 'manage.html';});
             }).catch(function (error) {
                 swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
                 // //console.log(error);
             });
-            
-        }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // ...
-            swal('คำเตือน', 'กรุณากรอกอีเมลล์ให้ถูกต้อง', "warning");
-          });  
-    }else{
-        swal('คำเตือน', 'กรุณายืนยันพาสเวิร์ดให้ถูกต้อง', "warning");
-    }
+        }
  
 }
 
