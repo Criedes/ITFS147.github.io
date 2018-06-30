@@ -73,13 +73,14 @@ tdRef.on('value', function (snapshot) {
     count += 1;
     var key = childSnapshot.key;
     var childData = childSnapshot.val();
-    $('#modal-every-teacher').append(createModal(childData, pad(count)));
+    $('#modal-every-teacher').append(createModal(childData, pad(count),key));
   });
 
 });
 //Modal when you click more info
 
-function createModal(teacher, count) {
+function createModal(teacher, count,key) {
+  console.log(key);
   var html = '';
   var fileName = 'user' + count + '.jpg';
   var imagesRef = 'user_pic%2F' + fileName;

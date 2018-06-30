@@ -404,7 +404,6 @@ function saveData() {
         //console.log('che');
         check_pic = 0;
     }
-    
     if((researchLengthGlobal-1) > 0){
         for (i = 1; i <= researchLengthGlobal-1; i++) {
             var fileResearch = $('#research'+i+'-file').get(0).files[0];
