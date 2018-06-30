@@ -141,12 +141,14 @@ function importFile() {
             tdRef.child(key).set(dataForFirebase[key])
         })
         const years = Object.keys(dataForFirebase).map(key => key.substr(4, 2)) // ชั้นปีที่ เพิ่งเพิ่มมา
+        console.log(years);
         yRef.once('value', snapshot => {
             years.push(snapshot.val()) // เพิ่มชั้นปีที่มากที่สุด (max_year)
             yRef.set(years.sort()[years.length - 1])
         }).then(() => {
             // refresh 
-            window.location.href = 'std-manage.html'
+            swal("เพิ่มนักศึกษา","ปีการศึกษา "+years[1],"success").then(function (){window.location.href = 'std-manage.html'});
+           
         })
     }
     reader.readAsBinaryString(file);
