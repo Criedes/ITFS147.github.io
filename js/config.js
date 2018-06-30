@@ -9,6 +9,7 @@ var config = {
 firebase.initializeApp(config);
 //prepare to get image from firebase storage
 var stRef = firebase.storage().ref().child('user_pic');
+var researchRef = firebase.storage().ref().child('research_file');
 //prepare to get teacher from firebase database
 var tdRef = firebase.database().ref('teacher');
 //load data once per refresh not realtime
@@ -18,6 +19,7 @@ var education_c = 0;
 var research_c = 0;
 var spacial_c = 0;
 var response_c = 0;
+var researchLengthGlobal = 0;
 tdRef.once('value', function (snapshot) {
     count = 0;
     //for in every child of data
@@ -62,6 +64,7 @@ tdRef.once('value', function (snapshot) {
                 spacial_c = i;
             }
             research_lst = childData.research;
+            researchLengthGlobal = research_lst.length;
             //console.log(typeof (research_lst));
             for (i = 0; i < research_lst.length; i++) {
                 $('#all-research').append(appendResearch(research_lst[i], i))
@@ -220,7 +223,7 @@ function appendResearch(research, id) {
         html += '<div class="input-group">';
         html += '<textarea rows="3" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
         html += '<div class="input-group-append">'
-        html += '<span class="btn btn-primary btn-file upload">  Browse <input type="file"></span>'
+        html += '<span class="btn btn-primary btn-file upload">  Browse <input id="research' + id + '-file"  type="file"></span>'
         html += '<span class="input-group-text delete" href="#" onclick="removeResearch(&quot;research' + id + '&quot;)">' + 'X' + '</span>';
         html += '</div>';
         html += '</div>';
@@ -401,6 +404,22 @@ function saveData() {
         //console.log('che');
         check_pic = 0;
     }
+    
+    if((researchLengthGlobal-1) > 0){
+        for (i = 1; i <= researchLengthGlobal-1; i++) {
+            var fileResearch = $('#research'+i+'-file').get(0).files[0];
+            if(fileResearch != undefined){
+                var taskRe = researchRef.child('user' + localStorage.getItem('id') + '-file' + i).put(fileResearch);
+                taskRe.then(function (resp) {
+                    console.log("upload ok")
+                })
+                .catch(function (error) {
+                    swal('ข้อมูลผิดพลาด','โปรดตรวจสอบ',"error");
+                });
+            }
+        }
+    }
+
     if (check_pic == 1) {
 
         teacher.update(JSON.parse(createJSON())).then(function (resp) {

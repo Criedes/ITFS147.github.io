@@ -10,18 +10,24 @@ firebase.initializeApp(config);
 //prepare to get image from firebase storage
 //prepare to get teacher from firebase database
 var tdRef = firebase.database().ref('student');
+var yRef = firebase.database().ref('max_year');
+yRef.once('value', function (snapshot) {
+    sessionStorage.setItem("max_year", snapshot.val())
+});
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
     count = 5;
     //for in every child of data
     snapshot.forEach(function (childSnapshot) {
-        count -= 1;
         count_s = 0;
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
-        for (i in childData) {
-            count_s += 1;
-            $('#student-' + pad(count)).append(studentCard(childData[i], pad(count_s), key));
+        if (parseInt(key.slice(4, 6)) > parseInt(String(sessionStorage.getItem("max_year"))) - 4) {
+            count -= 1;
+            for (i in childData) {
+                count_s += 1;
+                $('#student-' + pad(count)).append(studentCard(childData[i], pad(count_s), key));
+            }
         }
         //     document.querySelector('#teacher-list')
         // .innerHTML += teacherCard(childData, count);

@@ -10,6 +10,11 @@ firebase.initializeApp(config);
 //prepare to get image from firebase storage
 //prepare to get teacher from firebase database
 var tdRef = firebase.database().ref('teacher');
+var researchRef = firebase.storage().ref().child('research_file');
+var pd = firebase.database().ref('president');
+pd.once('value', function (snapshot){
+    sessionStorage.setItem('pd', snapshot.val());
+});
 //load data once per refresh not realtime
 tdRef.once('value', function (snapshot) {
   count = 0;
@@ -26,8 +31,8 @@ tdRef.once('value', function (snapshot) {
     // .innerHTML += teacherCard(childData, count);
   });
   //retreive data for president
-  var president = snapshot.child('user01').val();
-  $('#president').append(teacherCard(president, pad(1)));
+  var president = snapshot.child(sessionStorage.getItem('pd').split("-")[0]).val();
+  $('#president').append(teacherCard(president, sessionStorage.getItem('pd').split("-")[1]));
 });
 
 //teacher card 
