@@ -10,7 +10,7 @@ firebase.initializeApp(config);
 //prepare to get image from firebase storage
 //prepare to get teacher from firebase database
 var tdRef = firebase.database().ref('teacher');
-var researchRef = firebase.storage().ref().child('research_file');
+var researchRef = firebase.storage();
 var pd = firebase.database().ref('president');
 pd.once('value', function (snapshot){
     sessionStorage.setItem('pd', snapshot.val());
@@ -79,8 +79,18 @@ tdRef.on('value', function (snapshot) {
 });
 //Modal when you click more info
 
+// var urlFile = researchRef.ref('research_file/user02-file1').getDownloadURL().then(function(url){
+//   return url;
+// });
+
+var getImageUrl = function (name) {
+  var storage = firebase.storage();
+  return storage.ref('research_file/'+name).getDownloadURL();
+};
+
+
+
 function createModal(teacher, count,key) {
-  console.log(key);
   var html = '';
   var fileName = 'user' + count + '.jpg';
   var imagesRef = 'user_pic%2F' + fileName;
@@ -143,14 +153,45 @@ function createModal(teacher, count,key) {
     if (specialized_interests[i] != '-')
       html += ' - ' + specialized_interests[i] + '<BR>';
   }
+  var re_flag = false;
+  var research_file_arr = new Array();
+  var research_file = teacher.research_file;
+  if(research_file != undefined){
+    for (i = 0; i < research_file.length; i++) {
+      if (research_file[i] != ''){
+          research_file_arr.push(research_file[i].substring(research_file[i].length-1));
+      }
+    }
+    console.log(research_file_arr)
+  }
+
+  console.log(key);
+  // console.log(urlFile);
+
   html += '</section>';
   html += '<h3 style="color:black;">งานวิจัย/สิ่งตีพิมพ์</h3>';
   html += '<section class="user-bio">';
+  var url;
   var research = teacher.research;
   for (i = 0; i < research.length; i++) {
-    if (research[i] != '-')
-      html += ' - ' + research[i] + '<BR>';
+    if (research[i] != '-'){
+      for(j = 0; j < research_file_arr.length; j++){
+        re_flag = false;
+        if(i == research_file_arr[j]){
+          re_flag = true;
+          url = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/research_file%2F'+key+'-file'+research_file_arr[j]+'?alt=media';
+          break;
+        }
+      }
+      if(re_flag){
+        console.log(url);
+        html += '<a href="'+ url +'" target="_blank">'+ ' - ' + research[i] +'</a>'  + '<BR>';
+      }else{
+        html += ' - ' + research[i] + '<BR>';
+      }
+    }
   }
+
   html += '</section>';
   html += '<h3 style="color:black;">รายวิชาที่รับผิดชอบ</h3>';
   html += '<section class="user-bio">';

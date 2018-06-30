@@ -223,7 +223,7 @@ function appendResearch(research, id) {
         html += '<div class="input-group">';
         html += '<textarea rows="3" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
         html += '<div class="input-group-append">'
-        html += '<span class="btn btn-primary btn-file upload">  Browse <input id="research' + id + '-file"  type="file"></span>'
+        html += '<span class="btn btn-primary btn-file upload">  Browse <input id="research' + id + '-file"  type="file" class="sub_rs_file"></span>'
         html += '<span class="input-group-text delete" href="#" onclick="removeResearch(&quot;research' + id + '&quot;)">' + 'X' + '</span>';
         html += '</div>';
         html += '</div>';
@@ -401,7 +401,6 @@ function saveData() {
             });
     } else if (file_exten != '') {
         swal('กรุณาอัพโหลด','ไฟล์นามสกุล .jpg',"warning");
-        //console.log('che');
         check_pic = 0;
     }
     if((researchLengthGlobal-1) > 0){
@@ -410,7 +409,6 @@ function saveData() {
             if(fileResearch != undefined){
                 var taskRe = researchRef.child('user' + localStorage.getItem('id') + '-file' + i).put(fileResearch);
                 taskRe.then(function (resp) {
-                    console.log("upload ok")
                 })
                 .catch(function (error) {
                     swal('ข้อมูลผิดพลาด','โปรดตรวจสอบ',"error");
@@ -437,6 +435,7 @@ function createJSON() {
     var ph = new Array();
     var sp = new Array();
     var rs = new Array();
+    var rsf = new Array();
     var rp = new Array();
     for (i = 0; i < $('.sub_ed').length; i++) {
         ed.push('"' + $('.sub_ed')[i].value + '"');
@@ -453,6 +452,11 @@ function createJSON() {
     for (i = 0; i < $('.sub_rs').length; i++) {
         rs.push('"' + $('.sub_rs')[i].value + '"');
     }
+    for (i = 0; i < $('.sub_rs_file').length; i++) {
+        if($('.sub_rs_file')[i].value != ""){
+            rsf.push('"'+'user' + localStorage.getItem('id') + '-file' + (i+1)+'"');
+        }
+    }
     for (i = 0; i < $('.sub_rp').length; i++) {
         rp.push('"' + $('.sub_rp')[i].value + '"');
     }
@@ -463,6 +467,7 @@ function createJSON() {
     json_str += '"tel" : [' + ph.toString() + '],';
     json_str += '"specialized_interests" : [' + sp.toString() + '],';
     json_str += '"research" : [' + rs.toString() + '],';
+    json_str += '"research_file" : [' + rsf.toString() + '],';
     json_str += '"responsible_course" : [' + rp.toString() + '],';
     json_str += '"name" : "' + document.getElementById('th_fname').value + '",';
     json_str += '"surname" : "' + document.getElementById('th_lname').value + '",';
@@ -491,6 +496,7 @@ function createJSON() {
     }    
     json_str += '"homepage" : "' + document.getElementById('homepage').value + '"';
     json_str += '}';
+    console.log(json_str)
     return json_str;
 }
 //pad number one length with zero
