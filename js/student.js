@@ -19,11 +19,11 @@ tdRef.once('value', function (snapshot) {
     count = 5;
     //for in every child of data
     snapshot.forEach(function (childSnapshot) {
-        count -= 1;
         count_s = 0;
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
         if (parseInt(key.slice(4, 6)) > parseInt(String(sessionStorage.getItem("max_year"))) - 4) {
+            count -= 1;
             for (i in childData) {
                 count_s += 1;
                 $('#student-' + pad(count)).append(studentCard(childData[i], pad(count_s), key));
