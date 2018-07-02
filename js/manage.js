@@ -19,19 +19,19 @@ tdRef.once('value', function (snapshot) {
     var key = childSnapshot.key;
     var childData = childSnapshot.val();
     var table = $('#teacher-table tbody');
-    table.append(teacherTab(childData, pad(count)));
+    table.append(teacherTab(childData, pad(count),key));
   });
   page();
 });
 
-function teacherTab(teacher, id){
+function teacherTab(teacher, id, key){
     var html = '';
     html += '<tr>';
     html += '<td>'+teacher.name+'</td>';
     html += '<td>'+teacher.surname+'</td>';
     html += '<td>'+teacher.email_login+'</td>';
     html += '<td>'+teacher.uid+'</td>';
-    html += '<td>' + '<button class="btn btn-del" onclick = "" id="' + id + '">' + 'Delete' + '</button>' + '</td>';
+    html += '<td>' + '<button class="btn btn-del" onclick = "deleteTeacher(this.id)" id="' + key + '">' + 'Delete' + '</button>' + '</td>';
     html += '</tr>';
     return html;
 }
@@ -69,6 +69,23 @@ function resetPassword() {
       )
 }
 
+function deleteTeacher(id) {
+    swal({
+        title: "คำเตือน",
+        text: "ถ้าคุณลบแล้วจะไม่สามารถกู้ข้อมูลกลับมาได้อีก",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                tdRef.child(id).remove();
+                swal("ข้อมูลนักศึกษาคนนี้ถูกลบไปแล้ว", {
+                    icon: "success",
+                }).then(function (value) { window.location.href = 'manage.html' });
+            }
+        });
+}
 function page() {
     $('#teacher-table').DataTable();
 }

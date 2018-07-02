@@ -67,6 +67,31 @@ function changePresident(){
  
 }
 
+function createAccount(){
+    var email = document.getElementById('email_login').value;
+    var password = document.getElementById('pass').value;
+    var ver_password = document.getElementById('ver_pass').value;
+    var teacher = tdRef.child('user' + sessionStorage.getItem('id'));
+    if(password.lenght < 8){
+        alert('พาสเวิร์ดต้องมีความยาว 8 ตัวอักษรขึ้นไป');
+    }else if(password == ver_password){
+        firebase.auth().createUserWithEmailAndPassword(email, password).then(function(resp){
+            teacher.set(JSON.parse(createJSON(resp.uid))).then(function (resp2) {
+                // alert('success');
+                swal('อัพเดทข้อมูล','เสร็จสิ้น!','success').then(function (value){ window.location.href = 'manage.html';});
+            }).catch(function (error) {
+                swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
+                // //console.log(error);
+            });
+            
+        }).catch(function(error) {
+            // Handle Errors here.
+            swal('คำเตือน', 'กรุณากรอกอีเมลล์ให้ถูกต้อง', "warning");
+          });  
+    }
+ 
+}
+
 function createJSON(uid) {
     var email = document.getElementById('email_login').value;
     var json_str = "";
