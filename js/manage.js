@@ -31,6 +31,7 @@ function teacherTab(teacher, id){
     html += '<td>'+teacher.surname+'</td>';
     html += '<td>'+teacher.email_login+'</td>';
     html += '<td>'+teacher.uid+'</td>';
+    html += '<td>' + '<button class="btn btn-del" onclick = "" id="' + id + '">' + 'Delete' + '</button>' + '</td>';
     html += '</tr>';
     return html;
 }
