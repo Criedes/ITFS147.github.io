@@ -215,7 +215,13 @@ function appendResearch(research, id) {
     html = "";
     if (id == 0) {
         html += '<div id="research0">'
+        html += '<div class="input-group">'
         html += '<textarea rows="3" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
+        html += '<div class="input-group-append">'
+        html += '<span class="btn btn-primary btn-file upload">  Browse <input id="research' + id + '-file" type="file" accept="application/pdf" class="sub_rs_file"></span>'
+        html += '<span class="input-group-text delete" href="#" onclick="removeResearch(&quot;research' + id + '&quot;)">' + 'X' + '</span>';
+        html += '</div>'
+        html += '</div>'
         html += '</div>'
         return html
     } else {
@@ -223,7 +229,7 @@ function appendResearch(research, id) {
         html += '<div class="input-group">';
         html += '<textarea rows="3" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research">' + research + '</textarea>'
         html += '<div class="input-group-append">'
-        html += '<span class="btn btn-primary btn-file upload">  Browse <input id="research' + id + '-file"  type="file" class="sub_rs_file"></span>'
+        html += '<span class="btn btn-primary btn-file upload">  Browse <input id="research' + id + '-file"  type="file" accept="application/pdf" class="sub_rs_file"></span>'
         html += '<span class="input-group-text delete" href="#" onclick="removeResearch(&quot;research' + id + '&quot;)">' + 'X' + '</span>';
         html += '</div>';
         html += '</div>';
@@ -317,6 +323,7 @@ function createResearch() {
     html += '<div class="input-group">';
     html += '<textarea rows="3" class="form-control border-input sub_rs" placeholder="Here can be your description" value="Research"></textarea>'
     html += '<div class="input-group-append">'
+    html += '<span class="btn btn-primary btn-file upload">  Browse <input id="research' + research_c + '-file"  type="file" accept="application/pdf" class="sub_rs_file"></span>'
     html += '<span class="input-group-text delete" href="#" onclick="removeResponse(&quot;research' + research_c + '&quot;)">' + 'X' + '</span>';
     html += '</div>';
     html += '</div>';
