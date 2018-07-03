@@ -422,7 +422,7 @@ function saveData() {
     }
     if ((researchLengthGlobal) >= 0) {
         for (i = 0; i < researchLengthGlobal; i++) {
-            console.log(researchLengthGlobal)
+            // console.log(researchLengthGlobal)
             var fileResearch = $('#research' + i + '-file').get(0).files[0];
             if (fileResearch != undefined) {
                 researchRef.child('user' + localStorage.getItem('id') + '-file' + i + '.pdf').put(fileResearch)
@@ -538,7 +538,6 @@ function createJSON() {
     }
     json_str += '"homepage" : "' + document.getElementById('homepage').value + '"';
     json_str += '}';
-    console.log(json_str)
     return json_str;
 }
 //pad number one length with zero
