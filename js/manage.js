@@ -80,7 +80,7 @@ function deleteTeacher(id) {
         .then((willDelete) => {
             if (willDelete) {
                 tdRef.child(id).remove();
-                swal("ข้อมูลนักศึกษาคนนี้ถูกลบไปแล้ว", {
+                swal("ข้อมูลบุคลากรคนนี้ถูกลบไปแล้ว", {
                     icon: "success",
                 }).then(function (value) { window.location.href = 'manage.html' });
             }
