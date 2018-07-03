@@ -20,6 +20,7 @@ var research_c = 0;
 var spacial_c = 0;
 var response_c = 0;
 var researchLengthGlobal = 0;
+var chk_file = 0;
 tdRef.once('value', function (snapshot) {
     count = 0;
     //for in every child of data
@@ -65,6 +66,13 @@ tdRef.once('value', function (snapshot) {
             }
             research_lst = childData.research;
             researchLengthGlobal = research_lst.length;
+            try {
+                research_f = childData.research_file
+                sessionStorage.setItem('re_file', research_f)
+            } catch (err) {
+
+            }
+
             //console.log(typeof (research_lst));
             for (i = 0; i < research_lst.length; i++) {
                 $('#all-research').append(appendResearch(research_lst[i], i))
@@ -318,6 +326,7 @@ function createSpacial() {
 
 function createResearch() {
     research_c += 1;
+    researchLengthGlobal += 1;
     html = "";
     html += '<div style = "margin-top:5px;" id="research' + research_c + '">'
     html += '<div class="input-group">';
@@ -378,6 +387,7 @@ function removeResearch(elementId) {
     var element = document.getElementById(elementId);
     element.parentNode.removeChild(element);
     research_c -= 1;
+    researchLengthGlobal -= 1;
 }
 
 function removeResponse(elementId) {
@@ -410,13 +420,14 @@ function saveData() {
         swal('กรุณาอัพโหลด', 'ไฟล์นามสกุล .jpg', "warning");
         check_pic = 0;
     }
-    if ((researchLengthGlobal - 1) > 0) {
-        for (i = 1; i <= researchLengthGlobal - 1; i++) {
+    if ((researchLengthGlobal) >= 0) {
+        for (i = 0; i < researchLengthGlobal; i++) {
+            console.log(researchLengthGlobal)
             var fileResearch = $('#research' + i + '-file').get(0).files[0];
             if (fileResearch != undefined) {
-                var taskRe = researchRef.child('user' + localStorage.getItem('id') + '-file' + i).put(fileResearch);
-                taskRe.then(function (resp) {
-                })
+                researchRef.child('user' + localStorage.getItem('id') + '-file' + i + '.pdf').put(fileResearch)
+                    .then(function (resp) {
+                    })
                     .catch(function (error) {
                         swal('ข้อมูลผิดพลาด', 'โปรดตรวจสอบ', "error");
                     });
@@ -448,8 +459,8 @@ function createJSON() {
         ed.push('"' + $('.sub_ed')[i].value + '"');
     }
     for (i = 0; i < $('.sub_em').length; i++) {
-        if (validateEmail($('.sub_em')[i].value)) { 
-        em.push('"' + $('.sub_em')[i].value + '"'); 
+        if (validateEmail($('.sub_em')[i].value)) {
+            em.push('"' + $('.sub_em')[i].value + '"');
         }
         else {
             swal("คำเตือน", "กรุณากรอกอีเมลล์ในช่องที่ " + String(i + 1) + " ให้ถูกต้อง", "warning")
@@ -467,8 +478,24 @@ function createJSON() {
     }
     for (i = 0; i < $('.sub_rs_file').length; i++) {
         if ($('.sub_rs_file')[i].value != "") {
-            rsf.push('"' + 'user' + localStorage.getItem('id') + '-file' + (i + 1) + '"');
+            chk_file += 1
+            rsf.push('"' + 'user' + localStorage.getItem('id') + '-file' + (i) + '"');
         }
+    }
+    try {
+        if (sessionStorage.getItem('re_file').toString().split(",").length > 1) {
+            for (i = 0; i < sessionStorage.getItem('re_file').toString().split(",").length; i++) {
+                if (sessionStorage.getItem('re_file').toString().split(",")[i] != "undefined") {
+                    rsf.push('"' + sessionStorage.getItem('re_file').toString().split(",")[i] + '"');
+                }
+            }
+        }
+        else if (sessionStorage.getItem('re_file') != "undefined") {
+            rsf.push('"' + sessionStorage.getItem('re_file') + '"');
+        }
+    }
+    catch (err) {
+
     }
     for (i = 0; i < $('.sub_rp').length; i++) {
         rp.push('"' + $('.sub_rp')[i].value + '"');
@@ -480,7 +507,9 @@ function createJSON() {
     json_str += '"tel" : [' + ph.toString() + '],';
     json_str += '"specialized_interests" : [' + sp.toString() + '],';
     json_str += '"research" : [' + rs.toString() + '],';
-    json_str += '"research_file" : [' + rsf.toString() + '],';
+    if (chk_file > 0) {
+        json_str += '"research_file" : [' + rsf.toString() + '],';
+    }
     json_str += '"responsible_course" : [' + rp.toString() + '],';
     json_str += '"name" : "' + document.getElementById('th_fname').value + '",';
     json_str += '"surname" : "' + document.getElementById('th_lname').value + '",';

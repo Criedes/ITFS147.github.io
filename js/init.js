@@ -179,7 +179,7 @@ function createModal(teacher, count,key) {
         re_flag = false;
         if(i == research_file_arr[j]){
           re_flag = true;
-          url = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/research_file%2F'+key+'-file'+research_file_arr[j]+'?alt=media';
+          url = 'https://firebasestorage.googleapis.com/v0/b/math-web-kmitl.appspot.com/o/research_file%2F'+key+'-file'+research_file_arr[j]+'.pdf'+'?alt=media';
           break;
         }
       }
