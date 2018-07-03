@@ -68,7 +68,8 @@ function changePresident(){
 }
 
 function createAccount(){
-    var email = document.getElementById('email_login').value;
+    var email = document.getElementById('email_login').value.trim();
+    if (validateEmail(email)){
     var password = document.getElementById('pass').value;
     var ver_password = document.getElementById('ver_pass').value;
     var teacher = tdRef.child('user' + sessionStorage.getItem('id'));
@@ -88,8 +89,13 @@ function createAccount(){
             // Handle Errors here.
             swal('คำเตือน', 'กรุณากรอกอีเมลล์ให้ถูกต้อง', "warning");
           });  
+    }else{
+        swal('คำเตือน', 'กรุณายืนยันรหัสผ่านให้ถูกต้อง', "warning");
     }
- 
+    }
+    else{
+        swal('คำเตือน', 'กรุณากรอกอีเมลล์ให้ถูกต้อง', "warning");
+    }
 }
 
 function createJSON(uid) {
@@ -117,3 +123,8 @@ function pad(d) {
     $("#myModal .modal-body").text(arguments[0]);
     $("#myModal").modal('show');
 };
+
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }

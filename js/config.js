@@ -106,7 +106,7 @@ function reAuthen() {
 function signOut() {
     firebase.auth().signOut().then(function () {
         localStorage.clear();
-        swal('ออกจากระบบ', 'เสร็จสิ้น!',"success").then(function (value){window.location.href = 'index.html'});
+        swal('ออกจากระบบ', 'เสร็จสิ้น!', "success").then(function (value) { window.location.href = 'index.html' });
     }).catch(function (error) {
         swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
         //console.log(error);
@@ -117,7 +117,7 @@ function resetPassword() {
     var email = localStorage.getItem('email');
     firebase.auth().sendPasswordResetEmail(email).then(
         function () {
-            swal('กรุณาตรวจสอบข้อความ', 'ที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน',"success");
+            swal('กรุณาตรวจสอบข้อความ', 'ที่เข้าอีเมลของคุณเพื่อเปลี่ยนรหัสผ่าน', "success");
         }).catch(
             function (error) {
                 swal('กรุณาตรวจสอบ', 'เครือข่ายอินเทอร์เน็ต', "error");
@@ -394,25 +394,25 @@ function saveData() {
         var task = stRef.child('user' + localStorage.getItem('id') + '.' + file_exten).put(file);
         task
             .then(function (resp) {
-                
+
             })
             .catch(function (error) {
-                swal('ข้อมูลผิดพลาด','โปรดตรวจสอบ',"error");
+                swal('ข้อมูลผิดพลาด', 'โปรดตรวจสอบ', "error");
             });
     } else if (file_exten != '') {
-        swal('กรุณาอัพโหลด','ไฟล์นามสกุล .jpg',"warning");
+        swal('กรุณาอัพโหลด', 'ไฟล์นามสกุล .jpg', "warning");
         check_pic = 0;
     }
-    if((researchLengthGlobal-1) > 0){
-        for (i = 1; i <= researchLengthGlobal-1; i++) {
-            var fileResearch = $('#research'+i+'-file').get(0).files[0];
-            if(fileResearch != undefined){
+    if ((researchLengthGlobal - 1) > 0) {
+        for (i = 1; i <= researchLengthGlobal - 1; i++) {
+            var fileResearch = $('#research' + i + '-file').get(0).files[0];
+            if (fileResearch != undefined) {
                 var taskRe = researchRef.child('user' + localStorage.getItem('id') + '-file' + i).put(fileResearch);
                 taskRe.then(function (resp) {
                 })
-                .catch(function (error) {
-                    swal('ข้อมูลผิดพลาด','โปรดตรวจสอบ',"error");
-                });
+                    .catch(function (error) {
+                        swal('ข้อมูลผิดพลาด', 'โปรดตรวจสอบ', "error");
+                    });
             }
         }
     }
@@ -421,9 +421,9 @@ function saveData() {
 
         teacher.update(JSON.parse(createJSON())).then(function (resp) {
             // alert('success');
-            swal('อัพเดทข้อมูล', 'เสร็จสิ้น!', "success").then(function (value){window.location.href = 'user.html';});
+            swal('อัพเดทข้อมูล', 'เสร็จสิ้น!', "success").then(function (value) { window.location.href = 'user.html'; });
         }).catch(function (error) {
-            swal('ข้อมูลผิดพลาด','โปรดตรวจสอบ',"error");
+            swal('ข้อมูลผิดพลาด', 'โปรดตรวจสอบ', "error");
             // //console.log(error);
         });
     }
@@ -441,7 +441,13 @@ function createJSON() {
         ed.push('"' + $('.sub_ed')[i].value + '"');
     }
     for (i = 0; i < $('.sub_em').length; i++) {
-        em.push('"' + $('.sub_em')[i].value + '"');
+        if (validateEmail($('.sub_em')[i].value)) { 
+        em.push('"' + $('.sub_em')[i].value + '"'); 
+        }
+        else {
+            swal("คำเตือน", "กรุณากรอกอีเมลล์ในช่องที่ " + String(i + 1) + " ให้ถูกต้อง", "warning")
+            return
+        }
     }
     for (i = 0; i < $('.sub_ph').length; i++) {
         ph.push('"' + $('.sub_ph')[i].value + '"');
@@ -453,8 +459,8 @@ function createJSON() {
         rs.push('"' + $('.sub_rs')[i].value + '"');
     }
     for (i = 0; i < $('.sub_rs_file').length; i++) {
-        if($('.sub_rs_file')[i].value != ""){
-            rsf.push('"'+'user' + localStorage.getItem('id') + '-file' + (i+1)+'"');
+        if ($('.sub_rs_file')[i].value != "") {
+            rsf.push('"' + 'user' + localStorage.getItem('id') + '-file' + (i + 1) + '"');
         }
     }
     for (i = 0; i < $('.sub_rp').length; i++) {
@@ -477,23 +483,23 @@ function createJSON() {
         json_str += '"title" : "' + document.getElementById('input-th-title').value + '",';
     }
     else {
-        swal('กรุณาเลือก','คำนำหน้า',"warning");
+        swal('กรุณาเลือก', 'คำนำหน้า', "warning");
         return
     }
     if (document.getElementById('input-en-title').value != "กรุณาเลือกคำนำหน้า") {
         json_str += '"title_en" : "' + document.getElementById('input-en-title').value + '",';
     }
     else {
-        swal('กรุณาเลือก','คำนำหน้า',"warning");
+        swal('กรุณาเลือก', 'คำนำหน้า', "warning");
         return
     }
     if (document.getElementById('rest_room').value != "กรุณาเลือกห้องพัก" || document.getElementById('rest_room').value == "") {
         json_str += '"room" : "' + document.getElementById('rest_room').value + '",';
     }
     else {
-        swal('กรุณาเลือก','ห้องพัก',"warning");
+        swal('กรุณาเลือก', 'ห้องพัก', "warning");
         return
-    }    
+    }
     json_str += '"homepage" : "' + document.getElementById('homepage').value + '"';
     json_str += '}';
     console.log(json_str)
@@ -502,6 +508,11 @@ function createJSON() {
 //pad number one length with zero
 function pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
+}
+
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
 }
 
 window.alert = function () {
